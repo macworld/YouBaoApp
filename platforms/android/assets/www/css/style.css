@@ -1,0 +1,73 @@
+/* 自定义的css样式  */
+
+/*调整输入框的位置*/
+.input_search{
+    margin-top: 7px;
+    padding: 0;
+}
+/*调整信息按钮的垂直坐标*/
+.msg_button{
+    bottom: 3px;
+}
+/*定义外边距从而缩小边框范围*/
+.button_margin{
+    margin: 2px;
+}
+
+/*定义广告和活动栏位的图片大小*/
+ion-slide img{
+    width: 100%;
+}
+/*无左右外边距*/
+.no_left_right_margin{
+    margin-left: 0;
+    margin-right: 0;
+}
+/*定义无边框效果*/
+.no_border{
+    border: 0;
+}
+
+/*定义无边框效果*/
+.no_padding{
+    padding: 0;
+}
+/*消除滑动条的显示*/
+.scroll-bar-indicator
+{
+    display: none;
+}
+
+.item-select select
+{
+    font-weight:bold;
+    color: #387ef5;
+}
+
+
+/*.platform-android .action-sheet-backdrop.active {*/
+    /*background-color: rgba(0, 0, 0, 0.2); }*/
+/*.platform-android .action-sheet {*/
+    /*margin: 0; }*/
+/*.platform-android .action-sheet .action-sheet-title, .platform-android .action-sheet .button {*/
+    /*text-align: left;*/
+    /*border-color: transparent;*/
+    /*font-size: 16px;*/
+    /*color: inherit; }*/
+/*.platform-android .action-sheet .action-sheet-title {*/
+    /*font-size: 14px;*/
+    /*padding: 16px;*/
+    /*color: #666; }*/
+/*.platform-android .action-sheet .button.active, .platform-android .action-sheet .button.activated {*/
+    /*background: #e8e8e8; }*/
+/*.platform-android .action-sheet-group {*/
+    /*margin: 0;*/
+    /*border-radius: 0;*/
+    /*background-color: #fafafa; }*/
+/*.platform-android .action-sheet-cancel {*/
+    /*display: none; }*/
+/*.platform-android .action-sheet-has-icons .button {*/
+    /*padding-left: 56px; }*/
+
+
+

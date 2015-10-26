@@ -1,0 +1,29 @@
+<ion-view view-title="常用帮助">
+    <ion-nav-buttons side="right">
+        <!--<a class="button button-small button-light">搜索</a>-->
+        <a class="button button-small button_margin">联系客服</a>
+        <!--<a class="button button-clear">搜索</a>-->
+    </ion-nav-buttons>
+    <ion-content>
+        <ion-list>
+            <div ng-repeat="class in helpClasses">
+                <ion-item class="item-divider item-icon-left"  type="item-text-wrap" ng-if="!class.isOpen" ng-click="changeOpen(class)">
+                    <i class="icon ion-arrow-right-b positive"></i>
+                    <B>{{class.topic}}</B>
+                </ion-item>
+
+                <ion-item class="item-divider item-icon-left"  type="item-text-wrap" ng-if="class.isOpen" ng-click="changeOpen(class)">
+                    <i class="icon ion-arrow-down-b positive"></i>
+                    <B>{{class.topic}}</B>
+                </ion-item>
+                <!--所有的帮助页面以html的格式存在,默认的会存在本地文件中，以html的格式进行展示 -->
+                <ion-item class="item-icon-left"  type="item-text-wrap" ng-repeat="item in helpItems" ng-if="item.classId==class.id && class.isOpen" href="#/tab/help/{{item.id}}">
+                    <i class="icon ion-information-circled" style="font-size: 16px;" ></i>
+                    {{item.title}}
+                </ion-item>
+            </div>
+
+        </ion-list>
+        <div ng-bind-html="detailContent()"></div>
+    </ion-content>
+</ion-view>

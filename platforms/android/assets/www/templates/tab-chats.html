@@ -1,0 +1,23 @@
+<!-- 该部分用于显示聊天记录，
+待商榷： 对于新消息是服务器及时推送过来，还是客户端固定时间间隔进行消息的获取，应该是前者，那么客户端的通信处理该怎么处理？目前暂无全局的数据接收处理的程序。
+-->
+<ion-view view-title="私信">
+  <ion-content>
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" collection-repeat="chat in chats" type="item-text-wrap" href="#/tab/chats/{{chat.id}}">
+        <img ng-src="{{chat.face}}">
+        <h2 ng-if="$index!=6">{{chat.name}}</h2>
+        <!-- 系统的各方面消息采用蓝色字体-->
+        <h2 ng-if="$index==6" class="positive">{{chat.name}}</h2>
+        <p>{{chat.lastText}}</p>
+
+        <i class="icon ion-chevron-right icon-accessory"><span class="badge badge-assertive" style="top:25px;" ng-if="chat.unRead!=0">{{chat.unRead}}</span></i>
+
+        <ion-option-button class="button-assertive" ng-click="remove(chat)">
+          删除
+        </ion-option-button>
+      </ion-item>
+
+    </ion-list>
+  </ion-content>
+</ion-view>

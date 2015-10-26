@@ -1,0 +1,185 @@
+<ion-view view-title="首页">
+    <!-- 标题栏的搜索框-->
+    <ion-nav-title class="item-input-inset input_search">
+        <label class="item-input-wrapper light-bg">
+            <i class="icon ion-ios-search placeholder-icon"></i>
+            <input type="text" placeholder="搜索邮票、店铺" readonly="true" ui-sref="search">
+        </label>
+    </ion-nav-title>
+
+    <ion-nav-buttons side="left">
+        <button class="button button-clear disabled">
+            掌邮宝
+        </button>
+    </ion-nav-buttons>
+    <!--当存在未读信息时图标转换为ion-email-unread  此功能用于显示一些系统通知，活动推广，交易通知等等-->
+    <ion-nav-buttons side="right">
+        <a ng-if="!hasMessage" class="button button-icon icon ion-email msg_button"></a>
+        <a ng-if="hasMessage" class="button button-icon icon ion-email-unread msg_button "></a>
+    </ion-nav-buttons>
+
+    <ion-content class="light-bg">
+
+        <!--
+           该部分用于活动及广告推送等功能，所有的图片按规定的尺寸和大小进行制作，比例3:1
+           功能部分：
+               每次用户打开软件或者刷新页面的时候从服务器获取最新的广告图片，以及每个广告对应的链接数据或者广告html页面，
+               使用ng-repeat来进行ion-slide的生成，这些slide通过点击的函数响应跳转到对应的页面
+        -->
+        <div>
+            <ion-slide-box does-continue="true" auto-play="true">
+                <ion-slide>
+                    <img ng-src="img/guanggao1.jpg" ng-click=""/>
+                </ion-slide>
+                <ion-slide>
+                    <img ng-src="img/guanggao2.jpg" ng-click=""/>
+                </ion-slide>
+                <ion-slide>
+                    <img ng-src="img/guanggao3.jpg" ng-click=""/>
+                </ion-slide>
+                <ion-slide>
+                    <img ng-src="img/guanggao4.jpg" ng-click=""/>
+                </ion-slide>
+            </ion-slide-box>
+        </div>
+
+        <!--
+           该部分用于功能图标的摆放，按照行*列的形式整齐摆放，用于连接到具体的功能模块
+           待完成：功能图标的设计，涉及到添加自定义的icon，此处缺少美工---
+           可选功能： 该部分功能按钮列表是否是写死在文件里的，还是每次启动时从服务器更新，服务器更新图标和对应的功能连接
+        -->
+        <!-- 通过item添加边框效果-->
+        <div class="item row text_center" style="bottom: 5px;">
+            <div class="col">
+                <a class="icon ion-navicon-round energized icon_link"></a>
+                <p>专区</p>
+            </div>
+            <div class="col">
+                <a class="icon ion-android-cart  positive icon_link"></a>
+                <p>商铺</p>
+            </div>
+            <div class="col">
+                <a class="icon ion-bag calm icon_link"></a>
+                <p>散户</p>
+            </div>
+            <div class="col">
+                <a class="icon ion-ribbon-a royal icon_link"></a>
+                <p>会员</p>
+            </div>
+        </div>
+
+        <!-- 热门商铺推荐，每次打开从服务器获取最近的热门商铺，服务器中维护对于热门商铺的统计列表，并及时反馈给用户
+             下拉时更新
+             推荐的商铺可以进行竞价排名
+             热门商铺的图片1:1，该比例在实体店审核时全部处理为固定大小的图片
+        -->
+        <div class="list card no_left_right_margin">
+            <div class="item item-divider item-icon-right positive">
+                <i class="positive text_bold">热门商铺</i>
+                <i class="icon ion-ios-arrow-forward icon-right"></i>
+            </div>
+            <div class="item" style="padding: 5px;">
+                <div class="row text_center">
+                    <div class="col" style="padding-bottom: 10px;">
+                        <img ng-src="img/dianpu1.jpg" ng-click="" width="100%"/>
+                        <p>only时尚服饰三里屯分店</p>
+                    </div>
+                    <div class="col">
+                        <img ng-src="img/dianpu2.jpg" ng-click="" width="100%"/>
+                        <p>国产名牌tonlion中关村一街店</p>
+                    </div>
+                    <div class="col">
+                        <img ng-src="img/dianpu3.jpg" ng-click="" width="100%"/>
+                        <p>西式风情街区春意盎然鲜花店</p>
+                    </div>
+                </div>
+
+                <div class="row text_center">
+                    <div class="col" style="padding-bottom: 10px;">
+                        <img ng-src="img/dianpu4.jpg" ng-click="" width="100%"/>
+                        <p>only时尚服饰三里屯分店</p>
+                    </div>
+                    <div class="col">
+                        <img ng-src="img/dianpu5.jpeg" ng-click="" width="100%"/>
+                        <p>国产名牌tonlion中关村一街店</p>
+                    </div>
+                    <div class="col">
+                        <img ng-src="img/dianpu6.jpg" ng-click="" width="100%"/>
+                        <p>西式风情街区春意盎然鲜花店</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 热门商品推荐，每次打开从服务器获取最近的热门商铺，服务器中维护对于热门商铺的统计列表，并及时反馈给用户
+             下拉时更新
+             推荐的商品部分可以进行竞价排名
+             讨论： 由于邮票本身比例不一，该如何限制布局，是固定放缩比例还是就按原本的比例布局，高度不同就算了？
+        -->
+        <div class="list card no_left_right_margin">
+            <div class="item item-divider item-icon-right energized">
+                <i class="energized text_bold">热门商品</i>
+                <i class="icon ion-ios-arrow-forward icon-right"></i>
+            </div>
+            <div class="item" style="padding: 5px;">
+                <div class="row text_center">
+                    <div class="col" style="padding-bottom: 10px;">
+                        <img ng-src="img/guadan1.jpg" ng-click="" width="100%"/>
+                        <p>only时尚服饰三里屯分店</p>
+                    </div>
+                    <div class="col">
+                        <img ng-src="img/guadan2.jpg" ng-click="" width="100%"/>
+                        <p>国产名牌tonlion中关村一街店</p>
+                    </div>
+                    <div class="col">
+                        <img ng-src="img/guadan3.jpg" ng-click="" width="100%"/>
+                        <p>西式风情街区春意盎然鲜花店</p>
+                    </div>
+                </div>
+
+                <div class="row text_center">
+                    <div class="col" style="padding-bottom: 10px;">
+                        <img ng-src="img/guadan4.jpg" ng-click="" width="100%"/>
+                        <p>only时尚服饰三里屯分店</p>
+                    </div>
+                    <div class="col">
+                        <img ng-src="img/guadan5.jpg" ng-click="" width="100%"/>
+                        <p>国产名牌tonlion中关村一街店</p>
+                    </div>
+                    <div class="col">
+                        <img ng-src="img/guadan6.jpg" ng-click="" width="100%"/>
+                        <p>西式风情街区春意盎然鲜花店</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- 最新资讯
+            每一条资讯包含三个部分:
+            1. 图片   1:1
+            2. 标题： 不得超过两行，对于现在的手机屏幕，即不得超过30个字
+            3. 简介或概述： 2-3行，即不得超过50个字
+
+            策略1： 所有的新闻都是文字编辑制作的，因而给文字编辑定义具体实现限定
+            策略2： 不管文本信息怎样，在获取资讯信息后，使用代码进行处理，无论是标题还是简介，超出阈值的一律使用"..."代替
+
+        -->
+
+        <div class="list card no_left_right_margin item-text-wrap">
+            <div class="item item-divider item-icon-right calm">
+                <i class="calm text_bold">最新资讯</i>
+                <i class="icon ion-ios-arrow-forward icon-right"></i>
+            </div>
+            <a ng-repeat="n in [1,2,3]" class="item item-thumbnail-left" href="#" >
+                <img src="img/dianpu1.jpg">
+                <h2>世界最有价值的七大著名邮票</h2>
+                <p>在一个电子邮件和即时通信的时代里，传统的写信和寄信方式正在渐渐离我们远去，但是作为收藏门类之一的集邮，却依然非常火爆。</p>
+            </a>
+
+
+            </div>
+        </div>
+
+    </ion-content>
+</ion-view>

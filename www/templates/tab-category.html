@@ -1,0 +1,139 @@
+<ion-view>
+    <ion-nav-title>
+        <B>分类检索</B>
+    </ion-nav-title>
+
+    <ion-nav-title class="item-input-inset input_search">
+        <!--<img ng-src="img/search2.png" width="100%" height="100%" />-->
+        <label class="item-input-wrapper light-bg">
+            <i class="icon ion-ios-search placeholder-icon"></i>
+            <input type="text" placeholder="当前专区内搜索" ng-click="search_click()" ng-model="searchKey">
+        </label>
+    </ion-nav-title>
+    <ion-nav-buttons side="right">
+        <a class="button button-small button_margin">搜索</a>
+    </ion-nav-buttons>
+
+    <ion-nav-buttons side="left">
+        <button class="button button-clear disabled">
+            专区
+        </button>
+    </ion-nav-buttons>
+
+
+    <!-- 使用button bar构成子标题，在点击的时候不断切换颜色，从而表示选择状态，本人第一个UI和Controller结婚的例子，嘿嘿-->
+    <div class="bar bar-subheader button-bar stable-bg" style="padding: 0; border: 0;height: 44px">
+        <div class="col" style="padding: 0;" ng-repeat="subTitle in subTitles">
+            <button ng-if="isClicked[$index]" class="button button-full button-calm" style="margin: 0; height: 44px;" ng-click="OnSubTitleClick($index)">
+                <B>{{subTitle}}</B>
+            </button>
+            <button ng-if="!isClicked[$index]" class="button button-full button-stable" style="margin: 0; height: 44px;" ng-click="OnSubTitleClick($index)">
+                <B>{{subTitle}}</B>
+            </button>
+        </div>
+    </div>
+
+
+    <ion-side-menus>
+
+        <ion-side-menu-content >
+            <!-- center content 此处的has-subHeader一定不能忘，不然会导致布局问题-->
+            <ion-content class="padding has-header has-subheader" scroll="false">
+
+
+                <!-- 目前ionic貌似只支持单个item-select的情况，该实现强行一个item两个select，但是两个select中第一个总是被点中，第二个几乎无法点中，且选中项无法变换，因为该方案一定要改-->
+                <label class="item item-input no_border" style="padding-left: 0; padding-top: 0;">
+                    <!--<div class="input-label" >-->
+                    <div class="input-label">
+                        <select class="positive text_bold no_border light-bg">
+                            <option selected>全部显示</option>
+                            <option>仅出售</option>
+                            <option>仅收购</option>
+                        </select>
+                    </div>
+                    <div class="input-label" style="position:absolute; right: 0">
+                        <select class="positive text_bold no_border light-bg">
+                            <option selected>综合排序</option>
+                            <option>时间排序</option>
+                            <option>热度排序</option>
+                        </select>
+                    </div>
+
+                </label>
+
+            </ion-content>
+
+            <ion-content class="padding has-header has-subheader has-tabs-top" style="padding: 0;">
+                <ion-list>
+                    <!--<div>-->
+                        <!--<i class="positive text_bold">商品列表</i>-->
+                        <!--<select>-->
+                            <!--<option>Blue</option>-->
+                            <!--<option selected>Green</option>-->
+                            <!--<option>Red</option>-->
+                        <!--</select>-->
+
+                    <!--</div>-->
+                    <a class="item item-thumbnail-left no_border" href="#" >
+                        <img src="img/guadan1.jpg">
+                        <h2>世界最有价值的七大著名邮票</h2>
+                        <p>在一个电子邮件和即时通信的时代里，传统的写信和寄信方式正在渐渐离我们远去，但是作为收藏门类之一的集邮，却依然非常火爆。</p>
+                    </a>
+                    <a class="item item-thumbnail-left no_border" href="#" >
+                        <img src="img/guadan2.jpg">
+                        <h2>世界最有价值的七大著名邮票</h2>
+                        <p>在一个电子邮件和即时通信的时代里，传统的写信和寄信方式正在渐渐离我们远去，但是作为收藏门类之一的集邮，却依然非常火爆。</p>
+                    </a>
+                    <a class="item item-thumbnail-left no_border" href="#" >
+                        <img src="img/guadan3.jpg">
+                        <h2>世界最有价值的七大著名邮票</h2>
+                        <p>在一个电子邮件和即时通信的时代里，传统的写信和寄信方式正在渐渐离我们远去，但是作为收藏门类之一的集邮，却依然非常火爆。</p>
+                    </a>
+                    <a class="item item-thumbnail-left no_border" href="#" >
+                        <img src="img/guadan4.jpg">
+                        <h2>世界最有价值的七大著名邮票</h2>
+                        <p>在一个电子邮件和即时通信的时代里，传统的写信和寄信方式正在渐渐离我们远去，但是作为收藏门类之一的集邮，却依然非常火爆。</p>
+                    </a>
+                    <a class="item item-thumbnail-left no_border" href="#" >
+                        <img src="img/guadan5.jpg">
+                        <h2>世界最有价值的七大著名邮票</h2>
+                        <p>在一个电子邮件和即时通信的时代里，传统的写信和寄信方式正在渐渐离我们远去，但是作为收藏门类之一的集邮，却依然非常火爆。</p>
+                    </a>
+                    <a class="item item-thumbnail-left no_border" href="#" >
+                        <img src="img/guadan6.jpg">
+                        <h2>世界最有价值的七大著名邮票</h2>
+                        <p>在一个电子邮件和即时通信的时代里，传统的写信和寄信方式正在渐渐离我们远去，但是作为收藏门类之一的集邮，却依然非常火爆。</p>
+                    </a>
+                    <!--<ion-item class="item-divider">-->
+                        <!--<B>商品列表</B>-->
+                        <!--<select>-->
+                            <!--<option>Blue</option>-->
+                            <!--<option selected>Green</option>-->
+                            <!--<option>Red</option>-->
+                        <!--</select>-->
+                    <!--</ion-item>-->
+                </ion-list>
+            </ion-content>
+        </ion-side-menu-content>
+
+        <ion-side-menu side="left" width="{{sideMenuWidth}}" expose-aside-when="(min-width:300px)">
+            <!-- left menu content-->
+            <ion-content class="has-subheader">
+                <ion-list>
+                    <div ng-repeat="topic in currTopics">
+                        <ion-item class="item-text-wrap text-center item-light no_border" ng-if="choosenTopic==$index" ng-click="OnTopicClick($index)">
+                            <a class="topic positive">{{topic}}</a>
+                        </ion-item>
+                        <ion-item  class="item-text-wrap text-center no_border" style="background-color: #f5f5f5;" ng-if="choosenTopic!=$index" ng-click="OnTopicClick($index)">
+                            <a class="topic">{{topic}}</a>
+                        </ion-item>
+
+                    </div>
+
+                </ion-list>
+            </ion-content>
+        </ion-side-menu>
+
+
+    </ion-side-menus>
+</ion-view>

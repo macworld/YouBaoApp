@@ -1,0 +1,36 @@
+//该文件用于存放一些比较简单的控制器逻辑
+var rootModule = angular.module('ZhangYouBao.controllers', ['imageCacheFactory','ionicLazyLoad','ionic','ngCordova'])
+
+.controller('DashCtrl', function($scope) {})
+
+.controller('AccountCtrl', function($scope) {
+  $scope.settings = {
+    enableFriends: true
+  };
+})
+
+.controller('HomeCtrl', function($scope,$state) {
+    $scope.hasMessage=true;
+    $scope.onHomeSelect=function()
+    {
+        console.log('in');
+        $state.go('tab.home');
+    };
+})
+
+
+
+.controller('SearchCtrl', function($scope) {
+    $scope.search_click=function()
+    {
+
+    };
+    setTimeout(function(){
+
+    },300)
+})
+//全局控制器
+.controller('TotalCtrl', function($scope,$state,$rootScope) {
+    $rootScope.hideTabs=false;
+});
+
