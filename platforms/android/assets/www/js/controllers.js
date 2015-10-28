@@ -1,5 +1,5 @@
 //该文件用于存放一些比较简单的控制器逻辑
-var rootModule = angular.module('ZhangYouBao.controllers', ['imageCacheFactory','ionicLazyLoad','ionic','ngCordova'])
+var rootModule = angular.module('ZhangYouBao.controllers',[])
 
 .controller('DashCtrl', function($scope) {})
 
@@ -27,7 +27,8 @@ var rootModule = angular.module('ZhangYouBao.controllers', ['imageCacheFactory',
     };
     setTimeout(function(){
 
-    },300)
+    },300);
+
 })
 //全局控制器
 .controller('TotalCtrl', function($scope,$state,$rootScope) {

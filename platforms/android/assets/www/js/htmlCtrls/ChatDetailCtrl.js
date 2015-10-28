@@ -95,6 +95,17 @@ rootModule.controller('ChatDetailCtrl', function($scope, $stateParams, Chats,$ro
         }
     );
 
+    window.addEventListener('native.keyboardshow', keyboardShowHandler);
+    window.addEventListener('native.keyboardhide', keyboardHideHandler);
+    function keyboardShowHandler(e){
+//        alert('Keyboard height is: ' + e.keyboardHeight);
+        $scope.toBottom();
+    }
+    function keyboardHideHandler(e){
+        $scope.toBottom();
+    }
+
+
     $scope.send=function(Str){
         Chats.add({
             id: 5,

@@ -28,13 +28,13 @@ angular.module('autoFocus', [])
 //用于自动获取焦点的标签，eg <label class="item-input-wrapper light-bg"  focus-me>
 .directive('focusMe', function($timeout) {
     return {
-        link: function(scope, element, attrs) {
+        link: function(scope, element,attrs) {
             $timeout(function() {
                 if(ionic.Platform.isAndroid()){
                     cordova.plugins.Keyboard.show();
                 }
                 element[0].focus();
-            }, 150);
+            }, 750);
         }
     };
 });

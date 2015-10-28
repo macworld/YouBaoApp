@@ -15,37 +15,13 @@
   <preference name="android-minSdkVersion" value="16"/>
   <preference name="BackupWebStorage" value="none"/>
   <preference name="SplashScreen" value="screen"/>
-  <!-- 锁定屏幕方向，防止屏幕旋转到横向带来的页面布局问题-->
   <preference name="orientation" value="portrait"/>
-  <!-- 添加用于实现自动聚焦-->
-  <preference name="KeyboardDisplayRequiresUserAction" value="false" />
+  <preference name="KeyboardDisplayRequiresUserAction" value="false"/>
+  <plugin name="cordova-plugin-camera"/>
 
-    <!--<preference name="Fullscreen" value="true" />-->
+<!--白名单参见必须的设置，设定顶级tabs的可用跳转范围-->
+    <allow-navigation href="http://*/*" />
 
-    <!-- Plugins -->
-    <!-- 目前猜测这些是ios上使用的config-->
-    <!-- Core plugins -->
-    <!--<gap:plugin name="org.apache.cordova.battery-status" />-->
-    <!--<gap:plugin name="org.apache.cordova.camera" />-->
-    <!--<gap:plugin name="org.apache.cordova.media-capture" />-->
-    <!--<gap:plugin name="org.apache.cordova.console" />-->
-    <!--<gap:plugin name="org.apache.cordova.contacts" />-->
-    <!--<gap:plugin name="org.apache.cordova.device" />-->
-    <!--<gap:plugin name="org.apache.cordova.device-motion" />-->
-    <!--<gap:plugin name="org.apache.cordova.device-orientation" />-->
-    <!--<gap:plugin name="org.apache.cordova.dialogs" />-->
-    <!--<gap:plugin name="org.apache.cordova.file" />-->
-    <!--<gap:plugin name="org.apache.cordova.file-transfer" />-->
-    <!--<gap:plugin name="org.apache.cordova.geolocation" />-->
-    <!--<gap:plugin name="org.apache.cordova.globalization" />-->
-    <!--<gap:plugin name="org.apache.cordova.inappbrowser" />-->
-    <!--<gap:plugin name="org.apache.cordova.media" />-->
-    <!--<gap:plugin name="org.apache.cordova.network-information" />-->
-    <!--<gap:plugin name="org.apache.cordova.splashscreen" />-->
-    <!--<gap:plugin name="org.apache.cordova.vibration" />-->
-
-
-    <plugin name="cordova-plugin-camera"/>
   <feature name="StatusBar">
     <param name="ios-package" value="CDVStatusBar" onload="true"/>
   </feature>

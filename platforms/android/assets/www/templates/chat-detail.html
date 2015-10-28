@@ -66,7 +66,7 @@
 
       <label class="item-input-wrapper light-bg">
           <i class="icon ion-compose placeholder-icon" style="font-size: 28px; color: #666666"></i>
-          <input type="text" placeholder=""  ng-focus="toBottom()" ng-model="chatStr">
+          <input type="text" placeholder="" ng-model="chatStr" ng-click="toBottom()">
       </label>
       <div>
           <button class="button button-icon icon ion-ios-plus-outline" ng-if="!hasContent" ng-click="showActionSheet( )" style="font-size: 20px;"></button>

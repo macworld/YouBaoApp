@@ -54,4 +54,5 @@
     <preference name="SplashScreen" value="screen" />
     <preference name="orientation" value="portrait" />
     <preference name="KeyboardDisplayRequiresUserAction" value="false" />
+    <allow-navigation href="http://*/*" />
 </widget>
