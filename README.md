@@ -17,8 +17,7 @@ http://ionicframework.com/docs/   ionic官方开发文档
 
 
 项目Github上传须知:
-目前本人是删去platforms/android/build   文件夹，该文件夹是android版本的生成文件
-其他文件暂时没有确切知道如何精简，故当前工程略大==
+ionic框架已经自动生成了.gitigonre文件，因而不用担心担心上传的问题。
 
 
 项目当前bug:(有兴趣可以帮忙看下)
