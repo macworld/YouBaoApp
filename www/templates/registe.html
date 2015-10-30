@@ -1,0 +1,84 @@
+<ion-view view-title="<B>会员注册</B>">
+    <ion-content>
+        <ion-list ng-if="registeStateIndex==1">
+
+            <div class="list-inset tip">
+                <div>
+                    <!--防止用户用不同的号码不断尝试重发验证码-->
+                    <a class="tip" ng-if="msgResendRemain!=0">{{msgResendRemain}}s后可重发验证码</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <label class="item item-input">
+                    <span class="input-label">手机号</span>
+                    <input type="number" placeholder="请输入11位手机号" ng-model="telNum" maxlength="11" autofocus>
+                </label>
+            </div>
+
+            <div class="list-inset">
+                <button class="button button-full button-positive" ng-click="state1Submit(telNum)">
+                    <B>下一步，验证手机号</B>
+                </button>
+                <!--服务协议的功能参考淘宝-->
+                <p class="tip">注册即视为同意<a href="#/tab/home">掌邮宝服务协议</a>，现在注册立刻享受免费VIP赠送!</p>
+            </div>
+        </ion-list>
+
+        <!--验证码设定的规则是，6位数字构成，且首位一定不为0-->
+
+        <ion-list ng-if="registeStateIndex==2">
+            <div class="list-inset tip">
+                <div style="position: relative">
+                    验证码短信已发送至{{telNum}}
+                    <a class="tip positive" style="position: absolute;right: 0;" ng-click="reSendMsg()" ng-if="msgResendRemain==0">重发验证码</a>
+                    <a class="tip" style="position: absolute;right: 0;" ng-if="msgResendRemain!=0">{{msgResendRemain}}s后可重发</a>
+                </div>
+
+            </div>
+            <div class="card">
+                <label class="item item-input">
+                    <span class="input-label">验证码</span>
+                    <input type="number" placeholder="6位数字" ng-model="detectNum" autofocus>
+                </label>
+            </div>
+
+            <div class="list-inset">
+                <button class="button button-full button-positive" ng-click="state2Submit(detectNum)">
+                    <B>下一步，设置密码</B>
+                </button>
+            </div>
+        </ion-list>
+
+        <ion-list ng-if="registeStateIndex==3">
+            <div class="card">
+                <label class="item item-input">
+                    <span class="input-label">登录密码</span>
+                    <input type="password" placeholder="6-20位字母、数字和符号" ng-model="pw.value" ng-blur="checkPw(pw.value)" ng-focus="resetTip()" maxlength="20" autofocus>
+                </label>
+
+                <label class="item item-input">
+                    <span class="input-label">密码确认</span>
+                    <input type="password" placeholder="请再次输入相同的密码" ng-model="pw.confrim" maxlength="20">
+                </label>
+
+            </div>
+
+            <div ng-if="pwTooShort" class="list-inset assertive">
+                <i class="icon ion-close-circled placeholder-icon assertive"></i>
+                为了提高密码安全系数，密码长度不得小于6
+            </div>
+
+            <div ng-if="!isSame" class="list-inset assertive">
+                <i class="icon ion-close-circled placeholder-icon assertive"></i>
+                两次输入密码不一致，请重新输入
+            </div>
+
+            <div class="list-inset">
+                <button class="button button-full button-positive" ng-click="state3Submit(pw.value,pw.confrim)">
+                    <B>注册</B>
+                </button>
+            </div>
+        </ion-list>
+    </ion-content>
+</ion-view>

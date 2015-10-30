@@ -1,0 +1,48 @@
+<ion-view view-title="<B>实名认证</B>" >
+    <ion-content class="padding">
+        <ion-list>
+            <label class="item item-divider text_bold">
+                银行选择
+            </label>
+            <!--将选择项的ng-value的值赋予ng-model对应的变量，并且单纯的变量无法获得其值，必须是这种成员变量的形式-->
+            <ion-radio ng-repeat="bank in banks"
+                       ng-value="bank.id"
+                       ng-model="bankCardInfo.bankId"
+                       ng-click="onBankConfrim()">
+                {{ bank.name }}
+            </ion-radio>
+
+            <!--<div class="list-inset">-->
+                <!--<button class="button button-full button-positive" ng-click="onBankConfrim()">-->
+                    <!--<B>确认选择</B>-->
+                <!--</button>-->
+            <!--</div>-->
+        </ion-list>
+
+        <!--<div class="list">-->
+
+            <!--<div class="item item-divider">-->
+                <!--Clientside, Selected Value: {{ data.clientSide }}-->
+            <!--</div>-->
+
+            <!--<ion-radio ng-repeat="item in clientSideList"-->
+                       <!--ng-value="item.value"-->
+                       <!--ng-model="data.clientSide">-->
+                <!--{{ item.text }}-->
+            <!--</ion-radio>-->
+
+            <!--<div class="item item-divider">-->
+                <!--Serverside, Selected Value: {{ data.serverSide }}-->
+            <!--</div>-->
+
+            <!--<ion-radio ng-repeat="item in serverSideList"-->
+                       <!--ng-value="item.value"-->
+                       <!--ng-model="data.serverSide"-->
+                       <!--ng-change="serverSideChange(item)"-->
+                       <!--name="server-side">-->
+                <!--{{ item.text }}-->
+            <!--</ion-radio>-->
+
+        <!--</div>-->
+    </ion-content>
+</ion-view>

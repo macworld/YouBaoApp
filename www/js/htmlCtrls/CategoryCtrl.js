@@ -52,4 +52,5 @@ rootModule.controller('CategoryCtrl',function($scope,$window,$ionicScrollDelegat
         $scope.choosenTopic=index;
     };
 
+
 });

@@ -8,7 +8,7 @@
 angular.module('ZhangYouBao', ['ionic', 'ZhangYouBao.controllers', 'ZhangYouBao.services',
     'ZhangYouBao.directives','ngCordova','imageCacheFactory','autoFocus'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform,$rootScope,$ionicHistory,$state) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -21,6 +21,29 @@ angular.module('ZhangYouBao', ['ionic', 'ZhangYouBao.controllers', 'ZhangYouBao.
       StatusBar.styleLightContent();
     }
   });
+
+  //用于一些全局变量的初始化
+  $rootScope.isLogin=false;  //记录当前用户是否登录
+  $rootScope.msgResendSeconds=60; //60s才能重发验证码
+  $rootScope.msgResendRemain=0;//剩余的重发秒数
+  $rootScope.maxCardNum=3;//最大支持的银行卡数
+   //用于设置android返回键
+    $ionicPlatform.registerBackButtonAction(function (event) {
+        //从登陆页面返回主页面
+        if($ionicHistory.currentStateName() == "login"){
+            $state.go("tab.home");
+//            ionic.Platform.exitApp();
+            // or do nothing
+        }
+        else if($ionicHistory.currentStateName() == "tab.home")
+        {
+            //在主页面按返回键，直接退出
+            ionic.Platform.exitApp();
+        }
+        else {
+            $ionicHistory.goBack();
+        }
+    }, 100);
 
 })
 
@@ -40,9 +63,8 @@ angular.module('ZhangYouBao', ['ionic', 'ZhangYouBao.controllers', 'ZhangYouBao.
 
   $ionicConfigProvider.platform.ios.views.transition('ios');
   $ionicConfigProvider.platform.android.views.transition('android');
-
-//    //设置全屏
-//    ionic.platform.isFullScreen=true;
+  //设置导航标题居中
+  $ionicConfigProvider.navBar.alignTitle('center');
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
   // Set up the various states which the app can be in.
@@ -73,6 +95,8 @@ angular.module('ZhangYouBao', ['ionic', 'ZhangYouBao.controllers', 'ZhangYouBao.
         templateUrl: 'templates/search.html',
         controller: 'SearchCtrl'
     })
+
+
 
     .state('tab.category', {
         url: '/category',
@@ -130,7 +154,31 @@ angular.module('ZhangYouBao', ['ionic', 'ZhangYouBao.controllers', 'ZhangYouBao.
         controller: 'AccountCtrl'
       }
     }
-  });
+  })
+
+  .state('login', {
+      url: '/login',
+      templateUrl: 'templates/login.html',
+      controller: 'LoginCtrl'
+  })
+  .state('registe', {
+      url: '/registe',
+      templateUrl: 'templates/registe.html',
+      controller: 'RegisteCtrl'
+  })
+
+  .state('certification', {
+      url: '/certification',
+      templateUrl: 'templates/certification.html',
+      controller: 'CertificationCtrl'
+  })
+
+  .state('bankChoose', {
+      url: '/bankChoose/:bankCardId',
+      templateUrl: 'templates/bank-choose.html',
+      controller: 'BankChooseCtrl'
+  })
+  ;
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/home');
 

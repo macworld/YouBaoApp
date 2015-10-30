@@ -1,4 +1,4 @@
-angular.module('ZhangYouBao.services', [])
+var rootService=angular.module('ZhangYouBao.services', [])
 
 .factory('Chats', function() {
   // Might use a resource here that returns a JSON array
@@ -175,4 +175,78 @@ angular.module('ZhangYouBao.services', [])
 
             return q.promise;
         }   } }])
+
+/*该服务用于手机号相关的操作*/
+/*请注意服务商支持的手机号更新后，这边也要跟着更新*/
+.factory('TelphoneNum',function($ionicPopup){
+        var pattern=/^1[3|5|7|8|][0-9]{9}$/;
+    return{
+        //判断输入数据是否是正确的手机号
+        isTelNum: function(num){
+            if(typeof (num)!="number" || num.toString(10).length!=11 ||!pattern.test(num.toString()))
+            {
+                //alert("请输入数字");
+                $ionicPopup.alert({
+                    title: '输入提示',
+                    template:'请输入11位数字构成的有效手机号',
+                    okText: '确认'
+                });
+                return false;
+            }
+            return true;
+        }
+    }
+
+})
+
+/*该服务用于验证码相关的操作*/
+.factory('DetectNum',function($ionicPopup){
+    return{
+        //判断输入数据是否是正确的手机号
+        isDetectNum: function(num){
+            if(typeof (num)!="number" || num.toString(10).length!=6 ||num.toString(10).indexOf('.')!=-1)
+            {
+                //alert("请输入数字");
+                $ionicPopup.alert({
+                    title: '输入提示',
+                    template:'请输入6位数字验证码',
+                    okText: '确认'
+                });
+                return false;
+            }
+            return true;
+        }
+    }
+
+})
+
+.factory('Password',function($ionicPopup){
+        //6-20位 字母、数字、下划线、特殊字符组成
+        //目前以ASC码表中支持的特殊字符作为基准
+        var pattern=/^(\w|[!@#$%^&*.~-]|[:?/\\=+-\[\];()<>|{}'":`]){6,20}$/;
+        return{
+            //判断输入数据是否是合法的密码
+            isValid: function(pw){
+                var valid= pattern.test(pw);
+                if(!valid){
+                    if(pw.length<6||pw.length>20){
+                        $ionicPopup.alert({
+                            title: '输入提示',
+                            template:'请输入6-20位密码',
+                            okText: '确认'
+                        });
+                    }
+                    else{
+                        $ionicPopup.alert({
+                            title: '输入提示',
+                            template:'密码中包含不支持的中文或者特殊符号，请重新输入',
+                            okText: '确认'
+                        });
+                    }
+
+                }
+                return valid;
+            }
+        }
+    })
 ;

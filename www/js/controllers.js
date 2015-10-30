@@ -3,10 +3,16 @@ var rootModule = angular.module('ZhangYouBao.controllers',[])
 
 .controller('DashCtrl', function($scope) {})
 
-.controller('AccountCtrl', function($scope) {
-  $scope.settings = {
-    enableFriends: true
-  };
+.controller('AccountCtrl', function($scope,$state,$rootScope) {
+
+
+    $scope.$on('$ionicView.beforeEnter',function(){
+        if(typeof ($rootScope.isLogin) ==undefined || $rootScope.isLogin==false)
+        {
+            $state.go('login');
+        }
+    });
+
 })
 
 .controller('HomeCtrl', function($scope,$state) {

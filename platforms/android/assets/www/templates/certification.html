@@ -1,0 +1,90 @@
+<ion-view view-title="<B>实名认证</B>" >
+    <ion-content class="padding">
+        <ion-list>
+            <div class="list-inset tip">
+                本平台是实名制交易平台，为了方便您使用本平台提供的各项功能，请如实填写以下信息：
+            </div>
+
+            <div class="card">
+                <label class="item item-divider positive text_bold">
+                    个人信息
+                </label>
+                <!-- 错误信息提示-->
+                <label class="item-input assertive" ng-if="!isChinese">
+                    <i class="icon ion-close-circled placeholder-icon assertive"></i>
+                    请输入真实的中文姓名
+                </label>
+
+                <label class="item item-input">
+                    <span class="input-label">姓名</span>
+                    <!--根据维基百科所述，中文最长姓名是15个字-->
+                    <input type="text" placeholder="请输入真实姓名" ng-model="name" maxlength="15" autofocus ng-blur="detectName(name)">
+                </label>
+
+                <!-- 错误信息提示-->
+                <label class="item-input assertive" ng-if="!isValidIdCard">
+                    <i class="icon ion-close-circled placeholder-icon assertive"></i>
+                    请输入格式正确的身份证号
+                </label>
+
+                <label class="item item-input">
+                    <span class="input-label">身份证</span>
+                    <!--根据维基百科所述，中文最长姓名是15个字-->
+                    <input type="text" placeholder="请输入18位身份证号" ng-model="idCardNo" maxlength="18" autofocus ng-blur="detectIdCard(idCardNo)">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">身份证正面照</span>
+                    <img ng-src="img/idCard.jpg" width="50%"/>
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">身份证反面照</span>
+                    <img ng-src="img/idCard.jpg" width="50%"/>
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">身份证真人合影</span>
+                    <img ng-src="img/idCard.jpg" width="50%"/>
+                </label>
+            </div>
+
+
+
+
+
+
+            <div class="list-inset tip">
+                为了便于用户之间的沟通，您需要提供至少一张银行卡信息(目前本平台只支持主流银行的借记卡)：
+            </div>
+            <!--至少登记一张银行卡-->
+            <div class="card">
+                <label class="item item-divider positive text_bold">
+                    银行卡信息
+                </label>
+                <div ng-repeat="info in bankCardInfos">
+                    <label class="item item-input item-icon-right" ui-sref="bankChoose({bankCardId: info.id})" >
+                        <span class="input-label">所属银行</span>
+                        <!--根据维基百科所述，中文最长姓名是15个字-->
+                        <span>{{info.bankName}}</span>
+                        <i class="icon ion-ios-arrow-forward icon-right"></i>
+                    </label>
+
+                    <!-- 错误信息提示-->
+                    <label class="item-input assertive" ng-if="!isCardIdValid[$index]">
+                        <i class="icon ion-close-circled placeholder-icon assertive"></i>
+                        请输入格式正确的银行卡号
+                    </label>
+
+                    <label class="item item-input">
+                        <span class="input-label">银行卡号</span>
+                        <input type="text" placeholder="请输入银行卡号" ng-model="info.cardId" maxlength="19" ng-blur="detectCardNum(info.cardId,$index)">
+                    </label>
+                </div>
+            </div>
+
+            <div class="list-inset">
+                <button class="button button-full button-positive" ng-click="onSubmit()">
+                    <B>确认提交</B>
+                </button>
+            </div>
+        </ion-list>
+    </ion-content>
+</ion-view>

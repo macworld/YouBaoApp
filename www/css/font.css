@@ -26,7 +26,17 @@ col中p标签下的文字大小以及颜色
     font-size: 12px;
     color: #888888;
 }
-
+/*专区中各个版面主题的格式设置*/
 .topic{
     font-size: 14px;
+}
+
+.font_big_weight{
+    font-size: 14px;
+    font-weight: bold;
+}
+/*所有提示文字的格式设置*/
+.tip{
+    font-size: 12px;
+    color: #888888;
 }
