@@ -113,13 +113,13 @@ rootModule.controller('RegisteCtrl', function($scope,$http,$rootScope,$ionicPopu
     var showSuccess=function(){
         $ionicPopup.confirm({
             title: '快速注册成功',
-            template: '恭喜您，注册成功！建议您继续进行实名认证，实名认证后方可进行挂单、交易等操作，并且免费获赠1个月VIP体验！！！',
+            template: '恭喜您，注册成功！建议您继续进行实名认证，实名认证后方可进行挂单、交易等操作，并且免费获赠1个月VIP体验！！！（您也可以随时在"个人"页面中进行实名认证）',
             cancelText: '以后再说',
             okText: '实名认证'
         }).then(function(result){
             $rootScope.isLogin=true;
             if(result){//点击确认
-               console.log("实名认证");
+                $state.go("certification");
             }
             else{
                $state.go("tab.account");

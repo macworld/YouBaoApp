@@ -23,8 +23,8 @@
 col中p标签下的文字大小以及颜色
 */
 .col p{
-    font-size: 12px;
-    color: #888888;
+    font-size: 14px;
+    color: #666666;
 }
 /*专区中各个版面主题的格式设置*/
 .topic{
@@ -39,4 +39,21 @@ col中p标签下的文字大小以及颜色
 .tip{
     font-size: 12px;
     color: #888888;
+}
+/*个人账户中标题的设置*/
+.accout_title{
+    font-weight: bold;
+    color: #333333;
+}
+
+/*个人账户中标题对应的说明*/
+.accout_title_detail{
+    font-size: 12px;
+    color: #aaaaaa;
+    position: absolute;
+    right: 40px;
+}
+
+.accout_title_icon{
+    color: #aaaaaa;
 }

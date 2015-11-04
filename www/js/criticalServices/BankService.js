@@ -39,6 +39,29 @@ rootService.factory('Bank',function($ionicPopup){
         cardId: "" //银行卡的卡号，如果为“”，表示刚刚初始化，该卡的卡号还没有录入，采用字符串来存储
 
     }];
+
+    function addBankCard(id) {
+        if(id!=bankCardInfos.length){
+            return false;
+        }
+        var info={
+            id: id,//这张银行卡在三张卡中的id
+            bankId: 0,//这张卡对应的银行的ID,与上面的bankInfo相对应
+            bankName: '中国建设银行',//为了便于显示，这里将银行名字也包含进来
+            cardId: "" //银行卡的卡号，如果为“”，表示刚刚初始化，该卡的卡号还没有录入，采用字符串来存储
+        };
+        bankCardInfos.push(info);
+        return true;
+    }
+
+    function minusBankCard() {
+        if(bankCardInfos.length==1){
+           console.error("错误的银行卡号删除操作");
+        }
+        bankCardInfos.pop();
+        return true;
+
+    }
     //该变量用于说明服务中数据的有效性，在用户实名认证成功之前，这些数据都是无效的
     //当实名认证的人工审核通过时，该数据方才有效
     var isInfoValid=false;
@@ -68,6 +91,7 @@ rootService.factory('Bank',function($ionicPopup){
         },
         isValid: function(){
             return isInfoValid;
-        }
+        },
+        addBankCard:addBankCard
     }
 });

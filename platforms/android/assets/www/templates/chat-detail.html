@@ -11,26 +11,6 @@
     <!--</ion-nav-buttons>-->
   <ion-content class="padding">
 
-      <!--<div ng-repeat="item in chats">-->
-          <!--<div class="leftd" ng-if="$even">-->
-              <!--<div class="leftimg">-->
-                  <!--<img image-lazy-src="{{item.face}}" lazy-scroll-resize="true" image-lazy-distance-from-bottom-to-load="200"/>-->
-              <!--</div>-->
-              <!--<div class="speech left" > 你好!在晚上好!我在!明天早上8点要开会!晚上好!我在!明天早上8点要开会!晚上好!我在!明天早上8点要开会!晚上好!我在!明天早上8点要开会!晚上好晚上好!我在!明天早上8点要开会!晚上好!我在!明天早上8点要开会!-->
-              <!--</div>-->
-          <!--</div>-->
-          <!--<div class="rightd" ng-if="$odd">-->
-              <!--<div class="rightimg">-->
-                  <!--<img image-lazy-src="{{item.face}}" lazy-scroll-resize="true" image-lazy-distance-from-bottom-to-load="200"/>-->
-              <!--</div>-->
-              <!--<div class="speech right" > 你好!在晚上好!我在!明天早上8点要开会!晚上好!我在!明天早上8点要开会!晚上好!我在!明天早上8点要开会!晚上好!我在!明天早上8点要开会!晚上好晚上好!我在!明天早上8点要开会!晚上好!我在!明天早上8点要开会!-->
-              <!--</div>-->
-          <!--</div>-->
-      <!--</div>-->
-      <!--<div ng-repeat="item in chats">-->
-      <!--<img ng-src="{{item.face}}"/>-->
-      <!--</div>-->
-
       <!--此处collection-repeat不好用，其需要每一个重复项都是固定的高度，在这儿无法达到-->
       <div ng-repeat="item in chats">
           <div class="leftd clear-auto" ng-if="$even">
@@ -57,7 +37,11 @@
 
 
       <!--<img ng-repeat="image in images" ng-src="{{urlForImage(image)}}" height="200px"/>-->
-      <img ng-show="imgURI !== undefined" ng-src="{{imgURI}}">
+      <!--<img ng-show="imgURI !== undefined" ng-src="{{imgURI}}">-->
+
+      <ion-scroll direction="x" style="height:200px; min-height: 200px; overflow: scroll; white-space: nowrap;">
+          <img ng-repeat="image in chatImages" ng-src="{{urlForImage(image.url)}}" style="height:200px; padding: 5px 5px 5px 5px;"/>
+      </ion-scroll>
 
   </ion-content>
 
@@ -72,10 +56,6 @@
           <button class="button button-icon icon ion-ios-plus-outline" ng-if="!hasContent" ng-click="showActionSheet( )" style="font-size: 20px;"></button>
           <button class="button button-positive"  ng-if="hasContent" ng-click="send(chatStr)">发送</button>
       </div>
-      <!--<h1 class="title">Title!</h1>-->
-      <!--<div class="buttons" ng-click="doSomething()">-->
-          <!--<button class="button">Right Button</button>-->
-      <!--</div>-->
   </ion-footer-bar>
 
 </ion-view>

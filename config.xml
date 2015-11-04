@@ -17,10 +17,13 @@
   <preference name="SplashScreen" value="screen"/>
   <preference name="orientation" value="portrait"/>
   <preference name="KeyboardDisplayRequiresUserAction" value="false"/>
-  <plugin name="cordova-plugin-camera"/>
+   <!--防止apple AppStore因为localStore可以备份到icloud而导致无法通过-->
+  <preference name="BackupWebStorage" value="none" />
 
-<!--白名单参见必须的设置，设定顶级tabs的可用跳转范围-->
-    <allow-navigation href="http://*/*" />
+  <!--白名单参见必须的设置，设定顶级tabs的可用跳转范围-->
+  <allow-navigation href="http://*/*" />
+
+
 
   <feature name="StatusBar">
     <param name="ios-package" value="CDVStatusBar" onload="true"/>

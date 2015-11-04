@@ -3,10 +3,20 @@
  * 聊天细节的控制器
  */
 rootModule.controller('ChatDetailCtrl', function($scope, $stateParams, Chats,$rootScope,$ionicActionSheet,
-                                                $cordovaCamera,$ionicScrollDelegate,$ionicPlatform) {
+                                                $cordovaCamera,$ionicScrollDelegate,$ionicPlatform,ImgFileService,ImageService) {
     $scope.chat = Chats.get($stateParams.chatId);
     $scope.chats= Chats.all();
     $rootScope.hideTabs=true;
+
+    $ionicPlatform.ready(function() {
+        $scope.chatImages = ImgFileService.images();
+    });
+
+    //提供文件名到文件地址的转化
+    $scope.urlForImage = function(imageName) {
+        var filePath = cordova.file.dataDirectory + imageName;
+        return filePath;
+    };
 
     //关于生命周期中的事件的案例
 //    $scope.$on('$ionicView.enter',function(){
@@ -60,18 +70,17 @@ rootModule.controller('ChatDetailCtrl', function($scope, $stateParams, Chats,$ro
                 // add cancel code..
             },
             buttonClicked: function(index) {
-                if(index==0)
-                {
-                    $scope.takePhoto();
-//                    $scope.getPhoto();
-                    return true;
-                }
-                else
-                {
-                    $scope.capturePhoto();
-//                    $scope.getPhoto();
-                    return true;
-                }
+//                if(index==0)
+//                {
+//                    $scope.takePhoto();
+//                    return true;
+//                }
+//                else
+//                {
+//                    $scope.capturePhoto();
+//                    return true;
+//                }
+                ImageService.gitImage(index,50);
             }
         });
 
@@ -118,34 +127,13 @@ rootModule.controller('ChatDetailCtrl', function($scope, $stateParams, Chats,$ro
         $scope.chatStr="";
         $ionicScrollDelegate.scrollBottom();
     };
+
     //点击输入框后跳转到对话底部
     $scope.toBottom=function(){
         $ionicScrollDelegate.scrollBottom();
     };
 
-//    document.addEventListener("deviceready", function () {
-//
-//        var options = {
-//            quality: 50,
-//            destinationType: Camera.DestinationType.DATA_URL,
-//            sourceType: Camera.PictureSourceType.CAMERA,
-//            allowEdit: true,
-//            encodingType: Camera.EncodingType.JPEG,
-//            targetWidth: 100,
-//            targetHeight: 100,
-//            popoverOptions: CameraPopoverOptions,
-//            saveToPhotoAlbum: false,
-//            correctOrientation:true
-//        };
-//
-//        $cordovaCamera.getPicture(options).then(function(imageData) {
-//            var image = document.getElementById('myImage');
-//            image.src = "data:image/jpeg;base64," + imageData;
-//        }, function(err) {
-//            // error
-//        });
-//
-//    }, false);
+
     //在尝试了一整天之后，摄像功能依然无法使用，目前已放弃，以后再看吧==无奈了
     //待实验方法，github上有ionic camera的demo，下载下来，看能否在手机上运行
     $scope.takePhoto = function () {
@@ -179,76 +167,7 @@ rootModule.controller('ChatDetailCtrl', function($scope, $stateParams, Chats,$ro
         navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
             destinationType: destinationType.DATA_URL });
     };
-//    $scope.addImage = function() {
-//        // 2
-//        var options = {
-//            destinationType : Camera.DestinationType.FILE_URI,
-//            sourceType : Camera.PictureSourceType.CAMERA, // Camera.PictureSourceType.PHOTOLIBRARY
-//            allowEdit : false,
-//            encodingType: Camera.EncodingType.JPEG,
-//            popoverOptions: CameraPopoverOptions
-//        };
-//
-//        // 3
-//        $cordovaCamera.getPicture(options).then(function(imageData) {
-//
-//            // 4
-//            onImageSuccess(imageData);
-//
-//            function onImageSuccess(fileURI) {
-//                createFileEntry(fileURI);
-//            }
-//
-//            function createFileEntry(fileURI) {
-//                window.resolveLocalFileSystemURL(fileURI, copyFile, fail);
-//            }
-//
-//            // 5
-//            function copyFile(fileEntry) {
-//                var name = fileEntry.fullPath.substr(fileEntry.fullPath.lastIndexOf('/') + 1);
-//                var newName = makeid() + name;
-//
-//                window.resolveLocalFileSystemURL(cordova.file.dataDirectory, function(fileSystem2) {
-//                        fileEntry.copyTo(
-//                            fileSystem2,
-//                            newName,
-//                            onCopySuccess,
-//                            fail
-//                        );
-//                    },
-//                    fail);
-//            }
-//
-//            // 6
-//            function onCopySuccess(entry) {
-//                $scope.$apply(function () {
-//                    $scope.images.push(entry.nativeURL);
-//                });
-//            }
-//
-//            function fail(error) {
-//                console.log("fail: " + error.code);
-//            }
-//
-//            function makeid() {
-//                var text = "";
-//                var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-//
-//                for (var i=0; i < 5; i++) {
-//                    text += possible.charAt(Math.floor(Math.random() * possible.length));
-//                }
-//                return text;
-//            }
-//
-//        }, function(err) {
-//            console.log(err);
-//        });
-//    };
-//
-//    $scope.urlForImage = function(imageName) {
-//        var name = imageName.substr(imageName.lastIndexOf('/') + 1);
-//        var trueOrigin = cordova.file.dataDirectory + name;
-//        return trueOrigin;
-//    };
+
+
 
 });

@@ -1,4 +1,8 @@
 <ion-view view-title="<B>实名认证</B>" >
+
+    <ion-nav-buttons side="left">
+        <a class="button button-clear icon ion-ios-arrow-back" href="#/tab/account"></a>
+    </ion-nav-buttons>
     <ion-content class="padding">
         <ion-list>
             <div class="list-inset tip">
@@ -18,7 +22,7 @@
                 <label class="item item-input">
                     <span class="input-label">姓名</span>
                     <!--根据维基百科所述，中文最长姓名是15个字-->
-                    <input type="text" placeholder="请输入真实姓名" ng-model="name" maxlength="15" autofocus ng-blur="detectName(name)">
+                    <input type="text" placeholder="请输入真实姓名" ng-model="certInfo.name" maxlength="15" autofocus ng-blur="detectName(certInfo.name)">
                 </label>
 
                 <!-- 错误信息提示-->
@@ -29,21 +33,29 @@
 
                 <label class="item item-input">
                     <span class="input-label">身份证</span>
-                    <!--根据维基百科所述，中文最长姓名是15个字-->
-                    <input type="text" placeholder="请输入18位身份证号" ng-model="idCardNo" maxlength="18" autofocus ng-blur="detectIdCard(idCardNo)">
+                    <input type="text" placeholder="请输入18位身份证号" ng-model="certInfo.idCardNo" maxlength="18" autofocus ng-blur="detectIdCard(certInfo.idCardNo)">
                 </label>
-                <label class="item item-input">
-                    <span class="input-label">身份证正面照</span>
-                    <img ng-src="img/idCard.jpg" width="50%"/>
+
+                <label class="item item-input item-select sexSelect" >
+                    <div class="input-label">
+                        性别
+                    </div>
+                    <select style="position: relative" ng-model="certInfo.sex">
+                        <option>男</option>
+                        <option>女</option>
+                    </select>
                 </label>
-                <label class="item item-input">
-                    <span class="input-label">身份证反面照</span>
-                    <img ng-src="img/idCard.jpg" width="50%"/>
-                </label>
-                <label class="item item-input">
-                    <span class="input-label">身份证真人合影</span>
-                    <img ng-src="img/idCard.jpg" width="50%"/>
-                </label>
+
+                    <label class="item item-input" ng-repeat="info in ImgInfos">
+                        <span class="input-label">{{info.name}}</span>
+                        <a ng-if="imgUrls[info.type]==undefined">添加</a>
+                        <button class="button button-icon icon ion-ios-plus-outline positive" ng-if="imgUrls[info.type]==undefined" ng-click="onAddImg(info.type)" style="font-size: 20px;"></button>
+                        <img ng-src="{{imgUrls[info.type]}}" width="50%" ng-if="imgUrls[info.type]!=undefined"/>
+                        <button class="button button-icon icon ion-trash-b assertive" ng-if="imgUrls[info.type]!=undefined" ng-click="onCancelImg(info.type)"></button>
+                    </label>
+                    <label class="item-input tip" style="padding-right: 10px;">
+                    提示：拍摄"手持身份证照"时，请手持身份证正面置于身体的一侧，头部与身份证在同一张照片中拍下，两者都必须清晰可见，本措施旨在进一步验证身份证与用户本人的一致性，构建真实可靠的实名制交流平台，希望得到您的理解。
+                    </label>
             </div>
 
 
@@ -52,14 +64,31 @@
 
 
             <div class="list-inset tip">
-                为了便于用户之间的沟通，您需要提供至少一张银行卡信息(目前本平台只支持主流银行的借记卡)：
+                为了便于用户之间的沟通，您需要提供至少一张银行卡信息（目前本平台只支持主流银行的借记卡）：
             </div>
             <!--至少登记一张银行卡-->
             <div class="card">
-                <label class="item item-divider positive text_bold">
-                    银行卡信息
-                </label>
+                <!--<label class="item  positive text_bold ">-->
+                    <!--银行卡信息-->
+
+                <!--</label>-->
                 <div ng-repeat="info in bankCardInfos">
+                    <!--此处曾出现大坑，请注意，在使用label标签时不要包含带ng-click的icon或者button的item-icon-right，
+                    这种情况下的ng-click根本不会触发，改成div，问题解决，大坑，谨记！！！！-->
+                    <!--add-->
+                    <label class="item  positive item-divider text_bold item-icon-right"  ng-click="addCard($index+1)" ng-if="$index==bankCardInfos.length-1 && $index<maxCardNum-1">
+                        银行卡{{$index+1}}
+                        <a class="icon ion-android-add" style="font-size: 18px;" ></a>
+                    </label>
+                    <!--normal-->
+                    <label class="item  positive item-divider text_bold item-icon-right"   ng-if="$index!=bankCardInfos.length-1">
+                        银行卡{{$index+1}}
+                    </label>
+                    <!--minus-->
+                    <label class="item  positive item-divider text_bold item-icon-right"  ng-click="minusCard()" ng-if="$index==maxCardNum-1">
+                        银行卡{{$index+1}}
+                        <a class="icon ion-android-remove" style="font-size: 18px;" ></a>
+                    </label>
                     <label class="item item-input item-icon-right" ui-sref="bankChoose({bankCardId: info.id})" >
                         <span class="input-label">所属银行</span>
                         <!--根据维基百科所述，中文最长姓名是15个字-->

@@ -23,10 +23,10 @@ angular.module('ZhangYouBao', ['ionic', 'ZhangYouBao.controllers', 'ZhangYouBao.
   });
 
   //用于一些全局变量的初始化
-  $rootScope.isLogin=false;  //记录当前用户是否登录
+  $rootScope.isLogin=true;  //记录当前用户是否登录
   $rootScope.msgResendSeconds=60; //60s才能重发验证码
   $rootScope.msgResendRemain=0;//剩余的重发秒数
-  $rootScope.maxCardNum=3;//最大支持的银行卡数
+  $rootScope.maxCardNum=2;//最大支持的银行卡数
    //用于设置android返回键
     $ionicPlatform.registerBackButtonAction(function (event) {
         //从登陆页面返回主页面
