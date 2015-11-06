@@ -32,6 +32,10 @@ ion-slide img{
 .no_padding{
     padding: 0;
 }
+
+.no_left_padding{
+    padding-left: 0;
+}
 /*消除滑动条的显示*/
 .scroll-bar-indicator
 {
@@ -52,7 +56,7 @@ ion-slide img{
     padding-right: 32px;
     padding-left: 10px;
 }
-
+/*用于个人界面的用户头像*/
 .account img{
     width: 70%;
     -webkit-border-radius: 50%;
@@ -60,4 +64,5 @@ ion-slide img{
     border-radius: 50%;
 
 }
+
 

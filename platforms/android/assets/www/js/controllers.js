@@ -26,7 +26,7 @@ var rootModule = angular.module('ZhangYouBao.controllers',[])
 
 
 
-.controller('SearchCtrl', function($scope) {
+.controller('SearchCtrl', function($scope,$ionicHistory,$rootScope) {
     $scope.search_click=function()
     {
 

@@ -2,7 +2,7 @@
  * Created by wujin on 2015/10/19.
  * 用于专区页面的控制器
  */
-rootModule.controller('CategoryCtrl',function($scope,$window,$ionicScrollDelegate,$state) {
+rootModule.controller('CategoryCtrl',function($scope,$window,$ionicScrollDelegate,$ionicSideMenuDelegate,$ionicPlatform,$ionicTabsDelegate,$timeout) {
     $scope.isClicked=[true,false,false];
     $scope.subTitles=['邮票','钱币','卡片'];
     //各个标题对应的分区
@@ -27,9 +27,28 @@ rootModule.controller('CategoryCtrl',function($scope,$window,$ionicScrollDelegat
             $window.location.reload(true);
         }
     });
+    //默认选择第一个,进入界面后默认加载第一个选项的数据，其他的加载在用户点击subtitle和topic时触发
+    //点击subtitle，默认加载该子标题下的第一个topic，其他在点击topic时触发
+    $timeout(function(){
+            $ionicTabsDelegate.$getByHandle('subTitleTabs').select(0);
+        },100
+    );
+
+    //用watch监控一个函数的返回值，很有用的范例
+    $scope.$watch(function() {
+        return $ionicSideMenuDelegate.isOpenLeft();
+    }, function(value) {
+        //用于监控用户手动左划关闭侧边栏的情况
+        console.log(value);
+        //do something
+    });
+
+
     $scope.sideMenuWidth=$window.innerWidth/3;
     $scope.OnSubTitleClick=function(index)
     {
+        $ionicSideMenuDelegate.toggleLeft(true);
+        $ionicTabsDelegate.$getByHandle('subTitleTabs').select(index);
         for(var i=0;i<$scope.isClicked.length;i++)
         {
             if(i==index)
@@ -47,9 +66,19 @@ rootModule.controller('CategoryCtrl',function($scope,$window,$ionicScrollDelegat
         }
     };
 
+
     $scope.OnTopicClick=function(index)
     {
         $scope.choosenTopic=index;
+        $ionicSideMenuDelegate.toggleLeft(false);
+    };
+    //控制侧边栏的显示
+    $scope.onChangeSideMenu=function(){
+        if($ionicSideMenuDelegate.isOpenLeft()){
+            $ionicSideMenuDelegate.toggleLeft(false);
+        }else{
+            $ionicSideMenuDelegate.toggleLeft(true);
+        }
     };
 
 

@@ -1,0 +1,148 @@
+/*商品相关的css样式设定*/
+/*以下为与两行文字换行相关的css格式，demo见
+http://jsfiddle.net/0dqef9da/
+用于商品检索页面的标题
+*/
+.ellipsis {
+    overflow: hidden;
+    height: 40px;
+    line-height: 20px;
+
+    /*margin: 20px;*/
+    /*border: 5px solid #AAA;*/
+}
+.ellipsis:before {
+    content:"";
+    float: left;
+    width: 5px;
+    height: 45px;
+}
+.ellipsis > *:first-child {
+    float: right;
+    width: 100%;
+    margin-left: -5px;
+}
+.ellipsis:after {
+    content:"\02026";
+    box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    float: right;
+    position: relative;
+    top: -25px;
+    left: 100%;
+    width: 3em;
+    margin-left: -3em;
+    padding-right: 5px;
+    text-align: right;
+    background: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0)), to(white), color-stop(50%, white));
+    background: -moz-linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white);
+    background: -o-linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white);
+    background: -ms-linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white);
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white);
+}
+/*商品标题中的P标签*/
+.commodity p{
+    white-space: normal;
+    color: #000000;
+}
+
+.trade-type{
+    font-size: 14px; font-weight: bold; margin-right: 5px;
+}
+
+.trade-type-detail{
+    font-weight: bold;
+    margin-right: 5px;
+    margin-left: -6px;
+}
+
+.commodity-parameter{
+    font-size: 14px;
+    color: #444444;
+    white-space: normal;
+    line-height:15px;
+}
+.commodity-parameter .col{
+    margin-left: 15px;
+    padding: 5px 0 0 0;
+
+}
+.commodity-detail-title{
+    color: #444444;
+    font-weight: bold;
+}
+
+/*用户评分相对全网平均评分高，平，低的背景框*/
+.relative-bg
+{
+    border-radius: 3px 3px 3px 3px;
+    font-size: 10px;
+    margin-left:5px;
+    padding: 1px;
+    color: #ffffff;
+    bottom: 2px;
+    position: relative;
+}
+
+.red-bg
+{
+    background-color: red;
+}
+
+.green-bg
+{
+    background-color: green;
+}
+
+
+.evaluate-img{
+    height: 30px;
+    width: 30px;
+}
+
+.evaluate-name{
+    font-size: 12px;
+    color: #666666;
+    bottom: 10px;
+    position: relative;
+}
+/*用户评价中的星星图案*/
+.evaluate-star{
+    font-size: 12px;
+    bottom: 10px;
+    position: relative;
+}
+
+/*设置item的上下边距和边框颜色*/
+.commodity .item{
+    border-color: #eeeeee;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+/*诚信档案中，各个情节对应的格式*/
+.integrity-low{
+    font-size: 14px;
+    color: #007aff;
+    white-space: normal
+}
+
+.integrity-mid{
+    font-size: 14px;
+    color: orangered;
+    white-space: normal
+}
+
+.integrity-high{
+    font-size: 14px;
+    color: red;
+    white-space: normal
+}
+/*商品说明对应的样式*/
+.commodity-info{
+    font-size: 14px;
+    white-space: normal
+}
+
+
+

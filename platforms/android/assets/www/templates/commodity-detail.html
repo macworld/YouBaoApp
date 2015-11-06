@@ -1,0 +1,267 @@
+<ion-view view-title="<B>商品详情</B>" hide-nav-bar="false">
+
+    <ion-nav-buttons side="left">
+        <!--如何在tempalte中使用rootScope的经典例子-->
+        <a class="button button-clear icon ion-ios-arrow-back" ng-click="$root.goBack()"></a>
+    </ion-nav-buttons>
+
+    <ion-content class="stable-bg">
+        <!--商品的图片展示，这边的话提供2-5张图片展示，第一张将作为商品列表中呈现使用
+        关于图片的规格，目前做如下规定：
+        1.所有图片比例要求为1:1
+        2.对于展示图片，我们构建常见邮票图片库，并采取鼓励措施欢迎用户来提交新的邮票，我们采纳之后用户获得免费vip时间和金币
+        3.我们推荐从图片库中选择对应邮票的样例图作为商品图的第一张，因为这些我们都可以在库里手动处理为1:1，方便展示
+        4.对于用户自己拍摄的图像，我们强制将其处理为1:1，目前的方法有两种：
+        第一，获取用户摄像头的分辨率，然后以其宽度作为标准值，在用户拍摄结束后，让用户按照宽度*宽度的形式将其剪切为1:1（目前接口强制1;1剪切可以实现），
+        但目前的问题的是，摄像头分辨率暂时不清楚如何获取，且不同的摄像头分辨率不同，最终呈现的差异可能较大
+
+        第二，设定固定的分辨率，用户强制进行裁剪，为了兼顾低分辨率的设备，设定的分辨率值不高，
+        但是对于对于分辨率高的设备而言，可能裁剪的只是一小部分，用户很难进行裁剪操作
+
+        5、对于上传的图片(假设此时已保证为1:1),判断其大小，设定阈值，比如30KB，大小超出的，使用代码进行进一步的压缩操作(如降低分辨率，或者进行有损压缩降低图像质量)
+        6.淘宝和京东上都规定图片必须为白底，本软件是否需要有这些规定，有待商议
+        -->
+
+        <!--点击可以查看大图，暂时未做，就是可以放缩的那种
+        http://devdactic.com/ionic-image-zooming/
+        -->
+
+        <div>
+            <ion-slide-box does-continue="true" auto-play="true">
+                <ion-slide>
+                    <img ng-src="img/shangpin0.png"/>
+                </ion-slide>
+                <ion-slide>
+                    <img ng-src="img/shangpin1.jpg"/>
+                </ion-slide>
+                <ion-slide>
+                    <img ng-src="img/shangpin2.jpg"/>
+                </ion-slide>
+            </ion-slide-box>
+        </div>
+
+        <div class="item no_border" style="margin-top: -5px">
+
+            <div class="item-text-wrap commodity">
+                <p style="font-size: 18px;"><i class="energized trade-type-detail">【收购】</i>正版 阿狸公仔 毛绒玩具大号玩偶可爱布娃娃卡哇伊</p>
+            </div>
+
+            <div class="assertive" style="padding-top: 5px; font-size: 18px; font-weight: bold">
+                ¥65.00/枚
+                <i class="tip" style="font-weight: normal">（剩余800枚待收购）</i>
+            </div>
+
+            <div class="row no_padding">
+                <div class="col no_padding">
+                    <i class="tip">532人浏览</i>
+                </div>
+                <div class="col no_padding" style="text-align: center">
+                    <i class="tip">60笔交易申请</i>
+                </div>
+                <div class="col no_padding" style="text-align: right">
+                    <i class="tip">32人收藏</i>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="list commodity" style="margin-top: 20px;">
+                <div class="item commodity-detail-title no_border">商品说明</div>
+            <div class="item commodity-info" style="border-bottom: 0;">
+                售申奥成功小版标准百联，四角尖尖，2001年从北京购买即保存至今，未流通品，可供5个百联，每版500元。
+
+            </div>
+        </div>
+
+        <div class="list commodity" style="margin-top: 20px;">
+            <div class="item commodity-detail-title no_border">商品参数</div>
+            <div class="item" style="border-bottom: 0;">
+                <div class="row commodity-parameter">
+                    <div class="col">
+                        名称: 2003年申奥成功小本票
+                    </div>
+                    <div class="col">
+                        俗称: 申奥小本
+                    </div>
+                </div>
+
+                <div class="row commodity-parameter" >
+                    <div class="col">
+                        数量: 1000枚
+                    </div>
+                    <div class="col">
+                        价格: 65.00/枚
+                    </div>
+                </div>
+
+
+                <div class="row commodity-parameter" >
+                    <div class="col">
+                        版型: 小本票
+                    </div>
+                    <div class="col">
+                        品相: 原包,好品
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="list commodity" style="margin-top: 20px;">
+            <div class="item commodity-detail-title no_border">买家信息</div>
+            <div class="item" style="border-bottom: 0;">
+                <div class="row">
+                    <div class="col-20">
+                        <img  ng-src="img/touxiang1.jpg" width="80%">
+                    </div>
+
+                    <div class="col-50">
+                        <div style="font-size: 16px; margin-top:5px;">
+                            刘先生    北京海淀
+                            <!-- 普通用户使用tip字体，高级会员使用蓝色字体,至尊会员使用紫色字体-->
+                            <i class="positive" style="font-size:12px;font-weight: bold;" >高级会员</i>
+                        </div>
+                        <div class="tip">
+                            实名认证
+                            <i class="icon ion-checkmark-circled positive"></i>
+                        </div>
+                    </div>
+
+                    <!--<div class="col-20">-->
+                        <!--<button class="button button-icon icon ion-android-chat positive" style="padding-left: 50px;">-->
+                        <!--</button>-->
+                    <!--</div>-->
+                </div>
+                <div class="row" style="text-align: center">
+                    <div class="col">
+                        <div>
+                            <i>4.8</i><i class=" relative-bg red-bg">平</i>
+                        </div>
+                        <p>描述相符</p>
+                    </div>
+                    <div style="height:30px; width:1px; border-left:1px #DDDDDD solid; border-radius: 50%;margin-top: 8px;"></div>
+                    <div class="col">
+                        <div>
+                            <i>4.7</i><i class="relative-bg green-bg">低</i>
+                        </div>
+                        <P>交流态度</P>
+                    </div>
+
+                    <div style="height:30px; width:1px; border-left:1px #DDDDDD solid; border-radius: 50%;margin-top: 8px;"></div>
+                    <div class="col">
+                        <div>
+                            <!--用积分的形式来积攒信用积分，然后换算为信用等级，一共五级，这个并不容易升
+                            -->
+                            <i class="icon ion-ios-star energized"></i>
+                            <i class="icon ion-ios-star energized"></i>
+                            <i class="icon ion-ios-star energized"></i>
+                            <i class="icon ion-ios-star energized"></i>
+                            <i class="icon ion-ios-star energized"></i>
+                        </div>
+                        <p style="margin-top: 1px;">信用等级</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="list commodity"  style="margin-top: 20px;">
+            <div class="item no_border">
+            <div class="commodity-detail-title">交易评价(10)</div>
+            </div>
+            <div class="item">
+                <div>
+                    <img ng-src="img/touxiang2.jpg" class="evaluate-img">
+                    <span class="evaluate-name">王先生</span>
+                    <i class="icon ion-ios-star energized evaluate-star"></i>
+                    <i class="icon ion-ios-star energized evaluate-star"></i>
+                    <i class="icon ion-ios-star energized evaluate-star"></i>
+                    <i class="icon ion-ios-star energized evaluate-star"></i>
+                    <i class="icon ion-ios-star energized evaluate-star"></i>
+                </div>
+
+                <i class="commodity-parameter">货品相很好，完全符合描述，和刘先生交流也很开心，希望有机会下一次合作</i>
+                <div class="tip">
+                    <i>2015-09-01</i>
+                    <i>商品名称:2003年申奥成功小本票</i>
+                </div>
+
+            </div>
+            <div class="item">
+                <div>
+                    <img ng-src="img/touxiang3.jpg" class="evaluate-img">
+                    <span class="evaluate-name">欧阳先生</span>
+                    <i class="icon ion-ios-star energized evaluate-star"></i>
+                    <i class="icon ion-ios-star energized evaluate-star"></i>
+                    <i class="icon ion-ios-star energized evaluate-star"></i>
+                </div>
+
+                <i class="commodity-parameter">我去，这货太坑爹了，被虫子咬坏了都，赶紧退了，吓死宝宝了</i>
+
+                <div class="tip">
+                    <i>2015-09-10</i>
+                    <i>商品名称:2003年申奥成功小本票</i>
+                </div>
+            </div>
+
+            <div class="item" style="border-bottom: 0; padding-bottom: 2px;" ng-click="">
+
+                <div class="commodity-parameter" style="text-align: center">
+                    查看更多评价<br>
+                    <i class="icon ion-android-arrow-dropdown"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="list commodity"  style="margin-top: 20px;">
+            <div class="item no_border">
+                <div class="commodity-detail-title">诚信档案</div>
+            </div>
+            <div class="item" style="border-bottom: 0;">
+                <!-- 诚信档案只对至尊会员可见，点击了解更多后进入会员权限宣传页面-->
+                <div class="tip">
+                    您的会员等级暂无该资料查看权限。<a href="#">了解更多</a>
+                </div>
+                <!-- 按照情节，轻的为绿色，中等为橙色orangered，严重为red-->
+                <div class="integrity-low">
+                    <i>2015-09-10</i>
+                    <i>到货数量缺少100枚，已查实</i>
+                    <i style="margin-left: 20px;">情节：轻微</i>
+                </div>
+                <div class="integrity-mid">
+                    <i>2015-09-10</i>
+                    <i>到货数量缺少100枚，已查实</i>
+                    <i style="margin-left: 20px;">情节：中等</i>
+                </div>
+                <div class="integrity-high">
+                    <i>2015-09-10</i>
+                    <i>到货数量缺少100枚，已查实</i>
+                    <i style="margin-left: 20px;">情节：严重</i>
+                </div>
+                <div class="commodity-parameter">
+                    该用户在本台诚信良好，暂无不良记录
+                </div>
+            </div>
+        </div>
+
+
+    </ion-content>
+
+
+    <!-- 底部的菜单栏 -->
+    <ion-footer-bar class="bar-light">
+
+        <div class="button button-energized" style="width:35%; margin-left: 10px;">
+             <i class="icon ion-ios-star-outline" style="margin-right: 10px;"></i>
+             <i style="font-size: 16px;font-weight: bold">收藏</i>
+        </div>
+
+        <div class="button button-positive" style="width:45%; margin-left: 10px;">
+            <i class="icon ion-android-chat" style="margin-right: 10px;"></i>
+            <i style="font-size: 16px;font-weight: bold">申请洽谈</i>
+        </div>
+
+        <div class="button button-light no_border">
+            <i class="icon ion-ios-home-outline " style="margin-right: 10px;"></i>
+        </div>
+    </ion-footer-bar>
+</ion-view>
