@@ -191,6 +191,13 @@ angular.module('ZhangYouBao', ['ionic', 'ZhangYouBao.controllers', 'ZhangYouBao.
           controller: 'CommodityDetailCtrl'
       }
   )
+
+  .state('shop-detail',{
+      url: '/shop/:shopId',
+      templateUrl: 'templates/shop-detail.html',
+      controller: 'ShopDetailCtrl'
+  })
+
   ;
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/home');

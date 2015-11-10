@@ -23,7 +23,9 @@
   <!--白名单参见必须的设置，设定顶级tabs的可用跳转范围-->
   <allow-navigation href="http://*/*" />
 
-
+    <!--设置android平台的支持版本，最小版本v15，即andoird4.0.3，目标版本19，即4.4.2-->
+    <preference name="android-minSdkVersion" value="14" />
+    <preference name="android-targetSdkVersion" value="19" />
 
   <feature name="StatusBar">
     <param name="ios-package" value="CDVStatusBar" onload="true"/>

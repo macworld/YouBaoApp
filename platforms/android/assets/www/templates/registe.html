@@ -1,4 +1,8 @@
 <ion-view view-title="<B>会员注册</B>">
+  <ion-nav-buttons side="left">
+    <!--如何在tempalte中使用rootScope的经典例子-->
+    <a class="button button-clear icon ion-ios-arrow-back" ng-click="$root.goBack()"></a>
+  </ion-nav-buttons>
     <ion-content>
         <ion-list ng-if="registeStateIndex==1">
 

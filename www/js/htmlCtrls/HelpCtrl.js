@@ -2,12 +2,14 @@
  * Created by Administrator on 2015/10/23.
  */
 
-rootModule.controller('HelpCtrl', function($scope,Helps,$sce,$http) {
+rootModule.controller('HelpCtrl', function($scope,Helps,$sce,$http,$ionicScrollDelegate) {
 
     $scope.helpItems=Helps.getHelps();
     $scope.helpClasses=Helps.getClasses();
     $scope.changeOpen=function(classItem){
         classItem.isOpen=!classItem.isOpen;
+        //重新计算页面大小并跳转到对应的handle
+        $ionicScrollDelegate.resize();
     };
 
     $scope.goItem=function(item){

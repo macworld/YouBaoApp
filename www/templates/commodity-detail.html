@@ -127,10 +127,10 @@
                         </div>
                     </div>
 
-                    <!--<div class="col-20">-->
-                        <!--<button class="button button-icon icon ion-android-chat positive" style="padding-left: 50px;">-->
-                        <!--</button>-->
-                    <!--</div>-->
+                    <div class="col-20">
+                        <button class="button button-icon icon ion-ios-telephone positive" style="padding-left: 50px;">
+                        </button>
+                    </div>
                 </div>
                 <div class="row" style="text-align: center">
                     <div class="col">
@@ -250,18 +250,43 @@
     <!-- 底部的菜单栏 -->
     <ion-footer-bar class="bar-light">
 
-        <div class="button button-energized" style="width:35%; margin-left: 10px;">
-             <i class="icon ion-ios-star-outline" style="margin-right: 10px;"></i>
-             <i style="font-size: 16px;font-weight: bold">收藏</i>
-        </div>
+        <!--<div class="button button-energized" style="width:35%; margin-left: 10px;">-->
+             <!--<i class="icon ion-ios-star-outline" style="margin-right: 10px;"></i>-->
+             <!--<i style="font-size: 16px;font-weight: bold">收藏</i>-->
+        <!--</div>-->
 
-        <div class="button button-positive" style="width:45%; margin-left: 10px;">
+        <!--<div class="button button-positive" style="width:45%; margin-left: 10px;">-->
+            <!--<i class="icon ion-android-chat" style="margin-right: 10px;"></i>-->
+            <!--<i style="font-size: 16px;font-weight: bold">申请洽谈</i>-->
+        <!--</div>-->
+
+        <!--<div class="button button-light no_border" href="#/home">-->
+        <!--<i class="icon ion-ios-home-outline " style="margin-right: 10px;"></i>-->
+        <!--</div>-->
+
+        <div class="button button-positive" style="width:40%; margin-left: 10px;">
             <i class="icon ion-android-chat" style="margin-right: 10px;"></i>
             <i style="font-size: 16px;font-weight: bold">申请洽谈</i>
         </div>
 
-        <div class="button button-light no_border" href="#/home">
-            <i class="icon ion-ios-home-outline " style="margin-right: 10px;"></i>
+        <!-- 请在洽谈成功后(本平台上私信洽谈或者电话洽谈)根据约定好的细节申请交易，只有双方都同意该交易申请，交易方可生效-->
+        <div class="button button-energized" style="width:40%; margin-left: 10px;" ng-click="onApplyTrade()">
+            <i class="icon ion-social-usd" style="margin-right: 10px;"></i>
+            <i style="font-size: 16px;font-weight: bold">申请交易</i>
         </div>
+
+        <!--<div class="button button-light no_border">-->
+        <!--<i class="icon ion-ios-star-outline  " style="margin-right: 10px;"></i>-->
+        <!--</div>-->
+
+      <div class="button button-light no_border" ng-if="!isCollected" ng-click="changeCollect()">
+        <i class="icon ion-ios-star-outline " style="margin-right: 10px;"></i>
+      </div>
+
+      <div class="button button-light no_border" ng-if="isCollected" ng-click="changeCollect()">
+        <i class="icon ion-ios-star energized"  style="margin-right: 10px;"></i>
+      </div>
+
+
     </ion-footer-bar>
 </ion-view>

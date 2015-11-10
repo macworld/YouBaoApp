@@ -1,0 +1,173 @@
+<ion-view view-title="<B>实体店铺</B>">
+
+    <ion-nav-buttons side="left">
+      <!--如何在tempalte中使用rootScope的经典例子-->
+      <a class="button button-clear icon ion-ios-arrow-back" ng-click="$root.goBack()"></a>
+    </ion-nav-buttons>
+
+    <ion-nav-buttons side="right">
+        <!--<a class="button button-icon icon ion-ios-star-outline shop-collect" style="font-size: 16px">收藏</a>-->
+        <div class="button button-positive no_border shop-collect" ng-if="!isCollected" ng-click="changeCollect()">
+            <i class="icon ion-ios-star-outline " ></i>
+        </div>
+
+        <div class="button button-positive no_border shop-collect" ng-if="isCollected" ng-click="changeCollect()">
+            <i class="icon ion-ios-star energized" ></i>
+        </div>
+    </ion-nav-buttons>
+
+
+
+    <ion-content class="stable-bg">
+
+
+    <!-- 商铺的展示图片，为了保证显示的效果和划动的效果，所有的图片必须保证相同的宽高比-->
+    <div>
+        <ion-slide-box does-continue="true" auto-play="true">
+            <ion-slide>
+                <img ng-src="img/dianpu1.jpg"/>
+            </ion-slide>
+            <ion-slide>
+                <img ng-src="img/dianpu2.jpg"/>
+            </ion-slide>
+            <ion-slide>
+                <img ng-src="img/dianpu3.jpg"/>
+            </ion-slide>
+
+            <ion-slide>
+                <img ng-src="img/dianpu4.jpg"/>
+            </ion-slide>
+        </ion-slide-box>
+    </div>
+
+
+
+    <div class="list commodity" style="margin-top: -5px;">
+        <!--<div class="item commodity-detail-title no_border">店铺信息</div>-->
+        <div class="item" style="border-bottom: 0;">
+
+
+            <div >
+                <div style="font-size: 16px; margin-top:5px;">
+                    三里屯邮票交易旗舰店    北京朝阳
+                </div>
+                <div class="tip" style="position: relative">
+                    实体店认证
+                    <i class="icon ion-checkmark-circled positive"></i>
+                    <i style="position: absolute; right: 0;">122人收藏</i>
+                </div>
+            </div>
+            <div class="row" style="text-align: center">
+                <div class="col">
+                    <div>
+                        <i>4.8</i><i class=" relative-bg red-bg">平</i>
+                    </div>
+                    <p>描述相符</p>
+                </div>
+                <div style="height:30px; width:1px; border-left:1px #DDDDDD solid; border-radius: 50%;margin-top: 8px;"></div>
+                <div class="col">
+                    <div>
+                        <i>4.7</i><i class="relative-bg green-bg">低</i>
+                    </div>
+                    <P>交流态度</P>
+                </div>
+
+                <div style="height:30px; width:1px; border-left:1px #DDDDDD solid; border-radius: 50%;margin-top: 8px;"></div>
+                <div class="col">
+                    <div>
+                        <!--
+                        实体店的信用等级初始为3星，游客没有信用等级，付费会员通过实名认证的初始信用等级为1星
+                        -->
+                        <i class="icon ion-ios-star energized"></i>
+                        <i class="icon ion-ios-star energized"></i>
+                        <i class="icon ion-ios-star energized"></i>
+                        <i class="icon ion-ios-star energized"></i>
+                        <i class="icon ion-ios-star energized"></i>
+                    </div>
+                    <p style="margin-top: 1px;">信用等级</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="list commodity" style="margin-top: 20px;">
+        <div class="item commodity-detail-title no_border">商铺简介</div>
+        <div class="item commodity-info no_border_bottom">
+            北京朝阳知名邮票交易实体店，20年从业经验，专业，专注，诚信，是我们的追求，期待与您的合作。
+
+        </div>
+    </div>
+
+    <div  class="list commodity" >
+        <div class="item no_border">
+            <div class="commodity-detail-title">商品列表</div>
+        </div>
+        <div ng-repeat="class in classes">
+            <ion-item class="item-icon-left no_border_bottom"  type="item-text-wrap" ng-if="!class.isOpen" ng-click="changeOpen(class)" id="{{class.name+class.isOpen.toString()}}">
+                <i class="icon ion-arrow-right-b positive"></i>
+                <B>{{class.name}}</B>
+            </ion-item>
+
+            <ion-item class="item-icon-left no_border_bottom"  type="item-text-wrap" ng-if="class.isOpen" ng-click="changeOpen(class)" id="{{class.name+class.isOpen.toString()}}">
+                <i class="icon ion-arrow-down-b positive"></i>
+                <B>{{class.name}}</B>
+            </ion-item>
+
+            <div ng-if="class.isOpen" ng-repeat="item in classItems[class.name]" class="no_padding">
+                <a class="item item-thumbnail-left no_border_bottom" href="#"  ui-sref="commodity-detail({commodityId: 0})">
+                    <img src="img/guadan1.jpg">
+
+                    <div class="ellipsis commodity">
+                        <div>
+                            <p><i class="energized trade-type">【收购】</i>正版 阿狸公仔 毛绒玩具大号玩偶可爱布娃娃卡哇伊</p>
+                        </div>
+                    </div>
+
+                    <div class="assertive" style="padding-top: 5px; font-size: 16px;">
+                        <i style="font-size: 12px;">¥</i><B>65/枚</B></i>
+                        <i class="tip" style="margin-left: 10px;">532人浏览</i>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="list commodity"  style="margin-top: 20px;">
+      <div class="item no_border">
+        <div class="commodity-detail-title">诚信档案</div>
+      </div>
+      <div class="item" style="border-bottom: 0;">
+        <!-- 诚信档案只对至尊会员可见，点击了解更多后进入会员权限宣传页面-->
+        <div class="tip">
+          您的会员等级暂无该资料查看权限。<a href="#">了解更多</a>
+        </div>
+        <!-- 按照情节，轻的为绿色，中等为橙色orangered，严重为red-->
+        <div class="integrity-low">
+          <i>2015-09-10</i>
+          <i>到货数量缺少100枚，已查实</i>
+          <i style="margin-left: 20px;">情节：轻微</i>
+        </div>
+        <div class="integrity-mid">
+          <i>2015-09-10</i>
+          <i>到货数量缺少100枚，已查实</i>
+          <i style="margin-left: 20px;">情节：中等</i>
+        </div>
+        <div class="integrity-high">
+          <i>2015-09-10</i>
+          <i>到货数量缺少100枚，已查实</i>
+          <i style="margin-left: 20px;">情节：严重</i>
+        </div>
+        <div class="commodity-parameter">
+          该用户在本台诚信良好，暂无不良记录
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+    </ion-content>
+</ion-view>

@@ -57,3 +57,8 @@ col中p标签下的文字大小以及颜色
 .accout_title_icon{
     color: #aaaaaa;
 }
+
+.shop-collect .bar .button.button-icon:before, .bar .button .icon:before, .bar .button.icon:before, .bar .button.icon-left:before, .bar .button.icon-right:before{
+    font-size: 24px;
+}
+

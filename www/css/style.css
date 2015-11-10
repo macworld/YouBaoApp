@@ -65,4 +65,12 @@ ion-slide img{
 
 }
 
+.no_border_bottom{
+    border-bottom: 0;
+}
+
+.no_border_top{
+    border-top: 0;
+}
+
 

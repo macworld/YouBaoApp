@@ -6,9 +6,10 @@
 -->
 <ion-view view-title="{{chat.name}}" class="stable-bg" hide-tabs="true">
 
-    <!--<ion-nav-buttons side="left">-->
-        <!--<a class="button button-clear icon ion-ios-arrow-back" href="#/tab/chats"></a>-->
-    <!--</ion-nav-buttons>-->
+  <ion-nav-buttons side="left">
+    <!--如何在tempalte中使用rootScope的经典例子-->
+    <a class="button button-clear icon ion-ios-arrow-back" ng-click="$root.goBack()"></a>
+  </ion-nav-buttons>
   <ion-content class="padding">
 
       <!--此处collection-repeat不好用，其需要每一个重复项都是固定的高度，在这儿无法达到-->
@@ -39,9 +40,9 @@
       <!--<img ng-repeat="image in images" ng-src="{{urlForImage(image)}}" height="200px"/>-->
       <!--<img ng-show="imgURI !== undefined" ng-src="{{imgURI}}">-->
 
-      <ion-scroll direction="x" style="height:200px; min-height: 200px; overflow: scroll; white-space: nowrap;">
-          <img ng-repeat="image in chatImages" ng-src="{{urlForImage(image.url)}}" style="height:200px; padding: 5px 5px 5px 5px;"/>
-      </ion-scroll>
+      <!--<ion-scroll direction="x" style="height:200px; min-height: 200px; overflow: scroll; white-space: nowrap;">-->
+          <!--<img ng-repeat="image in chatImages" ng-src="{{urlForImage(image.url)}}" style="height:200px; padding: 5px 5px 5px 5px;"/>-->
+      <!--</ion-scroll>-->
 
   </ion-content>
 
