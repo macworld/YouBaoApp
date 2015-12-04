@@ -2,7 +2,7 @@
  * Created by wujin on 2015/10/21.
  * 私信内容的控制器
  */
-rootModule.controller('ChatsCtrl', function($scope, Chats,$ImageCacheFactory) {
+rootModule.controller('ChatsCtrl', function($scope, Chats,$ImageCacheFactory,$rootScope) {
     // With the new view caching in Ionic, Controllers are only called
     // when they are recreated or on app start, instead of every page change.
     // To listen for when this page is active (for example, to refresh data),
@@ -10,6 +10,13 @@ rootModule.controller('ChatsCtrl', function($scope, Chats,$ImageCacheFactory) {
     //
     //$scope.$on('$ionicView.enter', function(e) {
     //});
+    //检测是否登录，对于没有登录的，强制进行登录
+    $rootScope.checkLogin();
+
+    //所有的数据请求操作都需要在登录之后进行获取
+
+
+
     $scope.chats = Chats.all();
     $scope.remove = function(chat) {
         Chats.remove(chat);

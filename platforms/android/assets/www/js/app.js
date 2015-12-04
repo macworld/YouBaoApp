@@ -8,7 +8,7 @@
 angular.module('ZhangYouBao', ['ionic', 'ZhangYouBao.controllers', 'ZhangYouBao.services',
     'ZhangYouBao.directives','ngCordova','imageCacheFactory','autoFocus'])
 
-.run(function($ionicPlatform,$rootScope,$ionicHistory,$state) {
+.run(function($ionicPlatform,$rootScope,$ionicHistory,$state,LoginoutService,NetworkStateService) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -27,10 +27,33 @@ angular.module('ZhangYouBao', ['ionic', 'ZhangYouBao.controllers', 'ZhangYouBao.
   $rootScope.msgResendSeconds=60; //60s才能重发验证码
   $rootScope.msgResendRemain=0;//剩余的重发秒数
   $rootScope.maxCardNum=2;//最大支持的银行卡数
+  $rootScope.serverAddr="121.42.208.114";
+  //用于标记是否进行了强制登录，如果强制登录了，那么登录成功后需要跳转回来
+  $rootScope.forceLogin=false;
 
+//  $rootScope.SERVER_ADDRESS="169.254.123.63/html"; //服务器地址，目前使用IP，之后可能会换成域名
+  $rootScope.SERVER_ADDRESS="115.28.95.58";
+  $rootScope.ENTER_FILE="zhangyoubao.php";//入口函数
   //定义一个全局函数，该函数用于部分页面左上角的返回按钮
   $rootScope.goBack=function(){
       $ionicHistory.goBack();
+  };
+  //清空history
+  $rootScope.clearHistory=function(){
+      $ionicHistory.clearHistory();
+  };
+  //检测是否登录，没有登录则强制跳转到登录页面
+  $rootScope.checkLogin=function(){
+      if(!$rootScope.isLogin)
+      {
+          //强制登录
+          $rootScope.forceLogin=true;
+          $state.go("login");
+      }
+  };
+  //用于创建一个固定大小的数组
+  $rootScope.range=function(num){
+      return new Array(num);
   };
 
    //用于设置android返回键
@@ -50,6 +73,19 @@ angular.module('ZhangYouBao', ['ionic', 'ZhangYouBao.controllers', 'ZhangYouBao.
             $ionicHistory.goBack();
         }
     }, 100);
+
+    //应用开启时候的一些功能调用
+    //测试网络状态和自动登录
+    $ionicPlatform.ready(function() {
+        if(NetworkStateService.checkConnection())
+        {
+            if(LoginoutService.isAutoLogin())
+            {
+                //自动登录
+                LoginoutService.loginWithLastInfo();
+            }
+        }
+    });
 
 })
 
@@ -196,6 +232,12 @@ angular.module('ZhangYouBao', ['ionic', 'ZhangYouBao.controllers', 'ZhangYouBao.
       url: '/shop/:shopId',
       templateUrl: 'templates/shop-detail.html',
       controller: 'ShopDetailCtrl'
+  })
+
+  .state('vip-state',{
+          url: '/vipState',
+          templateUrl: 'templates/vip-state.html',
+          controller: 'VipStateCtrl'
   })
 
   ;

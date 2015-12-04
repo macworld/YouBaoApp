@@ -22,21 +22,46 @@
             <div class="card">
                 <label class="item item-input">
                     <span class="input-label">账户名</span>
-                    <input type="number" placeholder="手机号" autofocus>
+                    <input type="number" placeholder="手机号" ng-model="phone" autofocus>
                 </label>
                 <label class="item item-input">
                     <span class="input-label">登录密码</span>
-                    <input type="password" placeholder="请输入密码">
+                    <input type="password" placeholder="请输入密码" ng-model="password" maxlength="20">
                 </label>
+                <div class="item no_padding">
+                    <div class="row no_padding" style="text-align: center">
+                        <!--<div class="col no_padding">-->
+                            <!--<input type="checkbox" ng-model="loginConfig.password_record">-->
+                            <!--记住密码-->
+                        <!--</div>-->
+                        <!--<div class="col no_padding">-->
+                            <!--<input type="checkbox" ng-model="loginConfig.auto_login">-->
+                            <!--自动登录-->
+                        <!--</div>-->
+                        <div class="col no_padding">
+                            <i class="button button-icon ion-android-checkbox-outline-blank" ng-if="!loginConfig.password_record"
+                               ng-click="loginConfig.password_record=!loginConfig.password_record"> 记住密码</i>
+                            <i class="button button-icon ion-android-checkbox-outline" ng-if="loginConfig.password_record"
+                               ng-click="loginConfig.password_record=!loginConfig.password_record"> 记住密码</i>
+                        </div>
+                        <div class="col no_padding">
+                            <i class="button button-icon ion-android-checkbox-outline-blank" ng-if="!loginConfig.auto_login"
+                               ng-click="loginConfig.auto_login=!loginConfig.auto_login"> 自动登录</i>
+                            <i class="button button-icon ion-android-checkbox-outline" ng-if="loginConfig.auto_login"
+                               ng-click="loginConfig.auto_login=!loginConfig.auto_login"> 自动登录</i>
+
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="list-inset">
-                <button class="button button-full button-positive">
+                <button class="button button-full button-positive" ng-click="login(phone,password)">
                     <B>登录</B>
                 </button>
                 <div style="position: relative">
                 <a class="font_big_weight" href="#/registe">快速注册</a>
-                <a class="font_big_weight" style="position: absolute; right: 0;" href="#/certification">找回密码</a>
+                <a class="font_big_weight" style="position: absolute; right: 0;">找回密码</a>
                 </div>
             </div>
 

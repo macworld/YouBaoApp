@@ -1,6 +1,6 @@
 <ion-view hide-nav-bar="true">
   <ion-content class="stable-bg">
-    <div>
+    <div ng-if="$root.isLogin">
         <img ng-src="img/account_bg.jpg" width="100%" >
         <!--<div style="position: absolute; bottom: 20px;width: 100%;">-->
             <!--<button class="button button-energized" style="margin-left:33%; margin-right: 33%;width: 33%">登录/注册</button>-->
@@ -8,28 +8,29 @@
 
         <div class="item row text_center account" style="bottom: 5px;">
             <div class="col-25">
-                <img  ng-src="img/touxiang1.jpg">
+                <img  ng-src="{{userInfo.image_name}}">
             </div>
 
             <div class="col-75" >
                 <div class="row">
-                    <p style="font-size: 16px;font-weight: bold; padding-left: 10%;color: #007aff">15510127028</p>
+                    <p style="font-size: 16px;font-weight: bold; padding-left: 10%;color: #007aff">{{userInfo.phone}}  vip1</p>
                 </div>
-                <div class="row" style="padding-bottom: 0;">
+                <div class="row" style="padding-bottom: 0; padding-left: 0;padding-right: 0;">
                     <div class="col no_padding">
-                        <p>4</p>
-                        <p>金币</p>
+                        <p>{{userInfo.trade_num}}</p>
+                        <p>交易数</p>
                     </div>
                     <div style="height:30px; width:1px; border-left:1px #DDDDDD solid; border-radius: 50%;margin-top: 8px;"></div>
                     <div class="col no_padding">
-                        <p>3</p>
-                        <P>交易单数</P>
+                        <p>{{userInfo.credit_score}}</p>
+                        <P>信用积分</P>
                     </div>
 
                     <div style="height:30px; width:1px; border-left:1px #DDDDDD solid; border-radius: 50%;margin-top: 8px;"></div>
                     <div class="col no_padding">
-                        <p>3</p>
-                        <p>信用积分</p>
+                        <!--<p>3</p>-->
+                        <i class="icon ion-ios-star energized" ng-repeat="item in $root.range(userInfo.credit_level) track by $index"></i>
+                        <p style="margin-top: 2px;">信用等级</p>
                     </div>
                 </div>
             </div>
@@ -41,7 +42,7 @@
             <!--包含用户名，积分、订单数，诚信等级、vip等级等，同时包含会员充值接口等,-->
             <a class="item item-icon-left item-icon-right" href="#">
                 <i class="icon ion-person energized"></i>
-                <i class="accout_title">个人信息</i>
+                <i class="accout_title">会员信息</i>
                 <i class="accout_title_detail">新会员充一送一，赶快行动吧</i>
                 <i class="icon ion-ios-arrow-forward" style="color: #aaaaaa; font-size: 24px;"></i>
             </a>
@@ -98,6 +99,11 @@
                 <i class="accout_title">建议与反馈</i>
                 <i class="accout_title_detail">感谢您的每一份建议</i>
                 <i class="icon ion-ios-arrow-forward" style="color: #aaaaaa; font-size: 24px;"></i>
+            </a>
+
+            <a class="item item-icon-left" ng-click="onLogout()">
+                <i class="icon ion-android-exit assertive"></i>
+                <i class="accout_title">退出登录</i>
             </a>
         </div>
     </div>

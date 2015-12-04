@@ -7,7 +7,8 @@
  * http://learn.ionicframework.com/formulas/localstorage/
  */
 
-rootModule.factory('LocalStorage', ['$window', function($window) {
+rootService.factory('LocalStorage', ['$window', function($window) {
+//    注意：此处的缓存会将各种值都转换为string类型，尤其是bool值，一定要记住类型转换，不然坑死
     return {
         set: function(key, value) {
             $window.localStorage[key] = value;
@@ -19,7 +20,7 @@ rootModule.factory('LocalStorage', ['$window', function($window) {
             $window.localStorage[key] = JSON.stringify(value);
         },
         getObject: function(key) {
-            return JSON.parse($window.localStorage[key] || '{}');
+            return JSON.parse($window.localStorage[key] || null);
         }
     }
 }]);

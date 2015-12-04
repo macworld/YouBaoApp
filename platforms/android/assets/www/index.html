@@ -6,6 +6,7 @@
       <!--白名单插件必须的声明，可以根据实际需求改，具体参数目前暂不理解-->
     <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
     <title></title>
+    <!--css文件加载，注意在release版本中要进行文件合并-->
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/font.css" rel="stylesheet">
@@ -23,7 +24,7 @@
 
 
 
-
+    <!-- 首页加载的js项太多，会导致打开首页时略卡，这边要留意，在最后的release版本中要将文件进行合并-->
     <!-- your app's js 引用的js文件列表-->
     <script src="js/app.js"></script>
     <script src="js/controllers.js"></script>
@@ -32,8 +33,9 @@
 
     <script src="js/tools/auto-focus.js"></script>
     <script src="js/tools/imageCacheFactory.js"></script>
+    <script src="js/tools/base64.js"></script>
     <script src="lib/ionic-image-lazy-load/ionic-image-lazy-load.js"></script>
-    <script src="lib/ngCordova/dist/ng-cordova.js"></script>
+    <script src="lib/ngCordova/dist/ng-cordova.min.js"></script>
     <!--<script src="js/ngCordova.js"></script>-->
 
     <script src="js/htmlCtrls/CategoryCtrl.js"></script>
@@ -47,10 +49,15 @@
     <script src="js/htmlCtrls/BankChooseCtrl.js"></script>
     <script src="js/htmlCtrls/CommodityDetailCtrl.js"></script>
     <script src="js/htmlCtrls/ShopDetailCtrl.js"></script>
+    <script src="js/htmlCtrls/AccountCtrl.js"></script>
 
     <script src="js/criticalServices/BankService.js"></script>
     <script src="js/criticalServices/ImgFileService.js"></script>
     <script src="js/criticalServices/CameraService.js"></script>
+    <script src="js/criticalServices/NetworkStateService.js"></script>
+    <script src="js/criticalServices/LoginoutService.js"></script>
+    <script src="js/criticalServices/LocalStorageService.js"></script>
+
 
 
 
