@@ -4,11 +4,12 @@
  */
 rootModule.controller('CertificationCtrl', function($scope,$http,$rootScope,$state,Bank,
                                                     CameraService,$ionicActionSheet,$cordovaCamera,
-                                                    $ionicScrollDelegate){
+                                                    $ionicScrollDelegate,$cordovaFileTransfer,$ionicLoading,$cordovaToast){
     //用于检测输入是否为中文
     $scope.isChinese=true;
     //将所有验证的输入信息绑定在成员变量中，从而可以关联到，如果直接用$scope.name，无法关联
     $scope.certInfo={
+        user_id: $rootScope.userInfo.user_id,
         name:"",
         idCardNo:"",
         sex: "男"
@@ -114,11 +115,12 @@ rootModule.controller('CertificationCtrl', function($scope,$http,$rootScope,$sta
                 $cordovaCamera.getPicture(options).then(function(imageUrl) {
 
                     $scope.imgUrls[type]=imageUrl;
-//                    console.log($scope.imgUrls);
+                    //console.log($scope.imgUrls);
                 });
                 return true;
             }
         });
+
 
     };
 
@@ -188,10 +190,87 @@ rootModule.controller('CertificationCtrl', function($scope,$http,$rootScope,$sta
             }
         }
         //所有检测通过
-        window.plugins.toast.showShortBottom("提交成功");
+        //1.先上传图片
+        $ionicLoading.show({
+            template: '数据上传中...'
+        });
+        uploadImages();
+        //2.提交参数
+        uploadParams();
+        //window.plugins.toast.showShortBottom("提交成功");
 
+    };
 
+    //上传实名认证的图片
+    var uploadImages=function(){
+        $server='https://'+$rootScope.SERVER_ADDRESS+'/'+$rootScope.ENTER_FILE+'/User/Upload/uploadVerificationImages';
+        $scope.imageNames=[];
+        for($i=0;$i<$scope.ImgInfos.length;$i++)
+        {
+            var options = {
+                fileKey: "file",
+                fileName: 'ver.jpg',
+                chunkedMode: "false",
+                mimeType: "image/jpeg",
+                params : {'type':$scope.ImgInfos[$i].type,'user_id':$rootScope.userInfo.user_id} // directory represents remote directory,  fileName represents final remote file name
+            };
+            $cordovaFileTransfer.upload($server, $scope.imgUrls[$scope.ImgInfos[$i].type], options,true)
+                .then(function(result) {
+                    console.log(result);
+                    $scope.imageNames[$i]=result.response;
+                    // Success!
+                }, function(err) {
+                    console.log("图片上传失败");
+                    console.log(err);
+                    $cordovaToast.showShortCenter();
+                    $ionicPopup.alert({
+                        title: '图片上传失败',
+                        template: '目前仅支持手机拍照和相册中jpg格式的文件上传，请检查网络连接后重新拍照上传'
+                    });
+                    $ionicLoading.hide();
+                    return;
+                    // Error
+                }, function (progress) {
+                    // constant progress updates
+                    //console.log(progress);
+                });
+        }
+    };
 
+    //上传实名认证的数据
+    var uploadParams=function(){
+        //上传参数
+        var $url='https://'+$rootScope.SERVER_ADDRESS+'/'+$rootScope.ENTER_FILE+'/User/Verification/uploadVerifyInfo';
+        $data=angular.copy($scope.certInfo);
+        $data.images=angular.copy($scope.imageNames);
+        $data.bankInfp=Bank.getBankCardInfos();
+        angular.toJson($data);
+        $http({
+            method: 'POST',
+            url: $url,
+            data: $data
+        }).
+            success(function(data, status, headers, config)
+            {
+                switch (status)
+                {
+                    case 204:
+                        $cordovaToast.showShortCenter("您的账号信息近期发生变动，请重新登录");
+                        break;
+                    case 200:
+                        angular.fromJson(data);
+                        console.log(data);
+                        break;
+                }
+            }).
+            error(function(data, status, headers, config)
+            {
+                switch(status){
+                    default:
+                        $cordovaToast.showShortCenter("数据上传失败，请检查您的网络状态");
+                        break;
+                }
+            });
     };
 
 

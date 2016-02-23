@@ -48,9 +48,14 @@ rootModule.controller('AccountCtrl', function($scope,$state,$rootScope,LoginoutS
     };
 
     $scope.userInfo=$rootScope.userInfo;
-    if(!$scope.userInfo.image_name)
+    //替换默认的用户头像
+    if(typeof($scope.userInfo)!="undefined")
     {
-        $scope.userInfo.image_name="img/default.png";
+        if(!$scope.userInfo.image_name)
+        {
+            $scope.userInfo.image_name="img/default.png";
+        }
+
     }
 
 

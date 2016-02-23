@@ -240,6 +240,20 @@ module.exports = [
         "clobbers": [
             "Connection"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-file-transfer/www/FileTransferError.js",
+        "id": "cordova-plugin-file-transfer.FileTransferError",
+        "clobbers": [
+            "window.FileTransferError"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-file-transfer/www/FileTransfer.js",
+        "id": "cordova-plugin-file-transfer.FileTransfer",
+        "clobbers": [
+            "window.FileTransfer"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -253,7 +267,8 @@ module.exports.metadata =
     "ionic-plugin-keyboard": "1.0.7",
     "cordova-plugin-file": "3.0.0",
     "cordova-plugin-x-toast": "2.2.1",
-    "cordova-plugin-network-information": "1.1.0"
+    "cordova-plugin-network-information": "1.1.0",
+    "cordova-plugin-file-transfer": "1.5.0"
 }
 // BOTTOM OF METADATA
 });

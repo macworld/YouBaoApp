@@ -27,7 +27,6 @@ angular.module('ZhangYouBao', ['ionic', 'ZhangYouBao.controllers', 'ZhangYouBao.
   $rootScope.msgResendSeconds=60; //60s才能重发验证码
   $rootScope.msgResendRemain=0;//剩余的重发秒数
   $rootScope.maxCardNum=2;//最大支持的银行卡数
-  $rootScope.serverAddr="121.42.208.114";
   //用于标记是否进行了强制登录，如果强制登录了，那么登录成功后需要跳转回来
   $rootScope.forceLogin=false;
 
