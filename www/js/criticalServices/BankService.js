@@ -34,9 +34,9 @@ rootService.factory('Bank',function($ionicPopup){
     //最多支持三张银行卡，该数组用于存储这三张银行卡的信息，初始只有一张默认bankID为0的卡片(建行卡)
     var bankCardInfos=[{
         id: 0,//这张银行卡在三张卡中的id
-        bankId: 0,//这张卡对应的银行的ID,与上面的bankInfo相对应
-        bankName: '中国建设银行',//为了便于显示，这里将银行名字也包含进来
-        cardId: "" //银行卡的卡号，如果为“”，表示刚刚初始化，该卡的卡号还没有录入，采用字符串来存储
+        bank_id: 0,//这张卡对应的银行的ID,与上面的bankInfo相对应
+        bank_name: '中国建设银行',//为了便于显示，这里将银行名字也包含进来
+        card_id: "" //银行卡的卡号，如果为“”，表示刚刚初始化，该卡的卡号还没有录入，采用字符串来存储
 
     }];
 
@@ -46,9 +46,9 @@ rootService.factory('Bank',function($ionicPopup){
         }
         var info={
             id: id,//这张银行卡在三张卡中的id
-            bankId: 0,//这张卡对应的银行的ID,与上面的bankInfo相对应
-            bankName: '中国建设银行',//为了便于显示，这里将银行名字也包含进来
-            cardId: "" //银行卡的卡号，如果为“”，表示刚刚初始化，该卡的卡号还没有录入，采用字符串来存储
+            bank_id: 0,//这张卡对应的银行的ID,与上面的bankInfo相对应
+            bank_name: '中国建设银行',//为了便于显示，这里将银行名字也包含进来
+            card_id: "" //银行卡的卡号，如果为“”，表示刚刚初始化，该卡的卡号还没有录入，采用字符串来存储
         };
         bankCardInfos.push(info);
         return true;
@@ -65,6 +65,12 @@ rootService.factory('Bank',function($ionicPopup){
     //该变量用于说明服务中数据的有效性，在用户实名认证成功之前，这些数据都是无效的
     //当实名认证的人工审核通过时，该数据方才有效
     var isInfoValid=false;
+
+    //从登陆信息中读取用户的银行卡信息
+    function readDataFromLogin($bank_card_info) {
+        bankCardInfos=$bank_card_info;
+    }
+
     return{
         //判断输入数据是否是合法的密码
         getBanksSupoorted: function(){
@@ -92,6 +98,7 @@ rootService.factory('Bank',function($ionicPopup){
         isValid: function(){
             return isInfoValid;
         },
-        addBankCard:addBankCard
+        addBankCard:addBankCard,
+        readDataFromLogin: readDataFromLogin
     }
 });

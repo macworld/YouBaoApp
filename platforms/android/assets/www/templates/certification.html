@@ -92,7 +92,7 @@
                     <label class="item item-input item-icon-right" ui-sref="bankChoose({bankCardId: info.id})" >
                         <span class="input-label">所属银行</span>
                         <!--根据维基百科所述，中文最长姓名是15个字-->
-                        <span>{{info.bankName}}</span>
+                        <span>{{info.bank_name}}</span>
                         <i class="icon ion-ios-arrow-forward icon-right"></i>
                     </label>
 
@@ -104,7 +104,7 @@
 
                     <label class="item item-input">
                         <span class="input-label">银行卡号</span>
-                        <input type="text" placeholder="请输入银行卡号" ng-model="info.cardId" maxlength="19" ng-blur="detectCardNum(info.cardId,$index)">
+                        <input type="text" placeholder="请输入银行卡号" ng-model="info.card_id" maxlength="19" ng-blur="detectCardNum(info.card_id,$index)">
                     </label>
                 </div>
             </div>

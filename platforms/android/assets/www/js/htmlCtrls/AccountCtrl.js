@@ -3,7 +3,7 @@
  * 用于个人账户信息界面的展示
  */
 
-rootModule.controller('AccountCtrl', function($scope,$state,$rootScope,LoginoutService,$ionicPopup) {
+rootModule.controller('AccountCtrl', function($scope,$state,$rootScope,LoginoutService,$ionicPopup,$cordovaToast) {
 
     $scope.$on('$ionicView.beforeEnter',function(){
         if($rootScope.isLogin==false)
@@ -57,6 +57,22 @@ rootModule.controller('AccountCtrl', function($scope,$state,$rootScope,LoginoutS
         }
 
     }
+
+    $scope.onVerifyClick=function()
+    {
+        switch (Number($rootScope.userInfo.is_certification))
+        {
+            case $rootScope.VERIFY_STATE.UNCOMMIT:
+                $state.go("certification");
+                break;
+            case $rootScope.VERIFY_STATE.COMMITED:
+                $cordovaToast.showShortCenter("您已提交实名认证信息，正在审核中，感谢您的耐心等候");
+                break;
+            case $rootScope.VERIFY_STATE.PASSED_VERIFY:
+                $cordovaToast.showShortCenter("您的实名认证已通过");
+                break;
+        }
+    };
 
 
 

@@ -11,7 +11,7 @@
             <!--将选择项的ng-value的值赋予ng-model对应的变量，并且单纯的变量无法获得其值，必须是这种成员变量的形式-->
             <ion-radio ng-repeat="bank in banks"
                        ng-value="bank.id"
-                       ng-model="bankCardInfo.bankId"
+                       ng-model="bankCardInfo.bank_id"
                        ng-click="onBankConfrim()">
                 {{ bank.name }}
             </ion-radio>

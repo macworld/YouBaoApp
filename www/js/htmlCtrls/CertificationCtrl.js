@@ -2,7 +2,7 @@
  * Created by wujin on 2015/10/29.
  * 用于实名验证的功能实现
  */
-rootModule.controller('CertificationCtrl', function($scope,$http,$rootScope,$state,Bank,
+rootModule.controller('CertificationCtrl', function($scope,$http,$rootScope,$state,Bank,$ionicPopup,
                                                     CameraService,$ionicActionSheet,$cordovaCamera,
                                                     $ionicScrollDelegate,$cordovaFileTransfer,$ionicLoading,$cordovaToast){
     //用于检测输入是否为中文
@@ -183,7 +183,7 @@ rootModule.controller('CertificationCtrl', function($scope,$http,$rootScope,$sta
         }
         //检测银行卡号
         for(var i=0;i<$scope.bankCardInfos.length;i++){
-            var result=$scope.detectCardNum($scope.bankCardInfos[i].cardId,i);
+            var result=$scope.detectCardNum($scope.bankCardInfos[i].card_id,i);
             if(!result){
                 $ionicScrollDelegate.scrollBottom();
                 return;
@@ -191,13 +191,13 @@ rootModule.controller('CertificationCtrl', function($scope,$http,$rootScope,$sta
         }
         //所有检测通过
         //1.先上传图片
+
         $ionicLoading.show({
-            template: '数据上传中...'
+            template: '数据上传中，图片文件较大，请耐心等候...'
         });
-        uploadImages();
-        //2.提交参数
-        uploadParams();
-        //window.plugins.toast.showShortBottom("提交成功");
+        uploadImages();//2.等待图片提交成功，提交参数
+
+
 
     };
 
@@ -205,6 +205,8 @@ rootModule.controller('CertificationCtrl', function($scope,$http,$rootScope,$sta
     var uploadImages=function(){
         $server='https://'+$rootScope.SERVER_ADDRESS+'/'+$rootScope.ENTER_FILE+'/User/Upload/uploadVerificationImages';
         $scope.imageNames=[];
+        var isError=false;//记录当前是否发生错误
+        $scope.upload_success_num=0;
         for($i=0;$i<$scope.ImgInfos.length;$i++)
         {
             var options = {
@@ -217,18 +219,24 @@ rootModule.controller('CertificationCtrl', function($scope,$http,$rootScope,$sta
             $cordovaFileTransfer.upload($server, $scope.imgUrls[$scope.ImgInfos[$i].type], options,true)
                 .then(function(result) {
                     console.log(result);
-                    $scope.imageNames[$i]=result.response;
+                    $scope.upload_success_num++;
+                    if($scope.upload_success_num==3)
+                    {
+                        onImgUploadSuccess();
+                    }
                     // Success!
                 }, function(err) {
                     console.log("图片上传失败");
                     console.log(err);
-                    $cordovaToast.showShortCenter();
-                    $ionicPopup.alert({
-                        title: '图片上传失败',
-                        template: '目前仅支持手机拍照和相册中jpg格式的文件上传，请检查网络连接后重新拍照上传'
-                    });
-                    $ionicLoading.hide();
-                    return;
+                    if(!isError)
+                    {
+                        $ionicLoading.hide();
+                        $ionicPopup.alert({
+                            title: '图片上传失败',
+                            template: '目前仅支持手机拍照和相册中jpg格式的文件上传，请检查网络连接后重新拍照上传'
+                        });
+                        isError=true;
+                    }
                     // Error
                 }, function (progress) {
                     // constant progress updates
@@ -242,8 +250,8 @@ rootModule.controller('CertificationCtrl', function($scope,$http,$rootScope,$sta
         //上传参数
         var $url='https://'+$rootScope.SERVER_ADDRESS+'/'+$rootScope.ENTER_FILE+'/User/Verification/uploadVerifyInfo';
         $data=angular.copy($scope.certInfo);
-        $data.images=angular.copy($scope.imageNames);
-        $data.bankInfp=Bank.getBankCardInfos();
+        $data.bankInfo=Bank.getBankCardInfos();
+        console.log($data);
         angular.toJson($data);
         $http({
             method: 'POST',
@@ -254,12 +262,13 @@ rootModule.controller('CertificationCtrl', function($scope,$http,$rootScope,$sta
             {
                 switch (status)
                 {
-                    case 204:
-                        $cordovaToast.showShortCenter("您的账号信息近期发生变动，请重新登录");
-                        break;
                     case 200:
-                        angular.fromJson(data);
                         console.log(data);
+                        $ionicLoading.hide();
+                        $cordovaToast.showShortCenter("提交成功");
+                        //将用户实名认证状态改为待审核
+                        $rootScope.userInfo.is_certification=$rootScope.VERIFY_STATE.COMMITED;
+                        $state.go("tab.account");
                         break;
                 }
             }).
@@ -267,10 +276,23 @@ rootModule.controller('CertificationCtrl', function($scope,$http,$rootScope,$sta
             {
                 switch(status){
                     default:
-                        $cordovaToast.showShortCenter("数据上传失败，请检查您的网络状态");
+                        $ionicLoading.hide();
+                        $ionicPopup.alert({
+                            title: '用户信息上传失败',
+                            template: '请检查您填写的信息后重试'
+                        });
                         break;
                 }
             });
+    };
+
+    var onImgUploadSuccess=function(){
+        //数据提交成功
+        $ionicLoading.hide();
+        $ionicLoading.show({
+            template: '图片上传成功，正在上传用户信息...'
+        });
+        uploadParams();
     };
 
 

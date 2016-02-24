@@ -11,7 +11,7 @@ rootModule
         console.log($scope.bankCardInfo);
 
         $scope.onBankConfrim=function(){
-            $scope.bankCardInfo.bankName=Bank.getBankNameById($scope.bankCardInfo.bankId);
+            $scope.bankCardInfo.bank_name=Bank.getBankNameById($scope.bankCardInfo.bank_id);
             $ionicHistory.goBack();
         };
 

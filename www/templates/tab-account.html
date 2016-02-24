@@ -49,12 +49,23 @@
 
             <!-- 对于未进行实名认证用户，提醒其进行认证，对于已认证的用户提供实名信息的查看，并包含对于银行卡的管理-->
             <!-- 认证通过，管理银行卡-->
-            <a class="item item-icon-left item-icon-right" href="#/certification">
-                <i class="icon ion-card royal"></i>
+            <a class="item item-icon-left item-icon-right" ng-click="onVerifyClick()">
+                <i class="icon ion-alert-circled royal"></i>
                 <i class="accout_title">实名认证</i>
-                <i class="accout_title_detail" style="color: #ef473a">您暂未进行实名认证</i>
+                <i class="accout_title_detail" style="color: #ef473a" ng-if="$root.userInfo.is_certification==$root.VERIFY_STATE.UNCOMMIT">您暂未进行实名认证</i>
+                <i class="accout_title_detail" style="color: #efa300" ng-if="$root.userInfo.is_certification==$root.VERIFY_STATE.COMMITED">信息审核中，请耐心等待</i>
+                <i class="accout_title_detail" style="color: #216aef" ng-if="$root.userInfo.is_certification==$root.VERIFY_STATE.PASSED_VERIFY">实名认证通过</i>
+
                 <i class="icon ion-ios-arrow-forward" style="color: #aaaaaa; font-size: 24px;"></i>
             </a>
+
+            <a class="item item-icon-left item-icon-right" href="#/CardManage" ng-if="$root.userInfo.is_certification==$root.VERIFY_STATE.PASSED_VERIFY">
+                <i class="icon ion-card dark"></i>
+                <i class="accout_title">银行卡管理</i>
+                <i class="accout_title_detail">设置银行卡信息</i>
+                <i class="icon ion-ios-arrow-forward" style="color: #aaaaaa; font-size: 24px;"></i>
+            </a>
+
 
 
         </div>

@@ -1,0 +1,51 @@
+<ion-view view-title="银行卡管理">
+    <ion-content>
+        <div class="card">
+            <!--<label class="item  positive text_bold ">-->
+            <!--银行卡信息-->
+
+            <!--</label>-->
+            <div ng-repeat="info in bankCardInfos">
+                <!--此处曾出现大坑，请注意，在使用label标签时不要包含带ng-click的icon或者button的item-icon-right，
+                这种情况下的ng-click根本不会触发，改成div，问题解决，大坑，谨记！！！！-->
+                <!--add-->
+                <label class="item  positive item-divider text_bold item-icon-right"  ng-click="addCard($index+1)" ng-if="$index==bankCardInfos.length-1 && $index<maxCardNum-1">
+                    银行卡{{$index+1}}
+                    <a class="icon ion-android-add" style="font-size: 18px;" ></a>
+                </label>
+                <!--normal-->
+                <label class="item  positive item-divider text_bold item-icon-right"   ng-if="$index!=bankCardInfos.length-1">
+                    银行卡{{$index+1}}
+                </label>
+                <!--minus-->
+                <label class="item  positive item-divider text_bold item-icon-right"  ng-click="minusCard()" ng-if="$index==maxCardNum-1">
+                    银行卡{{$index+1}}
+                    <a class="icon ion-android-remove" style="font-size: 18px;" ></a>
+                </label>
+                <label class="item item-input item-icon-right" ui-sref="bankChoose({bankCardId: info.id)" >
+                    <span class="input-label">所属银行</span>
+                    <!--根据维基百科所述，中文最长姓名是15个字-->
+                    <span>{{info.bank_name}}</span>
+                    <i class="icon ion-ios-arrow-forward icon-right"></i>
+                </label>
+
+                <!-- 错误信息提示-->
+                <label class="item-input assertive" ng-if="!isCardIdValid[$index]">
+                    <i class="icon ion-close-circled placeholder-icon assertive"></i>
+                    请输入格式正确的银行卡号
+                </label>
+
+                <label class="item item-input">
+                    <span class="input-label">银行卡号</span>
+                    <input type="text" placeholder="请输入银行卡号" ng-model="info.card_id" maxlength="19" ng-blur="detectCardNum(info.card_id,$index)">
+                </label>
+            </div>
+        </div>
+
+        <div class="list-inset">
+            <button class="button button-full button-positive" ng-click="onSubmit()">
+                <B>确认提交</B>
+            </button>
+        </div>
+    </ion-content>
+</ion-view>

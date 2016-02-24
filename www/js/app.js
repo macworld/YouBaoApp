@@ -33,6 +33,13 @@ angular.module('ZhangYouBao', ['ionic', 'ZhangYouBao.controllers', 'ZhangYouBao.
 //  $rootScope.SERVER_ADDRESS="169.254.123.63/html"; //服务器地址，目前使用IP，之后可能会换成域名
   $rootScope.SERVER_ADDRESS="115.28.95.58";
   $rootScope.ENTER_FILE="zhangyoubao.php";//入口函数
+
+  //关于审核状态的常量
+  $rootScope.VERIFY_STATE={
+      UNCOMMIT: 0,  //未提交
+      COMMITED: 1,  //待审核
+      PASSED_VERIFY: 2  //审核通过
+  };
   //定义一个全局函数，该函数用于部分页面左上角的返回按钮
   $rootScope.goBack=function(){
       $ionicHistory.goBack();
@@ -85,6 +92,7 @@ angular.module('ZhangYouBao', ['ionic', 'ZhangYouBao.controllers', 'ZhangYouBao.
             }
         }
     });
+
 
 })
 
@@ -238,6 +246,13 @@ angular.module('ZhangYouBao', ['ionic', 'ZhangYouBao.controllers', 'ZhangYouBao.
           templateUrl: 'templates/vip-state.html',
           controller: 'VipStateCtrl'
   })
+
+  .state('card-manage',{
+      url: '/CardManage',
+      templateUrl: 'templates/card-manage.html',
+      controller: 'CardManageCtrl'
+  })
+
 
   ;
   // if none of the above states are matched, use this as the fallback

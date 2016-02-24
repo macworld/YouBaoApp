@@ -3,7 +3,7 @@
  */
 
 //该服务用于登录和登出的相关逻辑处理
-rootService.factory('LoginoutService',function($ionicPopup,$cordovaToast,$http,$rootScope,LocalStorage,NetworkStateService,$state){
+rootService.factory('LoginoutService',function($ionicPopup,$cordovaToast,$http,$rootScope,LocalStorage,NetworkStateService,$state,Bank){
 
     //该服务将记录上一次登录的信息，包括登录的phone，date，password(需要加密)
     var LAST_LOGIN='last_login';
@@ -51,6 +51,7 @@ rootService.factory('LoginoutService',function($ionicPopup,$cordovaToast,$http,$
                         //服务器端已经自动登录，所以这边只要设置本地的登录状态
                         $rootScope.isLogin=true;
                         $cordovaToast.showShortCenter("登录成功");
+                        setBankData(data);
                         saveLoginInfo(password);
                         if($rootScope.forceLogin)
                         {
@@ -145,10 +146,12 @@ rootService.factory('LoginoutService',function($ionicPopup,$cordovaToast,$http,$
                                 break;
                             case 200:
                                 angular.fromJson(data);
+                                console.log(data);
                                 $rootScope.userInfo=data;
                                 //服务器端已经自动登录，所以这边只要设置本地的登录状态
                                 $rootScope.isLogin=true;
                                 $cordovaToast.showShortCenter("自动登录成功");
+                                setBankData(data);
                                 saveLoginInfo(password);
                                 break;
                         }
@@ -229,6 +232,14 @@ rootService.factory('LoginoutService',function($ionicPopup,$cordovaToast,$http,$
     var clearLoginConfig=function(){
         LocalStorage.set(PASSWORD_RECORD,false);
         LocalStorage.set(AUTO_LOGIN,false);
+    };
+
+    var setBankData=function($data)
+    {
+        if(typeof($data.bank_card_info)!='undefined')
+        {
+            Bank.readDataFromLogin($data.bank_card_info);
+        }
     };
 
     return{
