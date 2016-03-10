@@ -3,7 +3,7 @@
  */
 
 //该服务用于登录和登出的相关逻辑处理
-rootService.factory('LoginoutService',function($ionicPopup,$cordovaToast,$http,$rootScope,LocalStorage,NetworkStateService,$state,Bank){
+rootService.factory('LoginoutService',function($ionicPopup,$cordovaToast,$http,$rootScope,LocalStorage,NetworkStateService,$state,Bank,$ionicLoading){
 
     //该服务将记录上一次登录的信息，包括登录的phone，date，password(需要加密)
     var LAST_LOGIN='last_login';
@@ -23,6 +23,9 @@ rootService.factory('LoginoutService',function($ionicPopup,$cordovaToast,$http,$
     //常规登录 loginConfig中包含对于记住密码和自动登录的设定
     var loginWithPassword=function(phone,password,loginConfig)
     {
+        $ionicLoading.show({
+            template: '登录中...'
+        });
         var $url='https://'+$rootScope.SERVER_ADDRESS+'/'+$rootScope.ENTER_FILE+'/User/Loginout/login';
         $data={
             'phone': phone,
@@ -45,6 +48,7 @@ rootService.factory('LoginoutService',function($ionicPopup,$cordovaToast,$http,$
                         });
                         break;
                     case 200:
+                        $ionicLoading.hide();
                         angular.fromJson(data);
                         $rootScope.userInfo=data;
                         console.log(data);
@@ -72,6 +76,7 @@ rootService.factory('LoginoutService',function($ionicPopup,$cordovaToast,$http,$
             }).
             error(function(data, status, headers, config)
             {
+                $ionicLoading.hide();
                 switch(status){
                     case 403:
                         $ionicPopup.alert({
@@ -226,7 +231,16 @@ rootService.factory('LoginoutService',function($ionicPopup,$cordovaToast,$http,$
 
     var getLastLoginPhone=function(){
         $lastLoginInfo=LocalStorage.getObject(LAST_LOGIN);
-        return parseInt($lastLoginInfo.phone);
+        console.log($lastLoginInfo);
+        if($lastLoginInfo==null)
+        {
+            return null;
+        }
+        else
+        {
+            return parseInt($lastLoginInfo.phone);
+        }
+
     };
     //该函数用于清空记住密码和自动登录
     var clearLoginConfig=function(){
@@ -242,6 +256,16 @@ rootService.factory('LoginoutService',function($ionicPopup,$cordovaToast,$http,$
         }
     };
 
+    //用于检测用户时候已经登录，对于未登录的跳转到登录页面
+    var hasLogin=function(){
+        if($rootScope.isLogin==false)
+        {
+            $state.go('login');
+            return false;
+        }
+        return true;
+    };
+
     return{
         loginWithoutConnect: loginWithoutConnect,
         loginWithPassword: loginWithPassword,
@@ -250,7 +274,8 @@ rootService.factory('LoginoutService',function($ionicPopup,$cordovaToast,$http,$
         isAutoLogin: isAutoLogin,
         getRecordedPassword: getRecordedPassword,
         getLastLoginPhone: getLastLoginPhone,
-        clearLoginConfig: clearLoginConfig
+        clearLoginConfig: clearLoginConfig,
+        hasLogin: hasLogin
     }
 
 });

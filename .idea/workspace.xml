@@ -2,18 +2,153 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1dff6a6d-442c-4f42-a8ae-181f01ae5a4e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/htmlCtrls/CardManageCtrl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/templates/card-manage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/htmlCtrls/AccountCtrl.js" afterPath="$PROJECT_DIR$/www/js/htmlCtrls/AccountCtrl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/store-2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/store-3.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/store-4.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/htmlCtrls/AddTradeCtrl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/htmlCtrls/StoreManageCtrl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/htmlCtrls/StoreRegister.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/criticalServices/TradeTypeService.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/templates/add-trade.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/templates/store-manage.html" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\CONTRIBUTING.md" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\NOTICE" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\README.md" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\RELEASENOTES.md" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\doc\de\README.md" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\doc\de\index.md" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\doc\es\README.md" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\doc\es\index.md" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\doc\fr\README.md" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\doc\fr\index.md" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\doc\img\android-fail.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\doc\img\android-success.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\doc\img\blackberry-fail.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\doc\img\blackberry-success.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\doc\img\browser-fail.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\doc\img\browser-success.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\doc\img\firefox-fail.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\doc\img\firefox-success.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\doc\img\fireos-fail.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\doc\img\fireos-success.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\doc\img\ios-fail.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\doc\img\ios-success.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\doc\img\ubuntu-fail.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\doc\img\ubuntu-success.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\doc\img\windows-fail.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\doc\img\windows-success.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\doc\img\wp8-fail.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\doc\img\wp8-success.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\doc\it\README.md" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\doc\it\index.md" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\doc\ja\README.md" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\doc\ja\index.md" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\doc\ko\README.md" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\doc\ko\index.md" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\doc\pl\README.md" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\doc\pl\index.md" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\doc\ru\index.md" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\doc\zh\README.md" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\doc\zh\index.md" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\package.json" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\plugin.xml" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\src\android\CameraLauncher.java" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\src\android\ExifHelper.java" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\src\android\FileHelper.java" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\src\blackberry10\index.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\src\browser\CameraProxy.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\src\firefoxos\CameraProxy.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\src\ios\CDVCamera.h" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\src\ios\CDVCamera.m" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\src\ios\CDVExif.h" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\src\ios\CDVJpegHeaderWriter.h" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\src\ios\CDVJpegHeaderWriter.m" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\src\ios\UIImage+CropScaleOrientation.h" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\src\ios\UIImage+CropScaleOrientation.m" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\src\ubuntu\CaptureWidget.qml" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\src\ubuntu\back.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\src\ubuntu\camera.cpp" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\src\ubuntu\camera.h" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\src\ubuntu\shoot.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\src\ubuntu\toolbar-left.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\src\ubuntu\toolbar-middle.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\src\ubuntu\toolbar-right.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\src\windows\CameraProxy.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\src\wp\Camera.cs" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\tests\ios\.npmignore" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\tests\ios\CDVCameraTest.xcworkspace\contents.xcworkspacedata" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\tests\ios\CDVCameraTest.xcworkspace\xcshareddata\CDVCameraTest.xccheckout" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\tests\ios\CDVCameraTest.xcworkspace\xcshareddata\xcschemes\CordovaLib.xcscheme" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\tests\ios\CDVCameraTest\CDVCameraLibTests\CameraTest.m" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\tests\ios\CDVCameraTest\CDVCameraLibTests\Info.plist" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\tests\ios\CDVCameraTest\CDVCameraTest.xcodeproj\project.pbxproj" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\tests\ios\CDVCameraTest\CDVCameraTest.xcodeproj\project.xcworkspace\contents.xcworkspacedata" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\tests\ios\CDVCameraTest\CDVCameraTest.xcodeproj\project.xcworkspace\xcshareddata\CDVCameraTest.xccheckout" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\tests\ios\CDVCameraTest\CDVCameraTest.xcodeproj\xcshareddata\xcschemes\CDVCameraLib.xcscheme" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\tests\ios\CDVCameraTest\CDVCameraTest.xcodeproj\xcshareddata\xcschemes\CDVCameraLibTests.xcscheme" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\tests\ios\README.md" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\tests\ios\doc\de\README.md" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\tests\ios\doc\es\README.md" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\tests\ios\doc\fr\README.md" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\tests\ios\doc\it\README.md" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\tests\ios\doc\ja\README.md" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\tests\ios\doc\ko\README.md" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\tests\ios\doc\pl\README.md" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\tests\ios\doc\zh\README.md" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\tests\ios\package.json" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\tests\plugin.xml" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\tests\tests.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\www\Camera.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\www\CameraConstants.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\www\CameraPopoverHandle.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\www\CameraPopoverOptions.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\www\blackberry10\assets\camera.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\www\blackberry10\assets\camera.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\ionic_develop\ZhangYouBao\plugins\cordova-plugin-camera\www\ios\CameraPopoverHandle.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/htmlCtrls/BankChooseCtrl.js" afterPath="$PROJECT_DIR$/www/js/htmlCtrls/BankChooseCtrl.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/criticalServices/BankService.js" afterPath="$PROJECT_DIR$/www/js/criticalServices/BankService.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/criticalServices/CameraService.js" afterPath="$PROJECT_DIR$/www/js/criticalServices/CameraService.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/htmlCtrls/CardManageCtrl.js" afterPath="$PROJECT_DIR$/www/js/htmlCtrls/CardManageCtrl.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/htmlCtrls/CertificationCtrl.js" afterPath="$PROJECT_DIR$/www/js/htmlCtrls/CertificationCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/htmlCtrls/LoginCtrl.js" afterPath="$PROJECT_DIR$/www/js/htmlCtrls/LoginCtrl.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/criticalServices/LoginoutService.js" afterPath="$PROJECT_DIR$/www/js/criticalServices/LoginoutService.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_bar.scss" afterPath="$PROJECT_DIR$/www/lib/ionic/scss/_bar.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_button-bar.scss" afterPath="$PROJECT_DIR$/www/lib/ionic/scss/_button-bar.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_checkbox.scss" afterPath="$PROJECT_DIR$/www/lib/ionic/scss/_checkbox.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_form.scss" afterPath="$PROJECT_DIR$/www/lib/ionic/scss/_form.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_grid.scss" afterPath="$PROJECT_DIR$/www/lib/ionic/scss/_grid.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_menu.scss" afterPath="$PROJECT_DIR$/www/lib/ionic/scss/_menu.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_mixins.scss" afterPath="$PROJECT_DIR$/www/lib/ionic/scss/_mixins.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_popover.scss" afterPath="$PROJECT_DIR$/www/lib/ionic/scss/_popover.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_radio.scss" afterPath="$PROJECT_DIR$/www/lib/ionic/scss/_radio.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_range.scss" afterPath="$PROJECT_DIR$/www/lib/ionic/scss/_range.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_refresher.scss" afterPath="$PROJECT_DIR$/www/lib/ionic/scss/_refresher.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_scaffolding.scss" afterPath="$PROJECT_DIR$/www/lib/ionic/scss/_scaffolding.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_slide-box.scss" afterPath="$PROJECT_DIR$/www/lib/ionic/scss/_slide-box.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_tabs.scss" afterPath="$PROJECT_DIR$/www/lib/ionic/scss/_tabs.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_type.scss" afterPath="$PROJECT_DIR$/www/lib/ionic/scss/_type.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_variables.scss" afterPath="$PROJECT_DIR$/www/lib/ionic/scss/_variables.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/android.json" afterPath="$PROJECT_DIR$/plugins/android.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/app.js" afterPath="$PROJECT_DIR$/www/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/bank-choose.html" afterPath="$PROJECT_DIR$/www/templates/bank-choose.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower.json" afterPath="$PROJECT_DIR$/bower.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/card-manage.html" afterPath="$PROJECT_DIR$/www/templates/card-manage.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/certification.html" afterPath="$PROJECT_DIR$/www/templates/certification.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/controllers.js" afterPath="$PROJECT_DIR$/www/js/controllers.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/fetch.json" afterPath="$PROJECT_DIR$/plugins/fetch.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/index.html" afterPath="$PROJECT_DIR$/www/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/js/ionic-angular.js" afterPath="$PROJECT_DIR$/www/lib/ionic/js/ionic-angular.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/js/ionic-angular.min.js" afterPath="$PROJECT_DIR$/www/lib/ionic/js/ionic-angular.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/js/ionic.bundle.js" afterPath="$PROJECT_DIR$/www/lib/ionic/js/ionic.bundle.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/js/ionic.bundle.min.js" afterPath="$PROJECT_DIR$/www/lib/ionic/js/ionic.bundle.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/css/ionic.css" afterPath="$PROJECT_DIR$/www/lib/ionic/css/ionic.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/js/ionic.js" afterPath="$PROJECT_DIR$/www/lib/ionic/js/ionic.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/css/ionic.min.css" afterPath="$PROJECT_DIR$/www/lib/ionic/css/ionic.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/js/ionic.min.js" afterPath="$PROJECT_DIR$/www/lib/ionic/js/ionic.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/ionic.scss" afterPath="$PROJECT_DIR$/www/lib/ionic/scss/ionic.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/tab-account.html" afterPath="$PROJECT_DIR$/www/templates/tab-account.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/tab-home.html" afterPath="$PROJECT_DIR$/www/templates/tab-home.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/version.json" afterPath="$PROJECT_DIR$/www/lib/ionic/version.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ZhangYouBao.iws" />
@@ -37,48 +172,45 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="BankService.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/js/criticalServices/BankService.js">
+      <file leaf-file-name="AddTradeCtrl.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/js/htmlCtrls/AddTradeCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="860" max-vertical-offset="1744">
-              <caret line="14" column="14" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1236" max-vertical-offset="5520">
+              <caret line="106" column="4" selection-start-line="106" selection-start-column="4" selection-end-line="119" selection-end-column="6" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bank-choose.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/templates/bank-choose.html">
+      <file leaf-file-name="store-manage.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/templates/store-manage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-24.96" vertical-offset="0" max-vertical-offset="928">
-              <caret line="39" column="25" selection-start-line="39" selection-start-column="25" selection-end-line="39" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CertificationCtrl.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/www/js/htmlCtrls/CertificationCtrl.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4893617" vertical-offset="2770" max-vertical-offset="5024">
-              <caret line="199" column="0" selection-start-line="199" selection-start-column="0" selection-end-line="199" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tab-account.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/templates/tab-account.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.56" vertical-offset="642" max-vertical-offset="2048">
-              <caret line="66" column="16" selection-start-line="66" selection-start-column="16" selection-end-line="66" selection-end-column="16" />
+            <state vertical-scroll-proportion="-10.24" vertical-offset="0" max-vertical-offset="416">
+              <caret line="16" column="20" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
               <folding>
-                <element signature="n#style#0;n#i#3;n#a#0;n#div#1;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#i#2;n#a#1;n#div#1;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#i#3;n#a#1;n#div#1;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#i#4;n#a#1;n#div#1;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#i#3;n#a#2;n#div#1;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StoreManageCtrl.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/js/htmlCtrls/StoreManageCtrl.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="272">
+              <caret line="6" column="56" selection-start-line="6" selection-start-column="56" selection-end-line="6" selection-end-column="56" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/js/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="3736" max-vertical-offset="4624">
+              <caret line="275" column="4" selection-start-line="275" selection-start-column="4" selection-end-line="275" selection-end-column="4" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -86,58 +218,61 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.2" vertical-offset="452" max-vertical-offset="1424">
-              <caret line="52" column="47" selection-start-line="52" selection-start-column="47" selection-end-line="52" selection-end-column="47" />
+            <state vertical-scroll-proportion="-14.72" vertical-offset="576" max-vertical-offset="1552">
+              <caret line="59" column="43" selection-start-line="59" selection-start-column="30" selection-end-line="59" selection-end-column="43" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="certification.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/templates/certification.html">
+      <file leaf-file-name="StoreRegister.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/js/htmlCtrls/StoreRegister.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-22.4" vertical-offset="1104" max-vertical-offset="1984">
-              <caret line="104" column="0" selection-start-line="104" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
+              <caret line="24" column="22" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CardManageCtrl.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/js/htmlCtrls/CardManageCtrl.js">
+      <file leaf-file-name="ChatDetailCtrl.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/js/htmlCtrls/ChatDetailCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="156" max-vertical-offset="1040">
-              <caret line="30" column="32" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2848">
+              <caret line="4" column="55" selection-start-line="4" selection-start-column="49" selection-end-line="4" selection-end-column="55" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="card-manage.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/templates/card-manage.html">
+      <file leaf-file-name="store-register.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/www/templates/store-register.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-19.12" vertical-offset="50" max-vertical-offset="896">
-              <caret line="33" column="79" selection-start-line="33" selection-start-column="79" selection-end-line="33" selection-end-column="79" />
+            <state vertical-scroll-proportion="0.68" vertical-offset="110" max-vertical-offset="960">
+              <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+              <folding>
+                <element signature="n#style#0;n#label#1;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#label#2;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="add-trade.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/templates/add-trade.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-16.08" vertical-offset="942" max-vertical-offset="1840">
+              <caret line="84" column="64" selection-start-line="84" selection-start-column="64" selection-end-line="84" selection-end-column="64" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AccountCtrl.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/js/htmlCtrls/AccountCtrl.js">
+      <file leaf-file-name="registe.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/templates/registe.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="480" max-vertical-offset="1408">
-              <caret line="70" column="32" selection-start-line="70" selection-start-column="32" selection-end-line="70" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BankChooseCtrl.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/js/htmlCtrls/BankChooseCtrl.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="368">
-              <caret line="13" column="90" selection-start-line="13" selection-start-column="83" selection-end-line="13" selection-end-column="90" />
+            <state vertical-scroll-proportion="-39.04" vertical-offset="0" max-vertical-offset="1504">
+              <caret line="61" column="24" selection-start-line="61" selection-start-column="24" selection-end-line="61" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -164,7 +299,6 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/www/templates/commodity-detail.html" />
-        <option value="$PROJECT_DIR$/www/templates/tab-home.html" />
         <option value="$PROJECT_DIR$/www/css/commodity.css" />
         <option value="$PROJECT_DIR$/www/js/criticalServices/SecurityCodeService.js" />
         <option value="$PROJECT_DIR$/www/js/tools/base64.js" />
@@ -172,26 +306,37 @@
         <option value="$PROJECT_DIR$/www/templates/vip-state.html" />
         <option value="$PROJECT_DIR$/www/js/htmlCtrls/VipStateCtrl.js" />
         <option value="$PROJECT_DIR$/www/js/htmlCtrls/ChatCtrl.js" />
-        <option value="$PROJECT_DIR$/www/js/controllers.js" />
         <option value="$PROJECT_DIR$/www/js/criticalServices/NetworkStateService.js" />
         <option value="$PROJECT_DIR$/www/templates/login.html" />
         <option value="$PROJECT_DIR$/www/js/criticalServices/LocalStorageService.js" />
-        <option value="$PROJECT_DIR$/www/js/htmlCtrls/LoginCtrl.js" />
         <option value="$PROJECT_DIR$/www/js/htmlCtrls/RegisteCtrl.js" />
         <option value="$PROJECT_DIR$/www/templates/tab-category.html" />
         <option value="$PROJECT_DIR$/www/js/services.js" />
-        <option value="$PROJECT_DIR$/www/js/criticalServices/LoginoutService.js" />
-        <option value="$PROJECT_DIR$/www/js/app.js" />
-        <option value="$PROJECT_DIR$/www/index.html" />
-        <option value="$PROJECT_DIR$/www/templates/tab-account.html" />
-        <option value="$PROJECT_DIR$/www/js/criticalServices/BankService.js" />
         <option value="$PROJECT_DIR$/www/js/htmlCtrls/AccountCtrl.js" />
-        <option value="$PROJECT_DIR$/www/js/htmlCtrls/BankChooseCtrl.js" />
         <option value="$PROJECT_DIR$/www/templates/bank-choose.html" />
-        <option value="$PROJECT_DIR$/www/js/htmlCtrls/CardManageCtrl.js" />
         <option value="$PROJECT_DIR$/www/templates/certification.html" />
+        <option value="$PROJECT_DIR$/www/js/criticalServices/BankService.js" />
+        <option value="$PROJECT_DIR$/www/js/htmlCtrls/BankChooseCtrl.js" />
         <option value="$PROJECT_DIR$/www/templates/card-manage.html" />
+        <option value="$PROJECT_DIR$/www/js/htmlCtrls/CardManageCtrl.js" />
+        <option value="$PROJECT_DIR$/www/js/htmlCtrls/LoginCtrl.js" />
+        <option value="$PROJECT_DIR$/www/js/criticalServices/TradeTypeService.js" />
+        <option value="$PROJECT_DIR$/www/js/controllers.js" />
+        <option value="$PROJECT_DIR$/www/js/criticalServices/CameraService.js" />
+        <option value="$PROJECT_DIR$/www/js/criticalServices/LoginoutService.js" />
+        <option value="$PROJECT_DIR$/www/js/htmlCtrls/AddTradeCtrl.js" />
         <option value="$PROJECT_DIR$/www/js/htmlCtrls/CertificationCtrl.js" />
+        <option value="$PROJECT_DIR$/www/templates/tab-home.html" />
+        <option value="$PROJECT_DIR$/www/templates/tab-account.html" />
+        <option value="$PROJECT_DIR$/www/js/htmlCtrls/StoreRegiste.js" />
+        <option value="$PROJECT_DIR$/www/templates/store-registe.html" />
+        <option value="$PROJECT_DIR$/www/index.html" />
+        <option value="$PROJECT_DIR$/www/templates/store-manage.html" />
+        <option value="$PROJECT_DIR$/www/js/htmlCtrls/StoreManageCtrl.js" />
+        <option value="$PROJECT_DIR$/www/js/app.js" />
+        <option value="$PROJECT_DIR$/www/templates/store-register.html" />
+        <option value="$PROJECT_DIR$/www/js/htmlCtrls/StoreRegister.js" />
+        <option value="$PROJECT_DIR$/www/templates/add-trade.html" />
       </list>
     </option>
   </component>
@@ -208,8 +353,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1692" />
-    <option name="height" value="1062" />
+    <option name="width" value="1696" />
+    <option name="height" value="1066" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -243,6 +388,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -347,55 +493,18 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="criticalServices" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ZhangYouBao" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ZhangYouBao" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ZhangYouBao" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ZhangYouBao" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
+              <option name="myItemId" value="img" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../weixin_support" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="editor.config.accepted" value="true" />
@@ -403,6 +512,9 @@
     <property name="FullScreen" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\ionic_develop\ZhangYouBao\www\img" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\ionic_develop\ZhangYouBao\www\js\tools" />
       <recent name="E:\ionic_develop\ZhangYouBao\www\js\htmlCtrls" />
@@ -410,6 +522,14 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="scope" value="ALL" />
+      <option name="testName" />
+      <method />
+    </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -420,16 +540,10 @@
       <option name="showConsoleOnStdOut" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
-      <option name="VMOptions" />
-      <option name="arguments" />
+    <configuration default="true" type="CucumberJavaScriptRunConfigurationType" factoryName="Cucumber.js">
+      <option name="cucumberJsArguments" />
+      <option name="executablePath" />
       <option name="filePath" />
-      <option name="scope" value="ALL" />
-      <option name="testName" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="">
-      <envs />
       <method />
     </configuration>
     <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
@@ -439,10 +553,8 @@
       <setting name="preferredDebugBrowser" value="Chrome" />
       <method />
     </configuration>
-    <configuration default="true" type="CucumberJavaScriptRunConfigurationType" factoryName="Cucumber.js">
-      <option name="cucumberJsArguments" />
-      <option name="executablePath" />
-      <option name="filePath" />
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="">
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
@@ -477,32 +589,56 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1692" height="1062" extended-state="1" />
+    <frame x="-8" y="-8" width="1696" height="1066" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290461" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3279743" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24981412" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2471299" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21097046" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="13" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3272727" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="版本控制" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="找到" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905984" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290461" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3272727" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="13" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="版本控制" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="找到" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905984" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24981412" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24652568" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-    </layout>
+    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -521,86 +657,11 @@
     </option>
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="432" max-vertical-offset="1376">
-          <caret line="23" column="40" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/tabs.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="768">
-          <caret line="15" column="49" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/css/commodity.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1019" max-vertical-offset="2464">
-          <caret line="76" column="0" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/tab-home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="272" max-vertical-offset="3040">
-          <caret line="17" column="65" selection-start-line="17" selection-start-column="65" selection-end-line="17" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/shop-detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="80" max-vertical-offset="2864">
-          <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/directives.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="464">
-          <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/search.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="512">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/help-detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.64" vertical-offset="0" max-vertical-offset="240">
-          <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="7" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/htmlCtrls/ShopDetailCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1280">
-          <caret line="63" column="4" selection-start-line="63" selection-start-column="4" selection-end-line="70" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/tools/base64.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1904">
-          <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/criticalServices/CommodityService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="288">
-          <caret line="12" column="3" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/js/criticalServices/ImgFileService.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2256">
@@ -612,27 +673,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="128" max-vertical-offset="256">
           <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="672">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/criticalServices/LocalStorageService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="384">
-          <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/criticalServices/NetworkStateService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1040">
-          <caret line="24" column="20" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
         </state>
       </provider>
     </entry>
@@ -657,20 +697,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="80" max-vertical-offset="1552">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/chat-detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="400" max-vertical-offset="1088">
-          <caret line="25" column="47" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/css/chat.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="739" max-vertical-offset="2384">
@@ -685,24 +711,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1312">
-          <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/templates/commodity-detail.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="3264" max-vertical-offset="4768">
           <caret line="194" column="33" selection-start-line="194" selection-start-column="33" selection-end-line="194" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/registe.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="560" max-vertical-offset="1504">
-          <caret line="61" column="24" selection-start-line="61" selection-start-column="24" selection-end-line="61" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -727,18 +739,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/htmlCtrls/VipStateCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
-          <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/js/htmlCtrls/ChatCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="624">
           <caret line="20" column="36" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -746,7 +750,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="704">
           <caret line="10" column="31" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -754,7 +757,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="480">
           <caret line="19" column="9" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -762,15 +764,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="3557" max-vertical-offset="4432">
           <caret line="242" column="27" selection-start-line="239" selection-start-column="24" selection-end-line="242" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/htmlCtrls/ChatDetailCtrl.js">
+    <entry file="file://$PROJECT_DIR$/www/js/htmlCtrls/BankChooseCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1973" max-vertical-offset="2848">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="592">
+          <caret line="21" column="45" selection-start-line="21" selection-start-column="45" selection-end-line="21" selection-end-column="45" />
         </state>
       </provider>
     </entry>
@@ -778,133 +778,267 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="624">
           <caret line="6" column="72" selection-start-line="6" selection-start-column="60" selection-end-line="6" selection-end-column="72" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/htmlCtrls/LoginCtrl.js">
+    <entry file="file://$PROJECT_DIR$/www/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="960">
-          <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="428" max-vertical-offset="1312">
+          <caret line="52" column="23" selection-start-line="52" selection-start-column="23" selection-end-line="52" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/criticalServices/CameraService.js">
+    <entry file="file://$PROJECT_DIR$/www/js/criticalServices/BankService.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="672">
-          <caret line="26" column="10" selection-start-line="26" selection-start-column="10" selection-end-line="26" selection-end-column="10" />
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="2042" max-vertical-offset="3072">
+          <caret line="157" column="46" selection-start-line="157" selection-start-column="46" selection-end-line="157" selection-end-column="46" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/criticalServices/LoginoutService.js">
+    <entry file="file://$PROJECT_DIR$/www/templates/bank-choose.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1897" max-vertical-offset="4192">
-          <caret line="131" column="35" selection-start-line="131" selection-start-column="35" selection-end-line="131" selection-end-column="35" />
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="16" max-vertical-offset="928">
+          <caret line="1" column="2" selection-start-line="1" selection-start-column="2" selection-end-line="4" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/app.js">
+    <entry file="file://$PROJECT_DIR$/www/js/htmlCtrls/CardManageCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3388" max-vertical-offset="4272">
-          <caret line="252" column="34" selection-start-line="252" selection-start-column="34" selection-end-line="252" selection-end-column="34" />
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="956" max-vertical-offset="1872">
+          <caret line="80" column="22" selection-start-line="80" selection-start-column="22" selection-end-line="80" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0" vertical-offset="80" max-vertical-offset="1552">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/js/htmlCtrls/CategoryCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1440">
-          <caret line="4" column="10" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="10" />
+          <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="34" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="832">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="20" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/webstorm.jar!/resources/html5-schema/html5/common.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33295712" vertical-offset="2905" max-vertical-offset="8256">
+          <caret line="200" column="18" selection-start-line="200" selection-start-column="18" selection-end-line="200" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/criticalServices/CameraService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="186" max-vertical-offset="1072">
+          <caret line="37" column="62" selection-start-line="37" selection-start-column="50" selection-end-line="37" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/criticalServices/TradeTypeService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1728">
+          <caret line="40" column="13" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/htmlCtrls/AccountCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1408">
+          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/chat-detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0" vertical-offset="128" max-vertical-offset="1088">
+          <caret line="8" column="2" selection-start-line="8" selection-start-column="2" selection-end-line="11" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/DHTML.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334" vertical-offset="14818" max-vertical-offset="61056">
+          <caret line="945" column="18" selection-start-line="945" selection-start-column="18" selection-end-line="945" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/criticalServices/NetworkStateService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="132" max-vertical-offset="1040">
+          <caret line="34" column="32" selection-start-line="34" selection-start-column="32" selection-end-line="34" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/htmlCtrls/LoginCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="148" max-vertical-offset="1056">
+          <caret line="48" column="37" selection-start-line="48" selection-start-column="28" selection-end-line="48" selection-end-column="45" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/index.html">
+    <entry file="file://$PROJECT_DIR$/www/templates/certification.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.2" vertical-offset="452" max-vertical-offset="1424">
-          <caret line="52" column="47" selection-start-line="52" selection-start-column="47" selection-end-line="52" selection-end-column="47" />
+        <state vertical-scroll-proportion="4.48" vertical-offset="768" max-vertical-offset="1984">
+          <caret line="41" column="26" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/criticalServices/LocalStorageService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="384">
+          <caret line="21" column="34" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/htmlCtrls/CertificationCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1073" max-vertical-offset="5040">
+          <caret line="88" column="11" selection-start-line="88" selection-start-column="11" selection-end-line="88" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/criticalServices/BankService.js">
+    <entry file="file://$PROJECT_DIR$/www/js/criticalServices/LoginoutService.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="860" max-vertical-offset="1744">
-          <caret line="14" column="14" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="224" max-vertical-offset="4592">
+          <caret line="28" column="103" selection-start-line="28" selection-start-column="103" selection-end-line="28" selection-end-column="103" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/card-manage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="700" max-vertical-offset="1536">
+          <caret line="90" column="11" selection-start-line="0" selection-start-column="0" selection-end-line="90" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/htmlCtrls/BankChooseCtrl.js">
+    <entry file="file://$PROJECT_DIR$/www/js/htmlCtrls/ShopDetailCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="368">
-          <caret line="13" column="90" selection-start-line="13" selection-start-column="83" selection-end-line="13" selection-end-column="90" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1280">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/bank-choose.html">
+    <entry file="file://$PROJECT_DIR$/www/js/htmlCtrls/VipStateCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-24.96" vertical-offset="0" max-vertical-offset="928">
-          <caret line="39" column="25" selection-start-line="39" selection-start-column="25" selection-end-line="39" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="9" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/tab-home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="368" max-vertical-offset="3040">
+          <caret line="65" column="70" selection-start-line="65" selection-start-column="70" selection-end-line="65" selection-end-column="70" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/templates/tab-account.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.56" vertical-offset="642" max-vertical-offset="2048">
-          <caret line="66" column="16" selection-start-line="66" selection-start-column="16" selection-end-line="66" selection-end-column="16" />
+        <state vertical-scroll-proportion="-10.88" vertical-offset="960" max-vertical-offset="2048">
+          <caret line="77" column="59" selection-start-line="77" selection-start-column="59" selection-end-line="77" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/registe.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-39.04" vertical-offset="0" max-vertical-offset="1504">
+          <caret line="61" column="24" selection-start-line="61" selection-start-column="24" selection-end-line="61" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/htmlCtrls/ChatDetailCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2848">
+          <caret line="4" column="55" selection-start-line="4" selection-start-column="49" selection-end-line="4" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.72" vertical-offset="576" max-vertical-offset="1552">
+          <caret line="59" column="43" selection-start-line="59" selection-start-column="30" selection-end-line="59" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3736" max-vertical-offset="4624">
+          <caret line="275" column="4" selection-start-line="275" selection-start-column="4" selection-end-line="275" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/htmlCtrls/StoreRegister.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
+          <caret line="24" column="22" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/htmlCtrls/StoreManageCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="272">
+          <caret line="6" column="56" selection-start-line="6" selection-start-column="56" selection-end-line="6" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/store-manage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.24" vertical-offset="0" max-vertical-offset="416">
+          <caret line="16" column="20" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
           <folding>
-            <element signature="n#style#0;n#i#3;n#a#0;n#div#1;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#2;n#a#1;n#div#1;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#3;n#a#1;n#div#1;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#4;n#a#1;n#div#1;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#3;n#a#2;n#div#1;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/certification.html">
+    <entry file="file://$PROJECT_DIR$/www/js/htmlCtrls/AddTradeCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-22.4" vertical-offset="1104" max-vertical-offset="1984">
-          <caret line="104" column="0" selection-start-line="104" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1236" max-vertical-offset="5520">
+          <caret line="106" column="4" selection-start-line="106" selection-start-column="4" selection-end-line="119" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/htmlCtrls/AccountCtrl.js">
+    <entry file="file://$PROJECT_DIR$/www/templates/add-trade.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="480" max-vertical-offset="1408">
-          <caret line="70" column="32" selection-start-line="70" selection-start-column="32" selection-end-line="70" selection-end-column="32" />
+        <state vertical-scroll-proportion="-16.08" vertical-offset="942" max-vertical-offset="1840">
+          <caret line="84" column="64" selection-start-line="84" selection-start-column="64" selection-end-line="84" selection-end-column="64" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/htmlCtrls/CardManageCtrl.js">
+    <entry file="file://$PROJECT_DIR$/www/templates/store-register.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1040">
-          <caret line="30" column="32" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/card-manage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-19.12" vertical-offset="50" max-vertical-offset="896">
-          <caret line="33" column="79" selection-start-line="33" selection-start-column="79" selection-end-line="33" selection-end-column="79" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/htmlCtrls/CertificationCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4893617" vertical-offset="2770" max-vertical-offset="5024">
-          <caret line="199" column="0" selection-start-line="199" selection-start-column="0" selection-end-line="199" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="0.68" vertical-offset="110" max-vertical-offset="960">
+          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#label#1;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#label#2;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

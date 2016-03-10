@@ -1,6 +1,10 @@
 <ion-view view-title="银行卡管理">
+    <ion-nav-buttons side="left">
+        <!--如何在tempalte中使用rootScope的经典例子-->
+        <a class="button button-clear icon ion-ios-arrow-back" ng-click="$root.goBack()"></a>
+    </ion-nav-buttons>
     <ion-content>
-        <div class="card">
+        <div class="card" ng-if="isModifying">
             <!--<label class="item  positive text_bold ">-->
             <!--银行卡信息-->
 
@@ -22,7 +26,7 @@
                     银行卡{{$index+1}}
                     <a class="icon ion-android-remove" style="font-size: 18px;" ></a>
                 </label>
-                <label class="item item-input item-icon-right" ui-sref="bankChoose({bankCardId: info.id)" >
+                <label class="item item-input item-icon-right" ng-click="onChangeBank(info.id)">
                     <span class="input-label">所属银行</span>
                     <!--根据维基百科所述，中文最长姓名是15个字-->
                     <span>{{info.bank_name}}</span>
@@ -42,10 +46,46 @@
             </div>
         </div>
 
-        <div class="list-inset">
-            <button class="button button-full button-positive" ng-click="onSubmit()">
-                <B>确认提交</B>
+        <div class="card" ng-if="!isModifying">
+            <!--<label class="item  positive text_bold ">-->
+            <!--银行卡信息-->
+
+            <!--</label>-->
+            <div ng-repeat="info in bankCardInfos">
+                <!--此处曾出现大坑，请注意，在使用label标签时不要包含带ng-click的icon或者button的item-icon-right，
+                这种情况下的ng-click根本不会触发，改成div，问题解决，大坑，谨记！！！！-->
+                <label class="item  positive item-divider text_bold">
+                    银行卡{{$index+1}}
+
+                </label>
+                <label class="item" style="padding: 12px 0 12px 16px">
+                    <span>所属银行<i style="margin-left: 15%">{{info.bank_name}}</i></span>
+                </label>
+
+                <label class="item" style="padding: 12px 0 12px 16px">
+                    <span>银行卡号<i style="margin-left: 15%;font-size: 14px;">{{info.card_id}}</i></span>
+                </label>
+            </div>
+        </div>
+
+
+
+        <div class="list-inset" ng-if="isModifying">
+            <button class="button button-full button-positive" ng-click="onSubmit()" >
+                <B>确认修改</B>
             </button>
+
+            <button class="button button-full button-energized" ng-click="onCancel()" >
+                <B>取消修改</B>
+            </button>
+        </div>
+
+        <div class="list-inset" ng-if="!isModifying">
+            <button class="button button-full button-positive" ng-click="onModify()" >
+                <B>修改信息</B>
+            </button>
+
+
         </div>
     </ion-content>
 </ion-view>

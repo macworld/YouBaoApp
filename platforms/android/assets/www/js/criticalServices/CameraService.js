@@ -27,9 +27,34 @@ rootModule.factory('CameraService',function($cordovaCamera){
         };
     }
 
+    //图像获取时进行图像的裁剪，长宽比控制为1:1
+    function optionGenerateWithEdit(type,quality,targetSize) {
+        var source;
+        switch (type) {
+            case 0:
+                source = Camera.PictureSourceType.CAMERA;
+                break;
+            case 1:
+                source = Camera.PictureSourceType.PHOTOLIBRARY;
+                break;
+        }
+        return {
+            quality: quality,
+            destinationType: Camera.DestinationType.FILE_URI,
+            sourceType: source,
+            allowEdit: true,
+            targetWidth: targetSize,
+            targetHeight: targetSize,
+            encodingType: Camera.EncodingType.JPEG,
+            popoverOptions: CameraPopoverOptions,
+            saveToPhotoAlbum: false
+        };
+    }
+
 
     return{
-        optionsGenerate:optionsGenerate
+        optionsGenerate:optionsGenerate,
+        optionGenerateWithEdit:optionGenerateWithEdit
     }
 
 

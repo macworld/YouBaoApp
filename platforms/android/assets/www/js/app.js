@@ -8,7 +8,7 @@
 angular.module('ZhangYouBao', ['ionic', 'ZhangYouBao.controllers', 'ZhangYouBao.services',
     'ZhangYouBao.directives','ngCordova','imageCacheFactory','autoFocus'])
 
-.run(function($ionicPlatform,$rootScope,$ionicHistory,$state,LoginoutService,NetworkStateService) {
+.run(function($ionicPlatform,$rootScope,$ionicHistory,$state,LoginoutService,NetworkStateService,TradeTypeService) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -90,8 +90,12 @@ angular.module('ZhangYouBao', ['ionic', 'ZhangYouBao.controllers', 'ZhangYouBao.
                 //自动登录
                 LoginoutService.loginWithLastInfo();
             }
+            //获取服务器分区列表信息
+            TradeTypeService.getItemSubtypesFromServer();
         }
     });
+
+
 
 
 })
@@ -251,6 +255,24 @@ angular.module('ZhangYouBao', ['ionic', 'ZhangYouBao.controllers', 'ZhangYouBao.
       url: '/CardManage',
       templateUrl: 'templates/card-manage.html',
       controller: 'CardManageCtrl'
+  })
+
+  .state('add-trade',{
+      url: '/AddTrade',
+      templateUrl: 'templates/add-trade.html',
+      controller: 'AddTradeCtrl'
+  })
+
+  .state('store-manage',{
+      url: '/StoreManage',
+      templateUrl: 'templates/store-manage.html',
+      controller: 'StoreManageCtrl'
+  })
+
+  .state('store-register',{
+      url: '/StoreRegister',
+      templateUrl: 'templates/store-register.html',
+      controller: 'StoreRegisterCtrl'
   })
 
 

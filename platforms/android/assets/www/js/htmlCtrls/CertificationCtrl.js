@@ -105,7 +105,7 @@ rootModule.controller('CertificationCtrl', function($scope,$http,$rootScope,$sta
                 { text: '<b>相册</b>' }
             ],
 //            destructiveText: 'Delete',
-            titleText: '<b>图片发送</b>',
+            titleText: '<b>图片选择</b>',
             cancelText: '<b>取消</b>',
             cancel: function() {
             // add cancel code..
@@ -128,23 +128,25 @@ rootModule.controller('CertificationCtrl', function($scope,$http,$rootScope,$sta
         $scope.imgUrls[type]=undefined;
     };
 
-    $scope.bankCardInfos=Bank.getBankCardInfos();
+    $scope.bankCardInfos=angular.copy(Bank.getBankCardInfos());
     $scope.maxCardNum=$rootScope.maxCardNum;
     $scope.addCard=function(id){
         if(id>=$rootScope.maxCardNum){
             return;
         }
-        Bank.addBankCard(id);
+        Bank.addInputBankCard(id,$scope.bankCardInfos);
         $ionicScrollDelegate.scrollBottom();
     };
 
     $scope.minusCard= function () {
-        if($scope.bankCardInfos.length==1){
-            console.error("无效的删除操作");
-            return;
-        }
-        $scope.bankCardInfos.pop();
+        Bank.minusInputBankCard($scope.bankCardInfos);
         $ionicScrollDelegate.scrollBottom();
+    };
+
+    $scope.onChangeBank=function(id){
+        //保存即将更改的银行卡信息
+        Bank.onChangeBank(id,$scope.bankCardInfos);
+        $state.go("bankChoose");
     };
 
     //提交功能注意点:
@@ -209,16 +211,11 @@ rootModule.controller('CertificationCtrl', function($scope,$http,$rootScope,$sta
         $scope.upload_success_num=0;
         for($i=0;$i<$scope.ImgInfos.length;$i++)
         {
-            var options = {
-                fileKey: "file",
-                fileName: 'ver.jpg',
-                chunkedMode: "false",
-                mimeType: "image/jpeg",
-                params : {'type':$scope.ImgInfos[$i].type,'user_id':$rootScope.userInfo.user_id} // directory represents remote directory,  fileName represents final remote file name
-            };
+            var options = {};
             $cordovaFileTransfer.upload($server, $scope.imgUrls[$scope.ImgInfos[$i].type], options,true)
                 .then(function(result) {
                     console.log(result);
+                    $scope.imageNames[$scope.imageNames.length]=result.response;
                     $scope.upload_success_num++;
                     if($scope.upload_success_num==3)
                     {
@@ -239,6 +236,7 @@ rootModule.controller('CertificationCtrl', function($scope,$http,$rootScope,$sta
                     }
                     // Error
                 }, function (progress) {
+                    //在此可以加入实名认证的进度条，后期工作
                     // constant progress updates
                     //console.log(progress);
                 });
@@ -250,7 +248,8 @@ rootModule.controller('CertificationCtrl', function($scope,$http,$rootScope,$sta
         //上传参数
         var $url='https://'+$rootScope.SERVER_ADDRESS+'/'+$rootScope.ENTER_FILE+'/User/Verification/uploadVerifyInfo';
         $data=angular.copy($scope.certInfo);
-        $data.bankInfo=Bank.getBankCardInfos();
+        $data.bankInfo=$scope.bankCardInfos;
+        $data.img_names=$scope.imageNames;
         console.log($data);
         angular.toJson($data);
         $http({
@@ -268,6 +267,8 @@ rootModule.controller('CertificationCtrl', function($scope,$http,$rootScope,$sta
                         $cordovaToast.showShortCenter("提交成功");
                         //将用户实名认证状态改为待审核
                         $rootScope.userInfo.is_certification=$rootScope.VERIFY_STATE.COMMITED;
+                        //保存银行卡信息
+                        Bank.updateCardInfo($scope.bankCardInfos);
                         $state.go("tab.account");
                         break;
                 }

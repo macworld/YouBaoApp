@@ -1,0 +1,110 @@
+<ion-view view-title="<B>我要挂单</B>">
+    <ion-nav-buttons side="left">
+        <!--如何在tempalte中使用rootScope的经典例子-->
+        <a class="button button-clear icon ion-ios-arrow-back" ng-click="$root.goBack()"></a>
+    </ion-nav-buttons>
+    <ion-content class="padding">
+
+        <div ng-if="getting_data && !error_occur" style="text-align: center; padding-top: 30%;">
+            <ion-spinner class="spinner-positive"></ion-spinner>
+            <span class="tip" style="position:relative; bottom: 10px;">从服务器获取分区数据中...</span>
+        </div>
+
+        <div class="tip" ng-if="error_occur" style="text-align: center; padding-top: 30%;">
+            数据请求发生错误，请检查网络后后重试
+            <div class="list-inset no_left_right_margin" style="text-align: center">
+                <button class="button-small button-stable" style="margin-right: 20px;" ng-click="onRetry()">
+                    <B>重试</B>
+                </button>
+            </div>
+        </div>
+
+        <ion-list ng-if="!getting_data && !error_occur">
+            <div class="list-inset tip">
+                您正在增加新的挂单:
+            </div>
+
+            <div class="card">
+                <label class="item item-divider positive text_bold">
+                    基本信息(必填)
+                </label>
+
+                <label class="item item-input item-select sexSelect" >
+                    <div class="input-label">
+                        交易类型
+                    </div>
+                    <select style="position: relative" ng-model="tradeInfo.trade_type"
+                            ng-options="type.type_id as type.type_name for type in trade_types">
+                    </select>
+                </label>
+
+                <label class="item item-input item-select sexSelect" >
+                    <div class="input-label">
+                        商品类型
+                    </div>
+                    <select style="position: relative" ng-model="tradeInfo.item_type"
+                            ng-options="type.type_id as type.type_name for type in item_types"
+                            ng-change="onItemTypeChange()">
+
+                    </select>
+                </label>
+
+                <label class="item item-input item-select sexSelect" >
+                    <div class="input-label">
+                        详细分区
+                    </div>
+                    <select style="position: relative" ng-model="tradeInfo.item_subtype"
+                            ng-options="type.type_id as type.type_name for type in item_subtypes[tradeInfo.item_type]">
+                    </select>
+                </label>
+
+
+                <label class="item item-input">
+                    <span class="input-label">商品标题</span>
+                    <!--根据维基百科所述，中文最长姓名是15个字-->
+                    <input type="text" placeholder="请输入标题，限20字"  ng-model="tradeInfo.trade_title" maxlength="20">
+                </label>
+
+
+                <label class="item-input ">
+                    <span class="input-label">商品描述</span>
+                </label>
+                <!-- 使用textarea是为了方便地址过长的时候进行修改-->
+                <label class="item item-input no_border_top">
+                    <textarea placeholder="请详细描述该商品，限200字" maxlength="200" ng-model="tradeInfo.trade_detail"></textarea>
+                </label>
+
+            </div>
+
+            <div class="card">
+                <label class="item item-divider positive text_bold">
+                    图片详情(选填)
+                </label>
+                <label class="item-input tip" style="padding-right: 10px;">
+                    提示：<br>
+                    1.以下为选填内容，您可以根据需要选择性填写，对于出售类型的挂单，建议您完整填写<br>
+                    2.在截取图片时，您可以通过拉动截图边角来调整截图大小。<br>
+                    3.在读取相册时，请选择系统的原生程序来获取相册图像，以免造成异常。
+                </label>
+
+                <label class="item item-input" ng-repeat="info in ImgInfos">
+                    <span class="input-label">{{info.name}}</span>
+                    <a ng-if="tradeInfo.img_urls[info.id]==undefined">添加</a>
+                    <button class="button button-icon icon ion-ios-plus-outline positive" ng-if="tradeInfo.img_urls[info.id]==undefined" ng-click="onAddImg(info.id)" style="font-size: 20px;"></button>
+                    <img ng-src="{{tradeInfo.img_urls[info.id]}}" width="50%" ng-if="tradeInfo.img_urls[info.id]!=undefined"/>
+                    <button class="button button-icon icon ion-trash-b assertive" ng-if="tradeInfo.img_urls[info.id]!=undefined" ng-click="onCancelImg(info.id)"></button>
+                </label>
+
+            </div>
+
+            <div class="list-inset">
+                <button class="button button-full button-positive" ng-click="onSubmit()">
+                    <B>确认提交</B>
+                </button>
+                <!--<button class="button button-full button-positive" ng-click="onPreview()">-->
+                    <!--<B>挂单预览</B>-->
+                <!--</button>-->
+            </div>
+        </ion-list>
+    </ion-content>
+</ion-view>

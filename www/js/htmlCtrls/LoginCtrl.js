@@ -3,7 +3,7 @@
  * 登录界面的控制器
  */
 
-rootModule.controller('LoginCtrl', function($scope,$http,$rootScope,$state,$ionicTabsDelegate,LoginoutService,TelphoneNum,Password) {
+rootModule.controller('LoginCtrl', function($scope,$http,$rootScope,$state,$ionicTabsDelegate,LoginoutService,TelphoneNum,Password,TradeTypeService) {
     $scope.normalLogin=true;
 
     $scope.selectTabWithIndex = function(index) {
@@ -47,6 +47,12 @@ rootModule.controller('LoginCtrl', function($scope,$http,$rootScope,$state,$ioni
         if(TelphoneNum.isTelNum(phone) && Password.isValid(password))
         {
             LoginoutService.loginWithPassword(phone,password,$scope.loginConfig);
+            //还未获取分区信息
+            if(TradeTypeService.getItemSubtype()==null)
+            {
+                //从服务器获取分区信息
+                TradeTypeService.getItemSubtypesFromServer();
+            }
         }
     }
 

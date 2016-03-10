@@ -89,7 +89,7 @@
                         银行卡{{$index+1}}
                         <a class="icon ion-android-remove" style="font-size: 18px;" ></a>
                     </label>
-                    <label class="item item-input item-icon-right" ui-sref="bankChoose({bankCardId: info.id})" >
+                    <label class="item item-input item-icon-right" ng-click="onChangeBank(info.id)">
                         <span class="input-label">所属银行</span>
                         <!--根据维基百科所述，中文最长姓名是15个字-->
                         <span>{{info.bank_name}}</span>

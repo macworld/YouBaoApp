@@ -25,24 +25,38 @@ rootModule.controller('CardManageCtrl', function($scope,$http,$rootScope,$state,
         }
     };
 
-    $scope.bankCardInfos=Bank.getBankCardInfos();
-    console.log($scope.bankCardInfos);
+    //直接获取银行卡信息，只有当用户点击修改时才会复制
+    $scope.bankCardInfos=angular.copy(Bank.getBankCardInfos());
     $scope.maxCardNum=$rootScope.maxCardNum;
     $scope.addCard=function(id){
         if(id>=$rootScope.maxCardNum){
             return;
         }
-        Bank.addBankCard(id);
-        $ionicScrollDelegate.scrollBottom();
+        Bank.addInputBankCard(id,$scope.bankCardInfos);
     };
 
     $scope.minusCard= function () {
-        if($scope.bankCardInfos.length==1){
-            console.error("无效的删除操作");
-            return;
-        }
-        $scope.bankCardInfos.pop();
-        $ionicScrollDelegate.scrollBottom();
+        Bank.minusInputBankCard($scope.bankCardInfos);
+    };
+
+    $scope.onChangeBank=function(id){
+        //保存即将更改的银行卡信息
+        Bank.onChangeBank(id,$scope.bankCardInfos);
+        $state.go("bankChoose");
+    };
+
+    //标明当前是否正在修改
+    $scope.isModifying=false;
+
+    //用户点击修改信息
+    $scope.onModify=function(){
+        $scope.isModifying=true;
+    };
+
+    //用户点击取消修改
+    $scope.onCancel=function(){
+        $scope.bankCardInfos=angular.copy(Bank.getBankCardInfos());
+        $scope.isModifying=false;
     };
 
 
@@ -50,10 +64,48 @@ rootModule.controller('CardManageCtrl', function($scope,$http,$rootScope,$state,
         for(var i=0;i<$scope.bankCardInfos.length;i++){
             var result=$scope.detectCardNum($scope.bankCardInfos[i].card_id,i);
             if(!result){
-                $ionicScrollDelegate.scrollBottom();
                 return;
             }
         }
-    }
+
+        //上传银行卡信息
+        var $url='https://'+$rootScope.SERVER_ADDRESS+'/'+$rootScope.ENTER_FILE+'/User/BankCard/updateBankCardInfo';
+        $data={
+            'user_id': $rootScope.userInfo.user_id,
+            'bank_info': $scope.bankCardInfos
+        };
+        console.log($data);
+        angular.toJson($data);
+        $http({
+            method: 'POST',
+            url: $url,
+            data: $data
+        }).
+            success(function(data, status, headers, config)
+            {
+                switch (status)
+                {
+                    case 200:
+                        $cordovaToast.showShortCenter("修改成功");
+                        //修改成功后更新数据
+                        Bank.updateCardInfo($scope.bankCardInfos);
+                        //修改页面状态
+                        $scope.isModifying=false;
+                        $state.go("tab.account");
+                        break;
+                }
+            }).
+            error(function(data, status, headers, config)
+            {
+                switch(status){
+                    default:
+                        $ionicPopup.alert({
+                            title: '信息修改失败',
+                            template: '请检测网络连接后重试'
+                        });
+                        break;
+                }
+            });
+    };
 
 });

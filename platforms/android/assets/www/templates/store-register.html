@@ -1,0 +1,55 @@
+<ion-view view-title="实体店注册">
+    <ion-nav-buttons side="left">
+        <!--如何在tempalte中使用rootScope的经典例子-->
+        <a class="button button-clear icon ion-ios-arrow-back" ng-click="$root.goBack()"></a>
+    </ion-nav-buttons>
+    <ion-content>
+
+        <div class="card">
+            <label class="item item-divider positive text_bold">
+                基本信息
+            </label>
+
+            <label class="item item-input">
+                <span class="input-label">店铺名称</span>
+                <!--根据维基百科所述，中文最长姓名是15个字-->
+                <input type="text" placeholder="请输入名称，限20字"  maxlength="20">
+            </label>
+
+            <label class="item-input ">
+                <span class="input-label">店铺简介</span>
+            </label>
+            <!-- 使用textarea是为了方便地址过长的时候进行修改-->
+            <label class="item item-input no_border_top">
+                <textarea placeholder="请简单介绍该店铺，限200字" maxlength="200"></textarea>
+            </label>
+
+            <label class="item-input ">
+                <span class="input-label">店铺地址</span>
+            </label>
+            <!-- 使用textarea是为了方便地址过长的时候进行修改-->
+            <label class="item item-input no_border_top">
+                <textarea placeholder="请与营业许可证上的地址尽量一致" maxlength="50"></textarea>
+            </label>
+        </div>
+
+
+        <div class="card">
+            <label class="item item-divider positive text_bold">
+                图片认证
+            </label>
+            <label class="item-input tip" style="padding-right: 10px;">
+                提示：<br>1.请至少提供店铺门面照和营业执照，店铺细节照为展示给其他用户的图像，您可以按照需要进行选择。<br>2.在截取图片时，您可以通过拉动截图边角来调整截图大小。<br>3.在读取相册时，请选择系统的原生程序来获取相册图像，以免造成异常。
+            </label>
+
+            <label class="item item-input" ng-repeat="info in ImgInfos">
+                <span class="input-label">{{info.name}}</span>
+                <a ng-if="tradeInfo.img_urls[info.id]==undefined">添加</a>
+                <button class="button button-icon icon ion-ios-plus-outline positive" ng-if="tradeInfo.img_urls[info.id]==undefined" ng-click="onAddImg(info.id)" style="font-size: 20px;"></button>
+                <img ng-src="{{tradeInfo.img_urls[info.id]}}" width="50%" ng-if="tradeInfo.img_urls[info.id]!=undefined"/>
+                <button class="button button-icon icon ion-trash-b assertive" ng-if="tradeInfo.img_urls[info.id]!=undefined" ng-click="onCancelImg(info.id)"></button>
+            </label>
+
+        </div>
+    </ion-content>
+</ion-view>

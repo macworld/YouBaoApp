@@ -1,0 +1,21 @@
+<ion-view view-title="我的店铺">
+    <ion-nav-buttons side="left">
+        <!--如何在tempalte中使用rootScope的经典例子-->
+        <a class="button button-clear icon ion-ios-arrow-back" ng-click="$root.goBack()"></a>
+    </ion-nav-buttons>
+    <ion-content>
+        <div style="text-align: center">
+            <div style="margin: 30px 0">
+                <img ng-src="img/store-3.png" width="50%">
+            </div>
+
+            您暂时还没有商铺T.T
+            <div class="tip">
+                赶紧去注册实体店吧~~
+            </div>
+            <button  ui-sref="store-register">
+                我要开店
+            </button>
+        </div>
+    </ion-content>
+</ion-view>

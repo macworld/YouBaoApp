@@ -9,10 +9,6 @@
                 "parents": {
                     "/*": [
                         {
-                            "xml": "<feature name=\"Camera\"><param name=\"android-package\" value=\"org.apache.cordova.camera.CameraLauncher\" /></feature>",
-                            "count": 1
-                        },
-                        {
                             "xml": "<feature name=\"Device\"><param name=\"android-package\" value=\"org.apache.cordova.device.Device\" /></feature>",
                             "count": 1
                         },
@@ -42,6 +38,10 @@
                         },
                         {
                             "xml": "<feature name=\"FileTransfer\"><param name=\"android-package\" value=\"org.apache.cordova.filetransfer.FileTransfer\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Camera\"><param name=\"android-package\" value=\"org.apache.cordova.camera.CameraLauncher\" /></feature>",
                             "count": 1
                         }
                     ]
@@ -74,9 +74,6 @@
         }
     },
     "installed_plugins": {
-        "cordova-plugin-camera": {
-            "PACKAGE_NAME": "com.ionicframework.zhangyoubao216456"
-        },
         "cordova-plugin-console": {
             "PACKAGE_NAME": "com.ionicframework.zhangyoubao216456"
         },
@@ -102,6 +99,9 @@
             "PACKAGE_NAME": "com.ionicframework.zhangyoubao216456"
         },
         "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.ionicframework.zhangyoubao216456"
+        },
+        "org.apache.cordova.camera": {
             "PACKAGE_NAME": "com.ionicframework.zhangyoubao216456"
         }
     },

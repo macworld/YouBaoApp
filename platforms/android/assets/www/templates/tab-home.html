@@ -51,19 +51,19 @@
         <!-- 通过item添加边框效果-->
         <div class="item row text_center" style="bottom: 5px;">
             <div class="col">
-                <a class="icon ion-navicon-round energized icon_link"></a>
-                <p>专区</p>
+                <a class="icon ion-ios-pricetag energized icon_link" ng-click="onClickAddTrade()"></a>
+                <p>我要挂单</p>
             </div>
             <div class="col">
                 <a class="icon ion-android-cart  positive icon_link" ui-sref="shop-detail({shopId: 0})"></a>
-                <p>商铺</p>
+                <p>实体店</p>
             </div>
             <div class="col">
                 <a class="icon ion-bag calm icon_link"></a>
                 <p>散单</p>
             </div>
             <div class="col">
-                <a class="icon ion-ribbon-a royal icon_link"></a>
+                <a class="icon ion-ribbon-a royal icon_link" ui-sref="store-manage"></a>
                 <p>会员</p>
             </div>
         </div>

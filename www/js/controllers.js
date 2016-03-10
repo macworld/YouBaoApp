@@ -12,6 +12,16 @@ var rootModule = angular.module('ZhangYouBao.controllers',[])
         $state.go('tab.home');
     };
 
+    //点击挂单
+    $scope.onClickAddTrade=function()
+    {
+        if(LoginoutService.hasLogin())
+        {
+            $state.go("add-trade");
+        }
+//        $state.go("add-trade");
+
+    }
 
 
 
