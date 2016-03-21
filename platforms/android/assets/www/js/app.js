@@ -40,6 +40,13 @@ angular.module('ZhangYouBao', ['ionic', 'ZhangYouBao.controllers', 'ZhangYouBao.
       COMMITED: 1,  //待审核
       PASSED_VERIFY: 2  //审核通过
   };
+
+  //關於店鋪狀態的常量
+  $rootScope.STORE_STATE={
+        NORMAL: 0,  //正常
+        TEMP_OFF: 1,  //暂时停运
+        FORBIDDEN: 2  //封号
+    };
   //定义一个全局函数，该函数用于部分页面左上角的返回按钮
   $rootScope.goBack=function(){
       $ionicHistory.goBack();
@@ -64,19 +71,23 @@ angular.module('ZhangYouBao', ['ionic', 'ZhangYouBao.controllers', 'ZhangYouBao.
 
    //用于设置android返回键
     $ionicPlatform.registerBackButtonAction(function (event) {
-        //从登陆页面返回主页面
-        if($ionicHistory.currentStateName() == "login"){
-            $state.go("tab.home");
-//            ionic.Platform.exitApp();
-            // or do nothing
-        }
-        else if($ionicHistory.currentStateName() == "tab.home")
+
+        switch ($ionicHistory.currentStateName())
         {
-            //在主页面按返回键，直接退出
-            ionic.Platform.exitApp();
-        }
-        else {
-            $ionicHistory.goBack();
+            case "login":
+                $state.go("tab.home");
+                break;
+            case "tab.home":
+                //在主页面按返回键，直接退出
+                ionic.Platform.exitApp();
+                break;
+            case "certification":
+                //在实名认证页面，返回account页面
+                $state.go("tab.account");
+                break;
+            default :
+                $ionicHistory.goBack();
+                break;
         }
     }, 100);
 

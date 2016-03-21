@@ -46,6 +46,14 @@
                     </select>
                 </label>
 
+                <label class="item-input ">
+                    <span class="input-label">通信地址</span>
+                </label>
+                <!-- 使用textarea是为了方便地址过长的时候进行修改-->
+                <label class="item item-input no_border_top">
+                    <textarea placeholder="请输入个人通信地址，限50字" maxlength="50" ng-model="certInfo.address"></textarea>
+                </label>
+
                     <label class="item item-input" ng-repeat="info in ImgInfos">
                         <span class="input-label">{{info.name}}</span>
                         <a ng-if="imgUrls[info.type]==undefined">添加</a>

@@ -49,14 +49,7 @@ rootService.factory('LoginoutService',function($ionicPopup,$cordovaToast,$http,$
                         break;
                     case 200:
                         $ionicLoading.hide();
-                        angular.fromJson(data);
-                        $rootScope.userInfo=data;
-                        console.log(data);
-                        //服务器端已经自动登录，所以这边只要设置本地的登录状态
-                        $rootScope.isLogin=true;
-                        $cordovaToast.showShortCenter("登录成功");
-                        setBankData(data);
-                        saveLoginInfo(password);
+                        onLoginSuccess(data,password);
                         if($rootScope.forceLogin)
                         {
                             //强制跳回
@@ -99,7 +92,7 @@ rootService.factory('LoginoutService',function($ionicPopup,$cordovaToast,$http,$
     };
 
 
-
+    //本地存储登录信息
     var saveLoginInfo=function(password){
         var currDate=new Date().toLocaleDateString();
         var b = new Base64();
@@ -150,14 +143,7 @@ rootService.factory('LoginoutService',function($ionicPopup,$cordovaToast,$http,$
                                 $cordovaToast.showShortCenter("您的账号信息近期发生变动，请重新登录");
                                 break;
                             case 200:
-                                angular.fromJson(data);
-                                console.log(data);
-                                $rootScope.userInfo=data;
-                                //服务器端已经自动登录，所以这边只要设置本地的登录状态
-                                $rootScope.isLogin=true;
-                                $cordovaToast.showShortCenter("自动登录成功");
-                                setBankData(data);
-                                saveLoginInfo(password);
+                                onLoginSuccess(data,password);
                                 break;
                         }
                     }).
@@ -248,11 +234,21 @@ rootService.factory('LoginoutService',function($ionicPopup,$cordovaToast,$http,$
         LocalStorage.set(AUTO_LOGIN,false);
     };
 
+    //从登录的返回数据中获取银行卡信息
     var setBankData=function($data)
     {
         if(typeof($data.bank_card_info)!='undefined')
         {
             Bank.readDataFromLogin($data.bank_card_info);
+        }
+    };
+
+    var setStoreInfo=function($data)
+    {
+        if(typeof($data.store_info)!='undefined')
+        {
+            $rootScope.storeInfo=$data.store_info;
+            console.log($rootScope.storeInfo);
         }
     };
 
@@ -264,6 +260,20 @@ rootService.factory('LoginoutService',function($ionicPopup,$cordovaToast,$http,$
             return false;
         }
         return true;
+    };
+
+    //登录成功后的通用处理程序
+    var onLoginSuccess=function(data,password){
+        angular.fromJson(data);
+        console.log(data);
+        //这边userInfo中会存在从服务器端登录时得到的所有信息，包括银行卡，店铺信息，但是量不大，应该不打紧
+        $rootScope.userInfo=data.user_data;
+        //服务器端已经自动登录，所以这边只要设置本地的登录状态
+        $rootScope.isLogin=true;
+        $cordovaToast.showShortCenter("登录成功");
+        setBankData(data);
+        setStoreInfo(data);
+        saveLoginInfo(password);
     };
 
     return{

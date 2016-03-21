@@ -52,14 +52,28 @@
             <a class="item item-icon-left item-icon-right" ng-click="onVerifyClick()">
                 <i class="icon ion-alert-circled royal"></i>
                 <i class="accout_title">实名认证</i>
-                <i class="accout_title_detail" style="color: #ef473a" ng-if="$root.userInfo.is_certification==$root.VERIFY_STATE.UNCOMMIT">您暂未进行实名认证</i>
-                <i class="accout_title_detail" style="color: #efa300" ng-if="$root.userInfo.is_certification==$root.VERIFY_STATE.COMMITED">信息审核中，请耐心等待</i>
-                <i class="accout_title_detail" style="color: #216aef" ng-if="$root.userInfo.is_certification==$root.VERIFY_STATE.PASSED_VERIFY">实名认证通过</i>
+                <i class="accout_title_detail" style="color: #ef473a" ng-if="$root.userInfo.certify_state==$root.VERIFY_STATE.UNCOMMIT">您暂未进行实名认证</i>
+                <i class="accout_title_detail" style="color: #efa300" ng-if="$root.userInfo.certify_state==$root.VERIFY_STATE.COMMITED">信息审核中，请耐心等待</i>
+                <i class="accout_title_detail" style="color: #216aef" ng-if="$root.userInfo.certify_state==$root.VERIFY_STATE.PASSED_VERIFY">认证通过</i>
 
-                <i class="icon ion-ios-arrow-forward" style="color: #aaaaaa; font-size: 24px;"></i>
+
+                <i class="icon ion-ios-arrow-forward" style="color: #aaaaaa; font-size: 24px;" ng-if="$root.userInfo.certify_state!=$root.VERIFY_STATE.PASSED_VERIFY"></i>
+                <i class="icon ion-checkmark-circled positive" style="font-size: 20px;" ng-if="$root.userInfo.certify_state==$root.VERIFY_STATE.PASSED_VERIFY"></i>
             </a>
 
-            <a class="item item-icon-left item-icon-right" href="#/CardManage" ng-if="$root.userInfo.is_certification==$root.VERIFY_STATE.PASSED_VERIFY">
+            <!--添加实体店注册-->
+
+            <a class="item item-icon-left item-icon-right" ng-click="onStoreRegisterClick()">
+                <i class="icon ion-ribbon-b calm"></i>
+                <i class="accout_title">实体店认证</i>
+                <i class="accout_title_detail" ng-if="$root.storeInfo==undefined">实体店铺，可靠安全</i>
+                <i class="accout_title_detail" style="color: #efa300" ng-if="$root.storeInfo.certify_state==$root.VERIFY_STATE.COMMITED">信息审核中，请耐心等待</i>
+                <i class="accout_title_detail" style="color: #216aef" ng-if="$root.storeInfo.certify_state==$root.VERIFY_STATE.PASSED_VERIFY">认证通过</i>
+                <i class="icon ion-ios-arrow-forward" style="color: #aaaaaa; font-size: 24px;" ng-if="$root.storeInfo.certify_state!=$root.VERIFY_STATE.PASSED_VERIFY"></i>
+                <i class="icon ion-checkmark-circled positive" style="font-size: 20px;"  ng-if="$root.storeInfo.certify_state==$root.VERIFY_STATE.PASSED_VERIFY"></i>
+            </a>
+
+            <a class="item item-icon-left item-icon-right" href="#/CardManage" ng-if="$root.userInfo.certify_state==$root.VERIFY_STATE.PASSED_VERIFY">
                 <i class="icon ion-card dark"></i>
                 <i class="accout_title">银行卡管理</i>
                 <i class="accout_title_detail">设置银行卡信息</i>

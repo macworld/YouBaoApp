@@ -118,9 +118,7 @@ rootModule.controller('AddTradeCtrl', function($scope,$state,$rootScope,Loginout
         name: "细节照2"
     }
     ];
-    //设置的图像的质量0-100
-    var img_quality=100;
-    var img_size=600;
+
 
     //之前使用最新的版本的cordova-plugin-camera 出错，改为了org.apache.cordova.camera 反而好了，该版本的图像截取在各android和ios系统中有待测试
     $scope.onAddImg = function(id) {
@@ -137,7 +135,7 @@ rootModule.controller('AddTradeCtrl', function($scope,$state,$rootScope,Loginout
                 // add cancel code..
             },
             buttonClicked: function(index) {
-                var options=CameraService.optionGenerateWithEdit(index,img_quality,img_size);
+                var options=CameraService.optionGenerateWithEdit(index);
                 //var options=CameraService.optionsGenerate(index,img_quality);
                 //图像的裁剪
                 $cordovaCamera.getPicture(options).then(function(imageUrl) {
@@ -226,6 +224,7 @@ rootModule.controller('AddTradeCtrl', function($scope,$state,$rootScope,Loginout
     };
 
     //上传照片，需要加上进度条
+    //注意：这边可能存在一个问题，图片是并行传输的，因而图片名称的返回顺序很不确定，从而影响到封面照的顺序，解决方案，在上传照片的参数里面附带type，并在服务器端返回该参数
     var uploadImages=function(){
         //处理$scope.tradeInfo.img_urls，去掉空闲项
         var validUrls=[];
@@ -244,15 +243,21 @@ rootModule.controller('AddTradeCtrl', function($scope,$state,$rootScope,Loginout
         console.log(validUrls);
         $server='https://'+$rootScope.SERVER_ADDRESS+'/'+$rootScope.ENTER_FILE+'/User/Upload/uploadTradeImages';
         $scope.imageNames=[];
+        var upload_success_num=0;
         var isError=false;//记录当前是否发生错误
         for($i=0;$i<validUrls.length;$i++)
         {
-            var options = {};
+            var options = {
+                params: {id: $i}
+            };
             $cordovaFileTransfer.upload($server, validUrls[$i], options,true)
                 .then(function(result) {
                     console.log(result);
-                    $scope.imageNames[$scope.imageNames.length]=result.response;
-                    if($scope.imageNames.length==validUrls.length)
+                    var return_data=result.response.split(',');
+                    $scope.imageNames[Number(return_data[0])]=return_data[1];
+                    upload_success_num++;
+//                    $scope.imageNames[$scope.imageNames.length]=result.response;
+                    if(upload_success_num==validUrls.length)
                     {
                         //所有图像传递结束
                         console.log($scope.imageNames);
@@ -283,7 +288,7 @@ rootModule.controller('AddTradeCtrl', function($scope,$state,$rootScope,Loginout
         //数据提交成功
         $ionicLoading.hide();
         $ionicLoading.show({
-            template: '图片上传成功，正在上传用户信息...'
+            template: '图片上传成功，正在上传挂单信息...'
         });
         uploadParams();
     };
@@ -325,7 +330,7 @@ rootModule.controller('AddTradeCtrl', function($scope,$state,$rootScope,Loginout
                     default:
                         $ionicLoading.hide();
                         $ionicPopup.alert({
-                            title: '用户信息上传失败',
+                            title: '挂单信息上传失败',
                             template: '请检查您填写的信息后重试'
                         });
                         break;

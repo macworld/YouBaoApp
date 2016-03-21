@@ -254,17 +254,16 @@ rootModule.controller('RegisteCtrl', function($scope,$http,$rootScope,$ionicPopu
     var showSuccess=function(){
         $ionicPopup.confirm({
             title: '快速注册成功',
-            template: '恭喜您，注册成功！建议您继续进行会员充值和实名认证，实名认证后方可进行挂单操作，新用户会员期限充一送一！！！（您也可以随时在"个人"页面中进行会员充值和实名认证）',
+            template: '恭喜您，注册成功！您免费获的一个月的会员体验，建议您立刻进行实名认证或者实体店认证，认证成功后方可进行挂单、交易等操作。',
             cancelText: '以后再说',
-            okText: '会员充值'
+            okText: '前去认证'
         }).then(function(result){
             $rootScope.isLogin=true;
             if(result){
-                //点击确认后弹入会员状态页面
-                $state.go("vip-state");
+                $state.go("tab.account");
             }
             else{
-               $state.go("tab.account");
+               $state.go("tab.home");
             }
         });
     };

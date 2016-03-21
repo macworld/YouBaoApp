@@ -12,7 +12,8 @@ rootModule.controller('CertificationCtrl', function($scope,$http,$rootScope,$sta
         user_id: $rootScope.userInfo.user_id,
         name:"",
         idCardNo:"",
-        sex: "男"
+        sex: "男",
+        address: null
     };
     $scope.detectName=function(name){
         //中文的正则表达式
@@ -75,6 +76,20 @@ rootModule.controller('CertificationCtrl', function($scope,$http,$rootScope,$sta
         }
     };
 
+    $scope.detectAddress=function(){
+        if($scope.certInfo.address==null || $scope.certInfo.address.length<5)
+        {
+            $ionicScrollDelegate.scrollTop();
+            $ionicPopup.alert({
+                title: '提交失败',
+                template: '请输入合法的通信地址，不得少于5个字'
+            });
+            return false;
+        }
+        return true;
+    };
+
+
     //传入参数，type
     //一个string类型的输入参数，用于标记该响应的不同触发
     //使用一个map来存储临时的照片数据，key为type，value为照片URL
@@ -87,15 +102,10 @@ rootModule.controller('CertificationCtrl', function($scope,$http,$rootScope,$sta
             type:"ID_FRONT",
             name: "身份证正面照"
         },{
-            type:"ID_BACK",
-            name: "身份证反面照"
-        },{
             type: "ID_PEOPLE",
             name: "手持身份证照"
         }
     ];
-    //设置的图像的质量
-    var img_quality=50;
     $scope.onAddImg = function(type) {
 //        console.log(type);
         // Show the action sheet
@@ -111,7 +121,7 @@ rootModule.controller('CertificationCtrl', function($scope,$http,$rootScope,$sta
             // add cancel code..
             },
             buttonClicked: function(index) {
-                var options=CameraService.optionsGenerate(index,img_quality);
+                var options=CameraService.optionsGenerate(index);
                 $cordovaCamera.getPicture(options).then(function(imageUrl) {
 
                     $scope.imgUrls[type]=imageUrl;
@@ -178,7 +188,7 @@ rootModule.controller('CertificationCtrl', function($scope,$http,$rootScope,$sta
             }
 
         }
-        if(countImg!=3) {
+        if(countImg!=$scope.ImgInfos.length) {
             window.plugins.toast.showShortBottom("请完成所有身份证照片的添加");
             $ionicScrollDelegate.scrollTop();
             return;
@@ -190,6 +200,12 @@ rootModule.controller('CertificationCtrl', function($scope,$http,$rootScope,$sta
                 $ionicScrollDelegate.scrollBottom();
                 return;
             }
+        }
+
+        //检测通信地址
+        if(!$scope.detectAddress())
+        {
+            return;
         }
         //所有检测通过
         //1.先上传图片
@@ -211,13 +227,18 @@ rootModule.controller('CertificationCtrl', function($scope,$http,$rootScope,$sta
         $scope.upload_success_num=0;
         for($i=0;$i<$scope.ImgInfos.length;$i++)
         {
-            var options = {};
+            var options = {
+                params: {id: $i}
+            };
             $cordovaFileTransfer.upload($server, $scope.imgUrls[$scope.ImgInfos[$i].type], options,true)
                 .then(function(result) {
                     console.log(result);
-                    $scope.imageNames[$scope.imageNames.length]=result.response;
+                    //返回信息采取id+，+filename的形式编码
+                    var return_data=result.response.split(',');
+
+                    $scope.imageNames[Number(return_data[0])]=return_data[1];
                     $scope.upload_success_num++;
-                    if($scope.upload_success_num==3)
+                    if($scope.upload_success_num==$scope.ImgInfos.length)
                     {
                         onImgUploadSuccess();
                     }
@@ -264,12 +285,16 @@ rootModule.controller('CertificationCtrl', function($scope,$http,$rootScope,$sta
                     case 200:
                         console.log(data);
                         $ionicLoading.hide();
-                        $cordovaToast.showShortCenter("提交成功");
+                        //$cordovaToast.showShortCenter("提交成功");
                         //将用户实名认证状态改为待审核
-                        $rootScope.userInfo.is_certification=$rootScope.VERIFY_STATE.COMMITED;
+                        $rootScope.userInfo.certify_state=$rootScope.VERIFY_STATE.COMMITED;
                         //保存银行卡信息
                         Bank.updateCardInfo($scope.bankCardInfos);
-                        $state.go("tab.account");
+                        //提交成功后的提示信息
+                        showSuccess();
+                        //$state.go("tab.account");
+                        break;
+                    default:
                         break;
                 }
             }).
@@ -294,6 +319,24 @@ rootModule.controller('CertificationCtrl', function($scope,$http,$rootScope,$sta
             template: '图片上传成功，正在上传用户信息...'
         });
         uploadParams();
+    };
+
+
+    var showSuccess=function(){
+        $ionicPopup.confirm({
+            title: '实名认证提交成功',
+            template: '您已成功提交实名认证信息，如果您是实体店主，建议继续实体店认证，管理自己的线上商铺',
+            cancelText: '以后再说',
+            okText: '实体店认证'
+        }).then(function(result){
+            $rootScope.isLogin=true;
+            if(result){
+                $state.go("store-register");
+            }
+            else{
+                $state.go("tab.account");
+            }
+        });
     };
 
 

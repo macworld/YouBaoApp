@@ -60,7 +60,7 @@ rootModule.controller('AccountCtrl', function($scope,$state,$rootScope,LoginoutS
 
     $scope.onVerifyClick=function()
     {
-        switch (Number($rootScope.userInfo.is_certification))
+        switch (Number($rootScope.userInfo.certify_state))
         {
             case $rootScope.VERIFY_STATE.UNCOMMIT:
                 $state.go("certification");
@@ -71,6 +71,29 @@ rootModule.controller('AccountCtrl', function($scope,$state,$rootScope,LoginoutS
             case $rootScope.VERIFY_STATE.PASSED_VERIFY:
                 $cordovaToast.showShortCenter("您的实名认证已通过");
                 break;
+        }
+    };
+
+    $scope.onStoreRegisterClick=function()
+    {
+        if($rootScope.storeInfo==undefined)
+        {
+            $state.go("store-register");
+        }
+        else
+        {
+            switch (Number($rootScope.storeInfo.certify_state))
+            {
+                case $rootScope.VERIFY_STATE.UNCOMMIT:
+                    $state.go("store-register");
+                    break;
+                case $rootScope.VERIFY_STATE.COMMITED:
+                    $cordovaToast.showShortCenter("您已提交实体店认证信息，正在审核中，感谢您的耐心等候");
+                    break;
+                case $rootScope.VERIFY_STATE.PASSED_VERIFY:
+                    $cordovaToast.showShortCenter("您的实体店认证已通过，您可以在‘我的商铺’中管理您的网上店铺");
+                    break;
+            }
         }
     };
 
